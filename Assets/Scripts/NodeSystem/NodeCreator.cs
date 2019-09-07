@@ -17,6 +17,8 @@ public class Node {
     public int[] adjacent;
     public Node parent;
     public bool visited;
+    public int weight = 0;
+    public int distance = int.MaxValue;
     public bool occupied;
     public int validAdjacents = 0;
 
