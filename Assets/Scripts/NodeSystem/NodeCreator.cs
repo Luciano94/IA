@@ -27,7 +27,7 @@ public class Node {
     public Node(Vector3 pos) {
         position = pos;
         occupied = false;
-        adjacent = new int[(int)Directions.Count];
+        adjacent = new int[(int)Directions.Count] { -1, -1, -1, -1};
     }
 }
 
@@ -138,6 +138,6 @@ public class NodeCreator : MonoBehaviour {
     }
 
     public int GetNodesAmount() {
-        return nodes.Length;
+        return nodes?.Length ?? 0;
     }
 }

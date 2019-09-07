@@ -4,20 +4,21 @@ using UnityEditor;
 [CustomEditor(typeof(NodeCreator))]
 public class NodeCreatorGUI : Editor {
     int currentIndex = 0;
-    string currentIndexString = "0";
+    static string currentIndexString = "0";
     int nodesAmount = 0;
-    string nodesAmountString = "0";
-    bool showNodes;
+    static string nodesAmountString = "0";
+    static bool showNodes;
+    Color lightRed = new Color(0.8f, 0.3f, 0.3f, 1f);
+    Color lightGreen = new Color(0.3f, 0.8f, 0.3f, 1f);
    
     public override void OnInspectorGUI() {
         GUILayout.BeginHorizontal();
         NodeCreator nodeCreator = (NodeCreator)target;
-        GUIStyle style = new GUIStyle(GUI.skin.button);
-        style.normal.textColor = new Color(0.8f, 0f, 0f, 1f);
-        if (GUILayout.Button("Clear Nodes", style)) {
+        GUIStyle redText = new GUIStyle(GUI.skin.button);
+        redText.normal.textColor = lightRed;
+        if (GUILayout.Button("Clear Nodes", redText)) {
             nodeCreator.ClearNodes();
         }
-        style.normal.textColor = Color.white;
         if (GUILayout.Button("Bake Nodes")) {
             nodeCreator.BakeNodes();
         }
@@ -48,6 +49,7 @@ public class NodeCreatorGUI : Editor {
 
         showNodes = EditorGUILayout.Foldout(showNodes, "Show Nodes");
 
+        GUIStyle colorText = new GUIStyle(GUI.skin.label);
         if (showNodes) {
             int upToNode = (currentIndex + nodesAmount) < totalNodes? (currentIndex + nodesAmount) : totalNodes;
             for (int i = currentIndex; i < upToNode; i++) {
@@ -61,6 +63,12 @@ public class NodeCreatorGUI : Editor {
                 GUILayout.BeginHorizontal();
                 EditorGUILayout.PrefixLabel("Occupied:");
                 EditorGUILayout.Toggle(currentNode.occupied);
+                GUILayout.EndHorizontal();
+                GUILayout.BeginHorizontal();
+                for (int j = 0; j < (int)Directions.Count; j++) {
+                    colorText.normal.textColor = (currentNode.adjacent[j] >= 0)? lightGreen : lightRed;
+                    EditorGUILayout.LabelField(((Directions)j).ToString(), colorText, GUILayout.Width(120));
+                }
                 GUILayout.EndHorizontal();
                 EditorGUILayout.Separator();
             }
