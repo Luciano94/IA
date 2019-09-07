@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Adjacent {
-    public int top = -1;
-    public int left = -1;
-    public int right = -1;
-    public int bottom = -1;
+public enum Directions
+{
+    Top=0,
+    Left,
+    Right,
+    Botton,
+    Count,
 }
  
 [System.Serializable]
 public class Node {
     public Vector3 position;
-    public Adjacent adjacent;
+    public int[] adjacent;
     public Node parent;
+    public bool visited;
     public bool occupied;
     public int validAdjacents = 0;
 
     public Node(Vector3 pos) {
         position = pos;
         occupied = false;
-        adjacent = new Adjacent();
+        adjacent = new int[(int)Directions.Count];
     }
 }
 
@@ -58,18 +61,18 @@ public class NodeCreator : MonoBehaviour {
 
                 if (column > 0) {
                     if (!nodes[iNode].occupied && !nodes[iNode - 1].occupied) {
-                        nodes[iNode].adjacent.left = iNode - 1;
+                        nodes[iNode].adjacent[(int)Directions.Left] = iNode - 1;
                         nodes[iNode].validAdjacents++;
-                        nodes[iNode - 1].adjacent.right = iNode;
+                        nodes[iNode - 1].adjacent[(int)Directions.Right] = iNode;
                         nodes[iNode - 1].validAdjacents++;
                     }
                 }
 
                 if (row > 0) {
                     if (!nodes[iNode].occupied && !nodes[iNode - width].occupied) {
-                        nodes[iNode].adjacent.bottom = iNode - width;
+                        nodes[iNode].adjacent[(int)Directions.Botton] = iNode - width;
                         nodes[iNode].validAdjacents++;
-                        nodes[iNode - width].adjacent.top = iNode;
+                        nodes[iNode - width].adjacent[(int)Directions.Top] = iNode;
                         nodes[iNode - width].validAdjacents++;
                     }
                 }

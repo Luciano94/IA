@@ -2,6 +2,8 @@
 obj
 Library
 Logs
-Temp
+
+Temp/
 *.csproj
 *.sln
+Temp
