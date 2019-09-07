@@ -53,10 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\NodeSystem\Node.cs" />
      <Compile Include="Assets\Scripts\NodeSystem\NodeCreator.cs" />
      <Compile Include="Assets\Scripts\PathFindingSystem\BFS.cs" />
      <Compile Include="Assets\Scripts\PathFindingSystem\DFS.cs" />
+     <Compile Include="Assets\Scripts\PathFindingSystem\Dijkstra.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Luciano/Desktop/IA/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
