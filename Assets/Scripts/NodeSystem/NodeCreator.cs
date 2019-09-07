@@ -4,10 +4,10 @@ using UnityEngine;
 
 public enum Directions
 {
-    Top=0,
+    Top = 0,
     Left,
     Right,
-    Botton,
+    Bottom,
     Count,
 }
  
@@ -21,6 +21,10 @@ public class Node {
     public int distance = int.MaxValue;
     public bool occupied;
     public int validAdjacents = 0;
+
+#if UNITY_EDITOR
+    public bool highlighted = false;
+#endif
 
     public Node(Vector3 pos) {
         position = pos;
@@ -72,7 +76,7 @@ public class NodeCreator : MonoBehaviour {
 
                 if (row > 0) {
                     if (!nodes[iNode].occupied && !nodes[iNode - width].occupied) {
-                        nodes[iNode].adjacent[(int)Directions.Botton] = iNode - width;
+                        nodes[iNode].adjacent[(int)Directions.Bottom] = iNode - width;
                         nodes[iNode].validAdjacents++;
                         nodes[iNode - width].adjacent[(int)Directions.Top] = iNode;
                         nodes[iNode - width].validAdjacents++;
@@ -102,7 +106,10 @@ public class NodeCreator : MonoBehaviour {
         int length = nodes?.Length ?? 0;
         for (int i = 0; i < length; ++i) {
             Node node = nodes[i];
-            if (node.occupied) {
+            if (node.highlighted) {
+                Gizmos.color = Color.magenta;
+            }
+            else if (node.occupied) {
                 Gizmos.color = Color.red;
             } else if (node.validAdjacents == 4) {
                 Gizmos.color = Color.white;
@@ -126,5 +133,13 @@ public class NodeCreator : MonoBehaviour {
             RaycastHit raycastHit;
             node.occupied = Physics.Raycast(node.position, Vector3.up, out raycastHit, 1f, obstaclesLayers);
         }
+    }
+    
+    public Node GetNode(int index) {
+        return nodes[index];
+    }
+
+    public int GetNodesAmount() {
+        return nodes.Length;
     }
 }
