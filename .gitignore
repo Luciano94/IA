@@ -4,5 +4,5 @@ Library
 Logs
 
 Temp/
-csproj
-sln
+*.csproj
+*.sln

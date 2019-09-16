@@ -1,0 +1,5641 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 170076734}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 0
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 10
+    m_Resolution: 2
+    m_BakeResolution: 10
+    m_AtlasSize: 512
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 256
+    m_PVRBounces: 2
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVRFilteringMode: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
+  m_LightingDataAsset: {fileID: 0}
+  m_UseShadowmask: 1
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &81187395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81187400}
+  - component: {fileID: 81187399}
+  - component: {fileID: 81187398}
+  - component: {fileID: 81187397}
+  - component: {fileID: 81187396}
+  m_Layer: 11
+  m_Name: Mine (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &81187396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81187395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0772988d532bbc349aaf893e970b0483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resources: 10
+--- !u!65 &81187397
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81187395}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &81187398
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81187395}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &81187399
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81187395}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &81187400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81187395}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -34.5, y: 1.3, z: 16.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &170076733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170076735}
+  - component: {fileID: 170076734}
+  m_Layer: 0
+  m_Name: Directional Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &170076734
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170076733}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 1
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &170076735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170076733}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &534669902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 534669905}
+  - component: {fileID: 534669904}
+  - component: {fileID: 534669903}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &534669903
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+--- !u!20 &534669904
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &534669905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_LocalRotation: {x: 0.06539608, y: -0.93280447, z: 0.2787662, w: 0.2188348}
+  m_LocalPosition: {x: -34.036125, y: 9.500183, z: 25.021935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1093857375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093857380}
+  - component: {fileID: 1093857379}
+  - component: {fileID: 1093857378}
+  - component: {fileID: 1093857377}
+  - component: {fileID: 1093857376}
+  m_Layer: 11
+  m_Name: Mine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1093857376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093857375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0772988d532bbc349aaf893e970b0483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resources: 0
+--- !u!65 &1093857377
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093857375}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1093857378
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093857375}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1093857379
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093857375}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1093857380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093857375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -42.69, y: 1.3, z: 11.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1213273472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1213273475}
+  - component: {fileID: 1213273474}
+  - component: {fileID: 1213273473}
+  m_Layer: 9
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!154 &1213273473
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213273472}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 45b888fa8e8d2a24eab48d70e5190c51, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &1213273474
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213273472}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_TerrainData: {fileID: 15600000, guid: 45b888fa8e8d2a24eab48d70e5190c51, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_CastShadows: 1
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialType: 0
+  m_LegacySpecular:
+    serializedVersion: 2
+    rgba: 4286545791
+  m_LegacyShininess: 0.078125
+  m_MaterialTemplate: {fileID: 0}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_ScaleInLightmap: 0.1024
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_AllowAutoConnect: 1
+--- !u!4 &1213273475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213273472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -211.1, y: 0, z: -207.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1247334257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1247334260}
+  - component: {fileID: 1247334265}
+  - component: {fileID: 1247334258}
+  - component: {fileID: 1247334264}
+  - component: {fileID: 1247334263}
+  - component: {fileID: 1247334266}
+  - component: {fileID: 1247334262}
+  - component: {fileID: 1247334261}
+  - component: {fileID: 1247334259}
+  m_Layer: 0
+  m_Name: Miner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1247334258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247334257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e61f4b16225dac4c97eefc350ddc751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMine: {fileID: 0}
+  mineRate: 1
+  mineAmount: 1
+--- !u!33 &1247334259
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247334257}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1247334260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247334257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.77, y: 1.19, z: 14.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &1247334261
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247334257}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 1, z: 0.5}
+  m_DirtyAABB: 0
+--- !u!143 &1247334262
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247334257}
+  m_Material: {fileID: 1282028810}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1247334263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247334257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3142b7ef9b4ae4e8d3f500200c2096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1247334264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247334257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270083b0ac341164c9e8c4039cc286ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minesLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+--- !u!114 &1247334265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247334257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd84c58284fe7a4bad1913c4798bd72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seachingMines: {fileID: 1247334264}
+  mining: {fileID: 1247334258}
+  depositing: {fileID: 1247334263}
+  moving: {fileID: 1247334266}
+  characterController: {fileID: 1247334262}
+--- !u!114 &1247334266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247334257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e70dd5a55e34b4e8c8a24d92458afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {x: 0, y: 0, z: 0}
+  characterController: {fileID: 1247334262}
+--- !u!134 &1282028810
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ' (Instance)'
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0
+  frictionCombine: 0
+  bounceCombine: 0
+--- !u!1 &1379655523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379655528}
+  - component: {fileID: 1379655527}
+  - component: {fileID: 1379655526}
+  - component: {fileID: 1379655525}
+  - component: {fileID: 1379655524}
+  m_Layer: 11
+  m_Name: Mine (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1379655524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379655523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0772988d532bbc349aaf893e970b0483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resources: 0
+--- !u!65 &1379655525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379655523}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1379655526
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379655523}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1379655527
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379655523}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1379655528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379655523}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -52.29, y: 1.3, z: 6.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1545073339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545073340}
+  - component: {fileID: 1545073341}
+  m_Layer: 0
+  m_Name: NodeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545073340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545073339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1, y: 0, z: -11.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545073341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545073339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8895233f899af43bf6f9c50ef34fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: {x: 100, y: 100, z: 50}
+  interval: 3
+  terrainLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  obstaclesLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  nodes:
+  - position: {x: -49.9, y: 0.64443207, z: -36.8}
+    adjacent: 22000000ffffffff01000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 2
+    highlighted: 0
+  - position: {x: -46.9, y: 1.7057495, z: -36.8}
+    adjacent: 230000000000000002000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -43.9, y: 2.7281494, z: -36.8}
+    adjacent: 240000000100000003000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -40.9, y: 2.6800613, z: -36.8}
+    adjacent: 250000000200000004000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -37.9, y: 1.6278839, z: -36.8}
+    adjacent: 260000000300000005000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -34.9, y: 0.59399414, z: -36.8}
+    adjacent: 270000000400000006000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.14645386, z: -36.8}
+    adjacent: 280000000500000007000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -28.900002, y: 0, z: -36.8}
+    adjacent: 290000000600000008000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -25.900002, y: 0, z: -36.8}
+    adjacent: 2a0000000700000009000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -22.900002, y: 0, z: -36.8}
+    adjacent: 2b000000080000000a000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -19.900002, y: 0, z: -36.8}
+    adjacent: 2c000000090000000b000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -16.900002, y: 0, z: -36.8}
+    adjacent: 2d0000000a0000000c000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -13.900002, y: 0, z: -36.8}
+    adjacent: 2e0000000b0000000d000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -10.900002, y: 0, z: -36.8}
+    adjacent: 2f0000000c0000000e000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -7.9000015, y: 0, z: -36.8}
+    adjacent: 300000000d0000000f000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -4.9000015, y: 0, z: -36.8}
+    adjacent: 310000000e00000010000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -1.9000015, y: 0, z: -36.8}
+    adjacent: 320000000f00000011000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 1.0999985, y: 0, z: -36.8}
+    adjacent: 330000001000000012000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 4.0999985, y: 0.12698364, z: -36.8}
+    adjacent: 340000001100000013000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 7.0999985, y: 0.71952057, z: -36.8}
+    adjacent: 350000001200000014000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 10.099998, y: 1.5605469, z: -36.8}
+    adjacent: 360000001300000015000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 13.099998, y: 2.121292, z: -36.8}
+    adjacent: 370000001400000016000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 16.099998, y: 1.798851, z: -36.8}
+    adjacent: 380000001500000017000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 19.099998, y: 1.0001373, z: -36.8}
+    adjacent: 390000001600000018000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 22.099998, y: 0.2868042, z: -36.8}
+    adjacent: 3a0000001700000019000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 25.099998, y: 0, z: -36.8}
+    adjacent: 3b000000180000001a000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 28.099998, y: 0, z: -36.8}
+    adjacent: 3c000000190000001b000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 31.099998, y: 0.000030517578, z: -36.8}
+    adjacent: 3d0000001a0000001c000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 34.1, y: 0, z: -36.8}
+    adjacent: 3e0000001b0000001d000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 37.1, y: 0, z: -36.8}
+    adjacent: ffffffff1c0000001e000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 2
+    highlighted: 0
+  - position: {x: 40.1, y: 0, z: -36.8}
+    adjacent: ffffffff1d0000001f000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 2
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: -36.8}
+    adjacent: 410000001e00000020000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -36.8}
+    adjacent: 420000001f00000021000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -36.8}
+    adjacent: 4300000020000000ffffffffffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 2
+    highlighted: 0
+  - position: {x: -49.9, y: 1.2176666, z: -33.8}
+    adjacent: 44000000ffffffff2300000000000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 3.1633377, z: -33.8}
+    adjacent: 45000000220000002400000001000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 5.0089645, z: -33.8}
+    adjacent: 46000000230000002500000002000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 4.980858, z: -33.8}
+    adjacent: 47000000240000002600000003000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 3.078453, z: -33.8}
+    adjacent: 48000000250000002700000004000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 1.1616821, z: -33.8}
+    adjacent: 49000000260000002800000005000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.25759125, z: -33.8}
+    adjacent: 4a000000270000002900000006000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 0.007827759, z: -33.8}
+    adjacent: 4b000000280000002a00000007000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 0, z: -33.8}
+    adjacent: 4c000000290000002b00000008000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 0, z: -33.8}
+    adjacent: 4d0000002a0000002c00000009000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 0, z: -33.8}
+    adjacent: 4e0000002b0000002d0000000a000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 0, z: -33.8}
+    adjacent: 4f0000002c0000002e0000000b000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 0, z: -33.8}
+    adjacent: 500000002d0000002f0000000c000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 0, z: -33.8}
+    adjacent: 510000002e000000300000000d000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 0, z: -33.8}
+    adjacent: 520000002f000000310000000e000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 0, z: -33.8}
+    adjacent: 5300000030000000320000000f000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 0, z: -33.8}
+    adjacent: 54000000310000003300000010000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 0.11758423, z: -33.8}
+    adjacent: 55000000320000003400000011000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 0.92481995, z: -33.8}
+    adjacent: 56000000330000003500000012000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 2.6555786, z: -33.8}
+    adjacent: 57000000340000003600000013000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 5.184227, z: -33.8}
+    adjacent: 58000000350000003700000014000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 6.6211624, z: -33.8}
+    adjacent: 59000000360000003800000015000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 5.425171, z: -33.8}
+    adjacent: 5a000000370000003900000016000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 2.851036, z: -33.8}
+    adjacent: 5b000000380000003a00000017000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 0.9061127, z: -33.8}
+    adjacent: 5c000000390000003b00000018000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 0.24719238, z: -33.8}
+    adjacent: 5d0000003a0000003c00000019000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 0.09829712, z: -33.8}
+    adjacent: 5e0000003b0000003d0000001a000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 0.1733551, z: -33.8}
+    adjacent: 5f0000003c0000003e0000001b000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 0.16999054, z: -33.8}
+    adjacent: 600000003d000000ffffffff1c000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 37.1, y: 0.07594299, z: -33.8}
+    adjacent: ffffffffffffffffffffffffffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 1
+    validAdjacents: 0
+    highlighted: 0
+  - position: {x: 40.1, y: 0.0013427734, z: -33.8}
+    adjacent: ffffffffffffffffffffffffffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 1
+    validAdjacents: 0
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: -33.8}
+    adjacent: 63000000ffffffff420000001f000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -33.8}
+    adjacent: 64000000410000004300000020000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -33.8}
+    adjacent: 6500000042000000ffffffff21000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 1.2906494, z: -30.8}
+    adjacent: 66000000ffffffff4500000022000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 3.4090347, z: -30.8}
+    adjacent: 67000000440000004600000023000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 5.60701, z: -30.8}
+    adjacent: 68000000450000004700000024000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 5.6448517, z: -30.8}
+    adjacent: 69000000460000004800000025000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 3.543068, z: -30.8}
+    adjacent: 6a000000470000004900000026000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 1.3573914, z: -30.8}
+    adjacent: 6b000000480000004a00000027000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.30197144, z: -30.8}
+    adjacent: 6c000000490000004b00000028000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 0.007827759, z: -30.8}
+    adjacent: 6d0000004a0000004c00000029000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 0, z: -30.8}
+    adjacent: 6e0000004b0000004d0000002a000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 0, z: -30.8}
+    adjacent: 6f0000004c0000004e0000002b000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 0, z: -30.8}
+    adjacent: 700000004d0000004f0000002c000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 0, z: -30.8}
+    adjacent: 710000004e000000500000002d000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 0, z: -30.8}
+    adjacent: 720000004f000000510000002e000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 0, z: -30.8}
+    adjacent: 7300000050000000520000002f000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 0, z: -30.8}
+    adjacent: 74000000510000005300000030000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 0, z: -30.8}
+    adjacent: 75000000520000005400000031000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 0.03843689, z: -30.8}
+    adjacent: 76000000530000005500000032000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 0.64785767, z: -30.8}
+    adjacent: 77000000540000005600000033000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 2.7856445, z: -30.8}
+    adjacent: 78000000550000005700000034000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 6.779251, z: -30.8}
+    adjacent: 79000000560000005800000035000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 11.366203, z: -30.8}
+    adjacent: 7a000000570000005900000036000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 13.036087, z: -30.8}
+    adjacent: 7b000000580000005a00000037000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 10.172058, z: -30.8}
+    adjacent: 7c000000590000005b00000038000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 5.0652313, z: -30.8}
+    adjacent: 7d0000005a0000005c00000039000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 1.6054001, z: -30.8}
+    adjacent: 7e0000005b0000005d0000003a000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 0.5376282, z: -30.8}
+    adjacent: 7f0000005c0000005e0000003b000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 0.5963211, z: -30.8}
+    adjacent: 800000005d0000005f0000003c000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 0.8253174, z: -30.8}
+    adjacent: 810000005e000000600000003d000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 0.7649231, z: -30.8}
+    adjacent: 820000005f000000ffffffff3e000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 37.1, y: 0.40940857, z: -30.8}
+    adjacent: ffffffffffffffffffffffffffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 1
+    validAdjacents: 0
+    highlighted: 0
+  - position: {x: 40.1, y: 0.13773346, z: -30.8}
+    adjacent: ffffffffffffffffffffffffffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 1
+    validAdjacents: 0
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: -30.8}
+    adjacent: 85000000ffffffff6400000041000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -30.8}
+    adjacent: 86000000630000006500000042000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -30.8}
+    adjacent: 8700000064000000ffffffff43000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 0.84747314, z: -27.8}
+    adjacent: 88000000ffffffff6700000044000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 2.274704, z: -27.8}
+    adjacent: 89000000660000006800000045000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 3.7979279, z: -27.8}
+    adjacent: 8a000000670000006900000046000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 3.8891525, z: -27.8}
+    adjacent: 8b000000680000006a00000047000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 2.4668732, z: -27.8}
+    adjacent: 8c000000690000006b00000048000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 0.9686966, z: -27.8}
+    adjacent: 8d0000006a0000006c00000049000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.23116302, z: -27.8}
+    adjacent: 8e0000006b0000006d0000004a000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 0.007827759, z: -27.8}
+    adjacent: 8f0000006c0000006e0000004b000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 0, z: -27.8}
+    adjacent: 900000006d0000006f0000004c000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 0, z: -27.8}
+    adjacent: 910000006e000000700000004d000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 0, z: -27.8}
+    adjacent: 920000006f000000710000004e000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 0, z: -27.8}
+    adjacent: 9300000070000000720000004f000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 0.003982544, z: -27.8}
+    adjacent: 94000000710000007300000050000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 0.018310547, z: -27.8}
+    adjacent: 95000000720000007400000051000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 0.003982544, z: -27.8}
+    adjacent: 96000000730000007500000052000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 0, z: -27.8}
+    adjacent: 97000000740000007600000053000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 0.37101746, z: -27.8}
+    adjacent: 98000000750000007700000054000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 1.7604828, z: -27.8}
+    adjacent: 99000000760000007800000055000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 5.708008, z: -27.8}
+    adjacent: 9a000000770000007900000056000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 12.112053, z: -27.8}
+    adjacent: 9b000000780000007a00000057000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 17.599388, z: -27.8}
+    adjacent: 9c000000790000007b00000058000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 17.79824, z: -27.8}
+    adjacent: 9d0000007a0000007c00000059000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 12.35257, z: -27.8}
+    adjacent: 9e0000007b0000007d0000005a000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 5.819519, z: -27.8}
+    adjacent: 9f0000007c0000007e0000005b000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 1.9144669, z: -27.8}
+    adjacent: a00000007d0000007f0000005c000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 1.1059113, z: -27.8}
+    adjacent: a10000007e000000800000005d000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 1.6592484, z: -27.8}
+    adjacent: a20000007f000000810000005e000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 2.3028564, z: -27.8}
+    adjacent: a300000080000000820000005f000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 2.00634, z: -27.8}
+    adjacent: a4000000810000008300000060000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 1.0999222, z: -27.8}
+    adjacent: a50000008200000084000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 40.1, y: 0.3488617, z: -27.8}
+    adjacent: a60000008300000085000000ffffffff
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 43.1, y: 0.07172394, z: -27.8}
+    adjacent: a7000000840000008600000063000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -27.8}
+    adjacent: a8000000850000008700000064000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -27.8}
+    adjacent: a900000086000000ffffffff65000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 0.35510254, z: -24.8}
+    adjacent: aa000000ffffffff8900000066000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 1.0084686, z: -24.8}
+    adjacent: ab000000880000008a00000067000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 1.6577454, z: -24.8}
+    adjacent: ac000000890000008b00000068000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 1.6620026, z: -24.8}
+    adjacent: ad0000008a0000008c00000069000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 1.058258, z: -24.8}
+    adjacent: ae0000008b0000008d0000006a000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 0.4155426, z: -24.8}
+    adjacent: af0000008c0000008e0000006b000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.08091736, z: -24.8}
+    adjacent: b00000008d0000008f0000006c000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 0, z: -24.8}
+    adjacent: b10000008e000000900000006d000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 0, z: -24.8}
+    adjacent: b20000008f000000910000006e000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 0, z: -24.8}
+    adjacent: b300000090000000920000006f000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 0.005302429, z: -24.8}
+    adjacent: b4000000910000009300000070000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 0.023612976, z: -24.8}
+    adjacent: b5000000920000009400000071000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 0.07084656, z: -24.8}
+    adjacent: b6000000930000009500000072000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 0.11558533, z: -24.8}
+    adjacent: b7000000940000009600000073000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 0.090652466, z: -24.8}
+    adjacent: b8000000950000009700000074000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 0.079193115, z: -24.8}
+    adjacent: b9000000960000009800000075000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 0.63617706, z: -24.8}
+    adjacent: ba000000970000009900000076000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 3.060585, z: -24.8}
+    adjacent: bb000000980000009a00000077000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 8.477791, z: -24.8}
+    adjacent: bc000000990000009b00000078000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 15.69928, z: -24.8}
+    adjacent: bd0000009a0000009c00000079000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 19.87854, z: -24.8}
+    adjacent: be0000009b0000009d0000007a000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 17.325165, z: -24.8}
+    adjacent: bf0000009c0000009e0000007b000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 10.526421, z: -24.8}
+    adjacent: c00000009d0000009f0000007c000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 4.427841, z: -24.8}
+    adjacent: c10000009e000000a00000007d000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 1.5909271, z: -24.8}
+    adjacent: c20000009f000000a10000007e000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 1.6327362, z: -24.8}
+    adjacent: c3000000a0000000a20000007f000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 2.9002838, z: -24.8}
+    adjacent: c4000000a1000000a300000080000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 3.8809052, z: -24.8}
+    adjacent: c5000000a2000000a400000081000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 3.3361053, z: -24.8}
+    adjacent: c6000000a3000000a500000082000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 1.7801437, z: -24.8}
+    adjacent: c7000000a4000000a600000083000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0.57873535, z: -24.8}
+    adjacent: c8000000a5000000a700000084000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0.11165619, z: -24.8}
+    adjacent: c9000000a6000000a800000085000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -24.8}
+    adjacent: ca000000a7000000a900000086000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -24.8}
+    adjacent: cb000000a8000000ffffffff87000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 0.43215942, z: -21.8}
+    adjacent: cc000000ffffffffab00000088000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 0.9388275, z: -21.8}
+    adjacent: cd000000aa000000ac00000089000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 1.2089233, z: -21.8}
+    adjacent: ce000000ab000000ad0000008a000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 0.9583893, z: -21.8}
+    adjacent: cf000000ac000000ae0000008b000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 0.41773987, z: -21.8}
+    adjacent: d0000000ad000000af0000008c000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 0.10046387, z: -21.8}
+    adjacent: d1000000ae000000b00000008d000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.009140015, z: -21.8}
+    adjacent: d2000000af000000b10000008e000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 0, z: -21.8}
+    adjacent: d3000000b0000000b20000008f000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 0, z: -21.8}
+    adjacent: d4000000b1000000b300000090000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 0, z: -21.8}
+    adjacent: d5000000b2000000b400000091000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 0.03276062, z: -21.8}
+    adjacent: d6000000b3000000b500000092000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 0.20600128, z: -21.8}
+    adjacent: d7000000b4000000b600000093000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 0.46168518, z: -21.8}
+    adjacent: d8000000b5000000b700000094000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 0.6618347, z: -21.8}
+    adjacent: d9000000b6000000b800000095000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 0.5838928, z: -21.8}
+    adjacent: da000000b7000000b900000096000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 0.50414276, z: -21.8}
+    adjacent: db000000b8000000ba00000097000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 1.1425781, z: -21.8}
+    adjacent: dc000000b9000000bb00000098000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 3.9163208, z: -21.8}
+    adjacent: dd000000ba000000bc00000099000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 9.407059, z: -21.8}
+    adjacent: de000000bb000000bd0000009a000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 15.013519, z: -21.8}
+    adjacent: df000000bc000000be0000009b000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 16.472305, z: -21.8}
+    adjacent: e0000000bd000000bf0000009c000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 12.39035, z: -21.8}
+    adjacent: e1000000be000000c00000009d000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 6.4775543, z: -21.8}
+    adjacent: e2000000bf000000c10000009e000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 2.367424, z: -21.8}
+    adjacent: e3000000c0000000c20000009f000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 1.0882034, z: -21.8}
+    adjacent: e4000000c1000000c3000000a0000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 1.7085876, z: -21.8}
+    adjacent: e5000000c2000000c4000000a1000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 3.1889343, z: -21.8}
+    adjacent: e6000000c3000000c5000000a2000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 4.0626373, z: -21.8}
+    adjacent: e7000000c4000000c6000000a3000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 3.3578186, z: -21.8}
+    adjacent: e8000000c5000000c7000000a4000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 1.7430267, z: -21.8}
+    adjacent: e9000000c6000000c8000000a5000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0.5749512, z: -21.8}
+    adjacent: ea000000c7000000c9000000a6000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0.1105423, z: -21.8}
+    adjacent: eb000000c8000000ca000000a7000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -21.8}
+    adjacent: ec000000c9000000cb000000a8000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -21.8}
+    adjacent: ed000000ca000000ffffffffa9000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 1.6351166, z: -18.8}
+    adjacent: ee000000ffffffffcd000000aa000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 3.3017197, z: -18.8}
+    adjacent: ef000000cc000000ce000000ab000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 3.821495, z: -18.8}
+    adjacent: f0000000cd000000cf000000ac000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 2.7240982, z: -18.8}
+    adjacent: f1000000ce000000d0000000ad000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 1.1238556, z: -18.8}
+    adjacent: f2000000cf000000d1000000ae000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 0.21033478, z: -18.8}
+    adjacent: f3000000d0000000d2000000af000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0, z: -18.8}
+    adjacent: f4000000d1000000d3000000b0000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 0, z: -18.8}
+    adjacent: f5000000d2000000d4000000b1000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 0, z: -18.8}
+    adjacent: f6000000d3000000d5000000b2000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 0.013122559, z: -18.8}
+    adjacent: f7000000d4000000d6000000b3000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 0.1601181, z: -18.8}
+    adjacent: f8000000d5000000d7000000b4000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 0.6083679, z: -18.8}
+    adjacent: f9000000d6000000d8000000b5000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 1.3947449, z: -18.8}
+    adjacent: fa000000d7000000d9000000b6000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 2.0200348, z: -18.8}
+    adjacent: fb000000d8000000da000000b7000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 1.8082886, z: -18.8}
+    adjacent: fc000000d9000000db000000b8000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 1.2226028, z: -18.8}
+    adjacent: fd000000da000000dc000000b9000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 1.3750305, z: -18.8}
+    adjacent: fe000000db000000dd000000ba000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 3.7344818, z: -18.8}
+    adjacent: ff000000dc000000de000000bb000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 7.871956, z: -18.8}
+    adjacent: 00010000dd000000df000000bc000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 10.926788, z: -18.8}
+    adjacent: 01010000de000000e0000000bd000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 10.219749, z: -18.8}
+    adjacent: 02010000df000000e1000000be000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 6.589775, z: -18.8}
+    adjacent: 03010000e0000000e2000000bf000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 2.9253235, z: -18.8}
+    adjacent: 04010000e1000000e3000000c0000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 0.92790985, z: -18.8}
+    adjacent: 05010000e2000000e4000000c1000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 0.5702362, z: -18.8}
+    adjacent: 06010000e3000000e5000000c2000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 1.2531662, z: -18.8}
+    adjacent: 07010000e4000000e6000000c3000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 2.2185287, z: -18.8}
+    adjacent: 08010000e5000000e7000000c4000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 2.6382217, z: -18.8}
+    adjacent: 09010000e6000000e8000000c5000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 2.1031036, z: -18.8}
+    adjacent: 0a010000e7000000e9000000c6000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 1.077713, z: -18.8}
+    adjacent: 0b010000e8000000ea000000c7000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0.32764435, z: -18.8}
+    adjacent: 0c010000e9000000eb000000c8000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0.051208496, z: -18.8}
+    adjacent: 0d010000ea000000ec000000c9000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -18.8}
+    adjacent: 0e010000eb000000ed000000ca000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -18.8}
+    adjacent: 0f010000ec000000ffffffffcb000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 4.678726, z: -15.799999}
+    adjacent: 10010000ffffffffef000000cc000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 9.233734, z: -15.799999}
+    adjacent: 11010000ee000000f0000000cd000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 10.941757, z: -15.799999}
+    adjacent: 12010000ef000000f1000000ce000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 7.918251, z: -15.799999}
+    adjacent: 13010000f0000000f2000000cf000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 3.444931, z: -15.799999}
+    adjacent: 14010000f1000000f3000000d0000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 0.87687683, z: -15.799999}
+    adjacent: 15010000f2000000f4000000d1000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0, z: -15.799999}
+    adjacent: 16010000f3000000f5000000d2000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 0, z: -15.799999}
+    adjacent: 17010000f4000000f6000000d3000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 0, z: -15.799999}
+    adjacent: 18010000f5000000f7000000d4000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 0.03164673, z: -15.799999}
+    adjacent: 19010000f6000000f8000000d5000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 0.3395691, z: -15.799999}
+    adjacent: 1a010000f7000000f9000000d6000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 1.2137604, z: -15.799999}
+    adjacent: 1b010000f8000000fa000000d7000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 2.86969, z: -15.799999}
+    adjacent: 1c010000f9000000fb000000d8000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 4.235092, z: -15.799999}
+    adjacent: 1d010000fa000000fc000000d9000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 3.9852219, z: -15.799999}
+    adjacent: 1e010000fb000000fd000000da000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 2.6943512, z: -15.799999}
+    adjacent: 1f010000fc000000fe000000db000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 1.903183, z: -15.799999}
+    adjacent: 20010000fd000000ff000000dc000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 2.7166367, z: -15.799999}
+    adjacent: 21010000fe00000000010000dd000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 4.8632965, z: -15.799999}
+    adjacent: 22010000ff00000001010000de000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 6.023285, z: -15.799999}
+    adjacent: 230100000001000002010000df000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 5.031975, z: -15.799999}
+    adjacent: 240100000101000003010000e0000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 2.8744507, z: -15.799999}
+    adjacent: 250100000201000004010000e1000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 1.1642914, z: -15.799999}
+    adjacent: 260100000301000005010000e2000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 0.2725067, z: -15.799999}
+    adjacent: 270100000401000006010000e3000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 0.22065735, z: -15.799999}
+    adjacent: 280100000501000007010000e4000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 0.59069824, z: -15.799999}
+    adjacent: 290100000601000008010000e5000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 0.97013855, z: -15.799999}
+    adjacent: 2a0100000701000009010000e6000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 1.068634, z: -15.799999}
+    adjacent: 2b010000080100000a010000e7000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 0.80226135, z: -15.799999}
+    adjacent: 2c010000090100000b010000e8000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 0.38128662, z: -15.799999}
+    adjacent: 2d0100000a0100000c010000e9000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0.12358093, z: -15.799999}
+    adjacent: 2e0100000b0100000d010000ea000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: -15.799999}
+    adjacent: 2f0100000c0100000e010000eb000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -15.799999}
+    adjacent: 300100000d0100000f010000ec000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -15.799999}
+    adjacent: 310100000e010000ffffffffed000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 8.483719, z: -12.799999}
+    adjacent: 32010000ffffffff11010000ee000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 17.105186, z: -12.799999}
+    adjacent: 330100001001000012010000ef000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 20.750847, z: -12.799999}
+    adjacent: 340100001101000013010000f0000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 15.34407, z: -12.799999}
+    adjacent: 350100001201000014010000f1000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 6.8871155, z: -12.799999}
+    adjacent: 360100001301000015010000f2000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 1.8121338, z: -12.799999}
+    adjacent: 370100001401000016010000f3000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.13922119, z: -12.799999}
+    adjacent: 380100001501000017010000f4000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 0, z: -12.799999}
+    adjacent: 390100001601000018010000f5000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 0, z: -12.799999}
+    adjacent: 3a0100001701000019010000f6000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 0.044563293, z: -12.799999}
+    adjacent: 3b010000180100001a010000f7000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 0.42196655, z: -12.799999}
+    adjacent: 3c010000190100001b010000f8000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 1.8215942, z: -12.799999}
+    adjacent: 3d0100001a0100001c010000f9000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 4.210785, z: -12.799999}
+    adjacent: 3e0100001b0100001d010000fa000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 6.311615, z: -12.799999}
+    adjacent: 3f0100001c0100001e010000fb000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 6.3807373, z: -12.799999}
+    adjacent: 400100001d0100001f010000fc000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 4.6367416, z: -12.799999}
+    adjacent: 410100001e01000020010000fd000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 3.0641632, z: -12.799999}
+    adjacent: 420100001f01000021010000fe000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 2.4459076, z: -12.799999}
+    adjacent: 430100002001000022010000ff000000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 2.611969, z: -12.799999}
+    adjacent: 44010000210100002301000000010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 2.9101715, z: -12.799999}
+    adjacent: 45010000220100002401000001010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 2.615219, z: -12.799999}
+    adjacent: 46010000230100002501000002010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 1.9807587, z: -12.799999}
+    adjacent: 47010000240100002601000003010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 1.2146606, z: -12.799999}
+    adjacent: 48010000250100002701000004010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 0.6031723, z: -12.799999}
+    adjacent: 49010000260100002801000005010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 0.40678406, z: -12.799999}
+    adjacent: 4a010000270100002901000006010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 0.38835144, z: -12.799999}
+    adjacent: 4b010000280100002a01000007010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 0.3989334, z: -12.799999}
+    adjacent: 4c010000290100002b01000008010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 0.29196167, z: -12.799999}
+    adjacent: 4d0100002a0100002c01000009010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 0.18979645, z: -12.799999}
+    adjacent: 4e0100002b0100002d0100000a010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 0.09263611, z: -12.799999}
+    adjacent: 4f0100002c0100002e0100000b010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0, z: -12.799999}
+    adjacent: 500100002d0100002f0100000c010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: -12.799999}
+    adjacent: 510100002e010000300100000d010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -12.799999}
+    adjacent: 520100002f010000310100000e010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -12.799999}
+    adjacent: 5301000030010000ffffffff0f010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 10.429794, z: -9.799999}
+    adjacent: 54010000ffffffff3301000010010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 21.526535, z: -9.799999}
+    adjacent: 55010000320100003401000011010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 26.849869, z: -9.799999}
+    adjacent: 56010000330100003501000012010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 20.388748, z: -9.799999}
+    adjacent: 57010000340100003601000013010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 9.3774185, z: -9.799999}
+    adjacent: 58010000350100003701000014010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 2.6273346, z: -9.799999}
+    adjacent: 59010000360100003801000015010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.32925415, z: -9.799999}
+    adjacent: 5a010000370100003901000016010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 0, z: -9.799999}
+    adjacent: 5b010000380100003a01000017010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 0, z: -9.799999}
+    adjacent: 5c010000390100003b01000018010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 0.04975128, z: -9.799999}
+    adjacent: 5d0100003a0100003c01000019010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 0.56459045, z: -9.799999}
+    adjacent: 5e0100003b0100003d0100001a010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 2.0799866, z: -9.799999}
+    adjacent: 5f0100003c0100003e0100001b010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 4.769371, z: -9.799999}
+    adjacent: 600100003d0100003f0100001c010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 7.341614, z: -9.799999}
+    adjacent: 610100003e010000400100001d010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 8.036972, z: -9.799999}
+    adjacent: 620100003f010000410100001e010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 6.925865, z: -9.799999}
+    adjacent: 6301000040010000420100001f010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 5.022766, z: -9.799999}
+    adjacent: 64010000410100004301000020010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 3.3387146, z: -9.799999}
+    adjacent: 65010000420100004401000021010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 2.3767853, z: -9.799999}
+    adjacent: 66010000430100004501000022010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 2.4700928, z: -9.799999}
+    adjacent: 67010000440100004601000023010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 3.1420746, z: -9.799999}
+    adjacent: 68010000450100004701000024010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 3.4207077, z: -9.799999}
+    adjacent: 69010000460100004801000025010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 2.8123703, z: -9.799999}
+    adjacent: 6a010000470100004901000026010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 1.9229736, z: -9.799999}
+    adjacent: 6b010000480100004a01000027010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 1.4768524, z: -9.799999}
+    adjacent: 6c010000490100004b01000028010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 1.2050476, z: -9.799999}
+    adjacent: 6d0100004a0100004c01000029010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 0.74617004, z: -9.799999}
+    adjacent: 6e0100004b0100004d0100002a010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 0.2825775, z: -9.799999}
+    adjacent: 6f0100004c0100004e0100002b010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 0.043045044, z: -9.799999}
+    adjacent: 700100004d0100004f0100002c010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 0, z: -9.799999}
+    adjacent: 710100004e010000500100002d010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0, z: -9.799999}
+    adjacent: 720100004f010000510100002e010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: -9.799999}
+    adjacent: 7301000050010000520100002f010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -9.799999}
+    adjacent: 74010000510100005301000030010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -9.799999}
+    adjacent: 7501000052010000ffffffff31010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 8.798965, z: -6.799999}
+    adjacent: 76010000ffffffff5501000032010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 18.601341, z: -6.799999}
+    adjacent: 77010000540100005601000033010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 23.786285, z: -6.799999}
+    adjacent: 78010000550100005701000034010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 18.57145, z: -6.799999}
+    adjacent: 79010000560100005801000035010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 8.790756, z: -6.799999}
+    adjacent: 7a010000570100005901000036010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 2.551422, z: -6.799999}
+    adjacent: 7b010000580100005a01000037010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.37594604, z: -6.799999}
+    adjacent: 7c010000590100005b01000038010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 0.22903442, z: -6.799999}
+    adjacent: 7d0100005a0100005c01000039010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 0.5238037, z: -6.799999}
+    adjacent: 7e0100005b0100005d0100003a010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 0.7032318, z: -6.799999}
+    adjacent: 7f0100005c0100005e0100003b010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 1.0580444, z: -6.799999}
+    adjacent: 800100005d0100005f0100003c010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 2.3893814, z: -6.799999}
+    adjacent: 810100005e010000600100003d010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 4.925293, z: -6.799999}
+    adjacent: 820100005f010000610100003e010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 7.648987, z: -6.799999}
+    adjacent: 8301000060010000620100003f010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 8.90905, z: -6.799999}
+    adjacent: 84010000610100006301000040010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 8.543892, z: -6.799999}
+    adjacent: 85010000620100006401000041010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 6.709053, z: -6.799999}
+    adjacent: 86010000630100006501000042010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 4.2555847, z: -6.799999}
+    adjacent: 87010000640100006601000043010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 2.7143402, z: -6.799999}
+    adjacent: 88010000650100006701000044010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 2.7764664, z: -6.799999}
+    adjacent: 89010000660100006801000045010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 4.186554, z: -6.799999}
+    adjacent: 8a010000670100006901000046010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 5.2837524, z: -6.799999}
+    adjacent: 8b010000680100006a01000047010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 4.943268, z: -6.799999}
+    adjacent: 8c010000690100006b01000048010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 4.207611, z: -6.799999}
+    adjacent: 8d0100006a0100006c01000049010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 4.1879272, z: -6.799999}
+    adjacent: 8e0100006b0100006d0100004a010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 3.6800537, z: -6.799999}
+    adjacent: 8f0100006c0100006e0100004b010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 2.419098, z: -6.799999}
+    adjacent: 900100006d0100006f0100004c010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 1.096344, z: -6.799999}
+    adjacent: 910100006e010000700100004d010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 0.26983643, z: -6.799999}
+    adjacent: 920100006f010000710100004e010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 0, z: -6.799999}
+    adjacent: 9301000070010000720100004f010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0, z: -6.799999}
+    adjacent: 94010000710100007301000050010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: -6.799999}
+    adjacent: 95010000720100007401000051010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -6.799999}
+    adjacent: 96010000730100007501000052010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -6.799999}
+    adjacent: 9701000074010000ffffffff53010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 5.0468597, z: -3.7999992}
+    adjacent: 98010000ffffffff7701000054010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 10.993195, z: -3.7999992}
+    adjacent: 99010000760100007801000055010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 14.461876, z: -3.7999992}
+    adjacent: 9a010000770100007901000056010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 11.596115, z: -3.7999992}
+    adjacent: 9b010000780100007a01000057010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 5.6784973, z: -3.7999992}
+    adjacent: 9c010000790100007b01000058010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 1.6345215, z: -3.7999992}
+    adjacent: 9d0100007a0100007c01000059010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.6118469, z: -3.7999992}
+    adjacent: 9e0100007b0100007d0100005a010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 1.2530289, z: -3.7999992}
+    adjacent: 9f0100007c0100007e0100005b010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 2.4154205, z: -3.7999992}
+    adjacent: a00100007d0100007f0100005c010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 2.9200287, z: -3.7999992}
+    adjacent: a10100007e010000800100005d010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 2.6252594, z: -3.7999992}
+    adjacent: a20100007f010000810100005e010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 3.0405426, z: -3.7999992}
+    adjacent: a301000080010000820100005f010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 5.106064, z: -3.7999992}
+    adjacent: a4010000810100008301000060010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 7.4937286, z: -3.7999992}
+    adjacent: a5010000820100008401000061010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 8.998764, z: -3.7999992}
+    adjacent: a6010000830100008501000062010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 9.254356, z: -3.7999992}
+    adjacent: a7010000840100008601000063010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 7.581009, z: -3.7999992}
+    adjacent: a8010000850100008701000064010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 4.612915, z: -3.7999992}
+    adjacent: a9010000860100008801000065010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 2.597145, z: -3.7999992}
+    adjacent: aa010000870100008901000066010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 2.514328, z: -3.7999992}
+    adjacent: ab010000880100008a01000067010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 3.9245071, z: -3.7999992}
+    adjacent: ac010000890100008b01000068010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 5.342331, z: -3.7999992}
+    adjacent: ad0100008a0100008c01000069010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 5.764221, z: -3.7999992}
+    adjacent: ae0100008b0100008d0100006a010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 6.449356, z: -3.7999992}
+    adjacent: af0100008c0100008e0100006b010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 7.653824, z: -3.7999992}
+    adjacent: b00100008d0100008f0100006c010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 7.5233765, z: -3.7999992}
+    adjacent: b10100008e010000900100006d010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 5.3440704, z: -3.7999992}
+    adjacent: b20100008f010000910100006e010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 2.6311874, z: -3.7999992}
+    adjacent: b301000090010000920100006f010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 0.8849945, z: -3.7999992}
+    adjacent: b4010000910100009301000070010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 0.16908264, z: -3.7999992}
+    adjacent: b5010000920100009401000071010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0, z: -3.7999992}
+    adjacent: b6010000930100009501000072010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: -3.7999992}
+    adjacent: b7010000940100009601000073010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -3.7999992}
+    adjacent: b8010000950100009701000074010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -3.7999992}
+    adjacent: b901000096010000ffffffff75010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 1.9202728, z: -0.79999924}
+    adjacent: ba010000ffffffff9901000076010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 4.3495483, z: -0.79999924}
+    adjacent: bb010000980100009a01000077010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 5.8920135, z: -0.79999924}
+    adjacent: bc010000990100009b01000078010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 4.868515, z: -0.79999924}
+    adjacent: bd0100009a0100009c01000079010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 2.4153595, z: -0.79999924}
+    adjacent: be0100009b0100009d0100007a010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 0.81614685, z: -0.79999924}
+    adjacent: bf0100009c0100009e0100007b010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 1.1102829, z: -0.79999924}
+    adjacent: c00100009d0100009f0100007c010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 3.3846588, z: -0.79999924}
+    adjacent: c10100009e010000a00100007d010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 6.581642, z: -0.79999924}
+    adjacent: c20100009f010000a10100007e010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 7.8167343, z: -0.79999924}
+    adjacent: c3010000a0010000a20100007f010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 6.070343, z: -0.79999924}
+    adjacent: c4010000a1010000a301000080010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 4.210594, z: -0.79999924}
+    adjacent: c5010000a2010000a401000081010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 4.5560684, z: -0.79999924}
+    adjacent: c6010000a3010000a501000082010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 6.118332, z: -0.79999924}
+    adjacent: c7010000a4010000a601000083010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 7.824188, z: -0.79999924}
+    adjacent: c8010000a5010000a701000084010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 8.72271, z: -0.79999924}
+    adjacent: c9010000a6010000a801000085010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 7.531082, z: -0.79999924}
+    adjacent: ca010000a7010000a901000086010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 4.4967422, z: -0.79999924}
+    adjacent: cb010000a8010000aa01000087010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 2.0867004, z: -0.79999924}
+    adjacent: cc010000a9010000ab01000088010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 1.5205994, z: -0.79999924}
+    adjacent: cd010000aa010000ac01000089010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 2.3661346, z: -0.79999924}
+    adjacent: ce010000ab010000ad0100008a010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 3.5840302, z: -0.79999924}
+    adjacent: cf010000ac010000ae0100008b010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 4.7272263, z: -0.79999924}
+    adjacent: d0010000ad010000af0100008c010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 6.8111115, z: -0.79999924}
+    adjacent: d1010000ae010000b00100008d010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 9.528885, z: -0.79999924}
+    adjacent: d2010000af010000b10100008e010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 10.421707, z: -0.79999924}
+    adjacent: d3010000b0010000b20100008f010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 8.367294, z: -0.79999924}
+    adjacent: d4010000b1010000b301000090010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 4.710121, z: -0.79999924}
+    adjacent: d5010000b2010000b401000091010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 1.8129272, z: -0.79999924}
+    adjacent: d6010000b3010000b501000092010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 0.40338135, z: -0.79999924}
+    adjacent: d7010000b4010000b601000093010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0.034988403, z: -0.79999924}
+    adjacent: d8010000b5010000b701000094010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: -0.79999924}
+    adjacent: d9010000b6010000b801000095010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: -0.79999924}
+    adjacent: da010000b7010000b901000096010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: -0.79999924}
+    adjacent: db010000b8010000ffffffff97010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 0.43247986, z: 2.2000008}
+    adjacent: dc010000ffffffffbb01000098010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 1.0594711, z: 2.2000008}
+    adjacent: dd010000ba010000bc01000099010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 1.4733124, z: 2.2000008}
+    adjacent: de010000bb010000bd0100009a010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 1.272049, z: 2.2000008}
+    adjacent: df010000bc010000be0100009b010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 0.61066437, z: 2.2000008}
+    adjacent: e0010000bd010000bf0100009c010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 0.4437256, z: 2.2000008}
+    adjacent: e1010000be010000c00100009d010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 1.697998, z: 2.2000008}
+    adjacent: e2010000bf010000c10100009e010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 5.6551437, z: 2.2000008}
+    adjacent: e3010000c0010000c20100009f010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 11.079651, z: 2.2000008}
+    adjacent: e4010000c1010000c3010000a0010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 13.21048, z: 2.2000008}
+    adjacent: e5010000c2010000c4010000a1010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 9.81916, z: 2.2000008}
+    adjacent: e6010000c3010000c5010000a2010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 5.2233124, z: 2.2000008}
+    adjacent: e7010000c4010000c6010000a3010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 3.4185944, z: 2.2000008}
+    adjacent: e8010000c5010000c7010000a4010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 3.768341, z: 2.2000008}
+    adjacent: e9010000c6010000c8010000a5010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 5.268326, z: 2.2000008}
+    adjacent: ea010000c7010000c9010000a6010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 6.5413666, z: 2.2000008}
+    adjacent: eb010000c8010000ca010000a7010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 6.0059967, z: 2.2000008}
+    adjacent: ec010000c9010000cb010000a8010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 3.576706, z: 2.2000008}
+    adjacent: ed010000ca010000cc010000a9010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 1.5016327, z: 2.2000008}
+    adjacent: ee010000cb010000cd010000aa010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 0.81707764, z: 2.2000008}
+    adjacent: ef010000cc010000ce010000ab010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 1.306961, z: 2.2000008}
+    adjacent: f0010000cd010000cf010000ac010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 2.21109, z: 2.2000008}
+    adjacent: f1010000ce010000d0010000ad010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 3.2940521, z: 2.2000008}
+    adjacent: f2010000cf010000d1010000ae010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 5.2643967, z: 2.2000008}
+    adjacent: f3010000d0010000d2010000af010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 8.006378, z: 2.2000008}
+    adjacent: f4010000d1010000d3010000b0010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 10.195557, z: 2.2000008}
+    adjacent: f5010000d2010000d4010000b1010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 9.368431, z: 2.2000008}
+    adjacent: f6010000d3010000d5010000b2010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 5.92572, z: 2.2000008}
+    adjacent: f7010000d4010000d6010000b3010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 2.448288, z: 2.2000008}
+    adjacent: f8010000d5010000d7010000b4010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 0.57442474, z: 2.2000008}
+    adjacent: f9010000d6010000d8010000b5010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0.07060242, z: 2.2000008}
+    adjacent: fa010000d7010000d9010000b6010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: 2.2000008}
+    adjacent: fb010000d8010000da010000b7010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: 2.2000008}
+    adjacent: fc010000d9010000db010000b8010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: 2.2000008}
+    adjacent: fd010000da010000ffffffffb9010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 0.021392822, z: 5.200001}
+    adjacent: fe010000ffffffffdd010000ba010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 0.12970734, z: 5.200001}
+    adjacent: ff010000dc010000de010000bb010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 0.19984436, z: 5.200001}
+    adjacent: 00020000dd010000df010000bc010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 0.17649841, z: 5.200001}
+    adjacent: 01020000de010000e0010000bd010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 0.10787964, z: 5.200001}
+    adjacent: 02020000df010000e1010000be010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 0.3060913, z: 5.200001}
+    adjacent: 03020000e0010000e2010000bf010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 1.7567139, z: 5.200001}
+    adjacent: 04020000e1010000e3010000c0010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 5.83313, z: 5.200001}
+    adjacent: 05020000e2010000e4010000c1010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 11.544235, z: 5.200001}
+    adjacent: 06020000e3010000e5010000c2010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 13.897881, z: 5.200001}
+    adjacent: 07020000e4010000e6010000c3010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 10.161911, z: 5.200001}
+    adjacent: 08020000e5010000e7010000c4010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 4.3620605, z: 5.200001}
+    adjacent: 09020000e6010000e8010000c5010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 1.0454559, z: 5.200001}
+    adjacent: 0a020000e7010000e9010000c6010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 0.23576355, z: 5.200001}
+    adjacent: 0b020000e8010000ea010000c7010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 1.4194794, z: 5.200001}
+    adjacent: 0c020000e9010000eb010000c8010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 3.1089172, z: 5.200001}
+    adjacent: 0d020000ea010000ec010000c9010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 3.3409424, z: 5.200001}
+    adjacent: 0e020000eb010000ed010000ca010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 2.1284256, z: 5.200001}
+    adjacent: 0f020000ec010000ee010000cb010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 1.0175018, z: 5.200001}
+    adjacent: 10020000ed010000ef010000cc010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 0.9247894, z: 5.200001}
+    adjacent: 11020000ee010000f0010000cd010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 1.8120117, z: 5.200001}
+    adjacent: 12020000ef010000f1010000ce010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 2.9398346, z: 5.200001}
+    adjacent: 13020000f0010000f2010000cf010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 3.5425644, z: 5.200001}
+    adjacent: 14020000f1010000f3010000d0010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 3.9465942, z: 5.200001}
+    adjacent: 15020000f2010000f4010000d1010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 5.348755, z: 5.200001}
+    adjacent: 16020000f3010000f5010000d2010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 7.2098846, z: 5.200001}
+    adjacent: 17020000f4010000f6010000d3010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 7.2919617, z: 5.200001}
+    adjacent: 18020000f5010000f7010000d4010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 4.9627686, z: 5.200001}
+    adjacent: 19020000f6010000f8010000d5010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 2.0635452, z: 5.200001}
+    adjacent: 1a020000f7010000f9010000d6010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 0.5457611, z: 5.200001}
+    adjacent: 1b020000f8010000fa010000d7010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0.07060242, z: 5.200001}
+    adjacent: 1c020000f9010000fb010000d8010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: 5.200001}
+    adjacent: 1d020000fa010000fc010000d9010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: 5.200001}
+    adjacent: 1e020000fb010000fd010000da010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: 5.200001}
+    adjacent: 1f020000fc010000ffffffffdb010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 0, z: 8.200001}
+    adjacent: 20020000ffffffffff010000dc010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -46.9, y: 0, z: 8.200001}
+    adjacent: 21020000fe01000000020000dd010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -43.9, y: 0, z: 8.200001}
+    adjacent: 22020000ff01000001020000de010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -40.9, y: 0, z: 8.200001}
+    adjacent: 230200000002000002020000df010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -37.9, y: 0, z: 8.200001}
+    adjacent: 240200000102000003020000e0010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -34.9, y: 0.14620972, z: 8.200001}
+    adjacent: 250200000202000004020000e1010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -31.900002, y: 1.1393127, z: 8.200001}
+    adjacent: 260200000302000005020000e2010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -28.900002, y: 3.7342148, z: 8.200001}
+    adjacent: 270200000402000006020000e3010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -25.900002, y: 7.5004196, z: 8.200001}
+    adjacent: 280200000502000007020000e4010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -22.900002, y: 8.879494, z: 8.200001}
+    adjacent: 290200000602000008020000e5010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -19.900002, y: 4.95755, z: 8.200001}
+    adjacent: 2a0200000702000009020000e6010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -16.900002, y: 0, z: 8.200001}
+    adjacent: 2b020000080200000a020000e7010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -13.900002, y: 0, z: 8.200001}
+    adjacent: 2c020000090200000b020000e8010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -10.900002, y: 0, z: 8.200001}
+    adjacent: 2d0200000a0200000c020000e9010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -7.9000015, y: 0, z: 8.200001}
+    adjacent: 2e0200000b0200000d020000ea010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -4.9000015, y: 0, z: 8.200001}
+    adjacent: 2f0200000c0200000e020000eb010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: -1.9000015, y: 0.09584808, z: 8.200001}
+    adjacent: 300200000d0200000f020000ec010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 1.0999985, y: 0.91085815, z: 8.200001}
+    adjacent: 310200000e02000010020000ed010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 4.0999985, y: 0.9566879, z: 8.200001}
+    adjacent: 320200000f02000011020000ee010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 7.0999985, y: 1.5526428, z: 8.200001}
+    adjacent: 330200001002000012020000ef010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 10.099998, y: 3.5569077, z: 8.200001}
+    adjacent: 340200001102000013020000f0010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 13.099998, y: 5.7817307, z: 8.200001}
+    adjacent: 350200001202000014020000f1010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 16.099998, y: 6.1430206, z: 8.200001}
+    adjacent: 360200001302000015020000f2010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 19.099998, y: 4.7485123, z: 8.200001}
+    adjacent: 370200001402000016020000f3010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 22.099998, y: 3.6894836, z: 8.200001}
+    adjacent: 380200001502000017020000f4010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 25.099998, y: 3.8112564, z: 8.200001}
+    adjacent: 390200001602000018020000f5010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 28.099998, y: 3.7906494, z: 8.200001}
+    adjacent: 3a0200001702000019020000f6010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 31.099998, y: 2.592453, z: 8.200001}
+    adjacent: 3b020000180200001a020000f7010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 34.1, y: 1.1397095, z: 8.200001}
+    adjacent: 3c020000190200001b020000f8010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 37.1, y: 0.30376434, z: 8.200001}
+    adjacent: 3d0200001a0200001c020000f9010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 40.1, y: 0, z: 8.200001}
+    adjacent: 3e0200001b0200001d020000fa010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: 8.200001}
+    adjacent: 3f0200001c0200001e020000fb010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: 8.200001}
+    adjacent: 400200001d0200001f020000fc010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 4
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: 8.200001}
+    adjacent: 410200001e020000fffffffffd010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -49.9, y: 0, z: 11.200001}
+    adjacent: ffffffffffffffff21020000fe010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 2
+    highlighted: 0
+  - position: {x: -46.9, y: 0, z: 11.200001}
+    adjacent: ffffffff2002000022020000ff010000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -43.9, y: 0, z: 11.200001}
+    adjacent: ffffffff210200002302000000020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -40.9, y: 0, z: 11.200001}
+    adjacent: ffffffff220200002402000001020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -37.9, y: 0, z: 11.200001}
+    adjacent: ffffffff230200002502000002020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -34.9, y: 0, z: 11.200001}
+    adjacent: ffffffff240200002602000003020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -31.900002, y: 0.41716003, z: 11.200001}
+    adjacent: ffffffff250200002702000004020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -28.900002, y: 1.4800262, z: 11.200001}
+    adjacent: ffffffff260200002802000005020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -25.900002, y: 2.9648743, z: 11.200001}
+    adjacent: ffffffff270200002902000006020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -22.900002, y: 1.7785492, z: 11.200001}
+    adjacent: ffffffff280200002a02000007020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -19.900002, y: 0, z: 11.200001}
+    adjacent: ffffffff290200002b02000008020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -16.900002, y: 0, z: 11.200001}
+    adjacent: ffffffff2a0200002c02000009020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -13.900002, y: 0, z: 11.200001}
+    adjacent: ffffffff2b0200002d0200000a020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -10.900002, y: 0, z: 11.200001}
+    adjacent: ffffffff2c0200002e0200000b020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -7.9000015, y: 0, z: 11.200001}
+    adjacent: ffffffff2d0200002f0200000c020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -4.9000015, y: 0, z: 11.200001}
+    adjacent: ffffffff2e020000300200000d020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: -1.9000015, y: 0, z: 11.200001}
+    adjacent: ffffffff2f020000310200000e020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 1.0999985, y: 0, z: 11.200001}
+    adjacent: ffffffff30020000320200000f020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 4.0999985, y: 0.42421722, z: 11.200001}
+    adjacent: ffffffff310200003302000010020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 7.0999985, y: 2.0318222, z: 11.200001}
+    adjacent: ffffffff320200003402000011020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 10.099998, y: 4.9139404, z: 11.200001}
+    adjacent: ffffffff330200003502000012020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 13.099998, y: 8.290726, z: 11.200001}
+    adjacent: ffffffff340200003602000013020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 16.099998, y: 9.051147, z: 11.200001}
+    adjacent: ffffffff350200003702000014020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 19.099998, y: 6.5034637, z: 11.200001}
+    adjacent: ffffffff360200003802000015020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 22.099998, y: 3.4362411, z: 11.200001}
+    adjacent: ffffffff370200003902000016020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 25.099998, y: 1.8269958, z: 11.200001}
+    adjacent: ffffffff380200003a02000017020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 28.099998, y: 1.3063049, z: 11.200001}
+    adjacent: ffffffff390200003b02000018020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 31.099998, y: 0.8297348, z: 11.200001}
+    adjacent: ffffffff3a0200003c02000019020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 34.1, y: 0.37413788, z: 11.200001}
+    adjacent: ffffffff3b0200003d0200001a020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 37.1, y: 0.1235199, z: 11.200001}
+    adjacent: ffffffff3c0200003e0200001b020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 40.1, y: 0, z: 11.200001}
+    adjacent: ffffffff3d0200003f0200001c020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 43.1, y: 0, z: 11.200001}
+    adjacent: ffffffff3e020000400200001d020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 46.1, y: 0, z: 11.200001}
+    adjacent: ffffffff3f020000410200001e020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 3
+    highlighted: 0
+  - position: {x: 49.1, y: 0, z: 11.200001}
+    adjacent: ffffffff40020000ffffffff1f020000
+    visited: 0
+    weight: 0
+    distance: 2147483647
+    occupied: 0
+    validAdjacents: 2
+    highlighted: 0
+--- !u!1 &1793382480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793382484}
+  - component: {fileID: 1793382483}
+  - component: {fileID: 1793382482}
+  - component: {fileID: 1793382481}
+  - component: {fileID: 1793382485}
+  m_Layer: 10
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1793382481
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793382480}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1793382482
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793382480}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1793382483
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793382480}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1793382484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793382480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 38.2, y: 2.66, z: -32.59}
+  m_LocalScale: {x: 4.468762, y: 4.468762, z: 4.468762}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1793382485
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793382480}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
