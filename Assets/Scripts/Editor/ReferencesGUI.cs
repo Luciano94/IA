@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(SearchingMine))]
-public class SearchingMineGUI : Editor {
+[CustomEditor(typeof(References), true)]
+public class ReferencesGUI : Editor {
     public override void OnInspectorGUI() {
-        SearchingMine seachingMines = (SearchingMine)target;
+        References references = (References)target;
         if (GUILayout.Button("Get References")) {
-            seachingMines.SearchReferences();
+            references.SearchReferences();
         }
         DrawDefaultInspector();
     }

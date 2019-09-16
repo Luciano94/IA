@@ -1,18 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Depositing : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class Depositing : References, IState {
+    [SerializeField] private Miner miner;
+
+    public void Init() {
+        miner.deposit.DepositResources(miner.SaveResources());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void UpdateState(ref IState nextState) {
+    }
+
+    public void UpdateStatePhysics() {
+    }
+
+    public override void SearchReferences() {
+        if (miner == null) {
+            miner = GetComponent<Miner>();
+        }
     }
 }

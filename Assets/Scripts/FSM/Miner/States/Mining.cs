@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-public class Mining : MonoBehaviour, IState {
+public class Mining : References, IState {
     [HideInInspector] public Mine currentMine;
     public float mineRate;
     public int mineAmount;
@@ -24,11 +24,14 @@ public class Mining : MonoBehaviour, IState {
 
         if (timer > mineRate) {
             int extracted = currentMine.ExtractResources(mineAmount);
+            miner.AddResources(extracted);
 
             if (extracted != 0) {
                 timer = 0f;
             } else {
-                nextState = searchingMine;
+                miner.moving.nextState = miner.depositing;
+                miner.moving.destination = miner.deposit.transform.position;
+                nextState = miner.moving;
             }
 
         }
@@ -38,7 +41,7 @@ public class Mining : MonoBehaviour, IState {
 
     }
 
-    public void SetMiner() {
+    public override void SearchReferences() {
         miner = GetComponent<Miner>();
         searchingMine = GetComponent<SearchingMine>();
     }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SearchingMine : MonoBehaviour, IState {
+public class SearchingMine : References, IState {
     private Miner miner;
     private Mining mining;
     public LayerMask minesLayer;
@@ -26,7 +26,7 @@ public class SearchingMine : MonoBehaviour, IState {
 
     }
 
-    public void SearchReferences() {
+    public override void SearchReferences() {
         if (miner == null) {
             miner = GetComponent<Miner>();
         }

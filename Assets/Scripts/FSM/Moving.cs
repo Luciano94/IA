@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class Moving : MonoBehaviour, IState {
+public class Moving : References, IState {
     [HideInInspector] public Vector3 destination;
     private Vector3 direction;
     [HideInInspector] public IState nextState;
@@ -23,7 +23,7 @@ public class Moving : MonoBehaviour, IState {
     public void UpdateStatePhysics() {
     }
 
-    public void SearchReferences() {
+    public override void SearchReferences() {
         if (characterController == null) {
             characterController = GetComponent<CharacterController>();
         }
