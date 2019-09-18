@@ -14,7 +14,7 @@ public class SearchingMine : References, IState {
 
     public void UpdateState(ref IState nextState) {
         Collider[] mines = Physics.OverlapSphere(transform.position, 10f, minesLayer);
-        if (mines != null) {
+        if (mines.Length > 0) {
             mining.currentMine = mines[0].GetComponent<Mine>();
             miner.moving.destination = mines[0].transform.position;
             miner.moving.nextState = miner.mining;

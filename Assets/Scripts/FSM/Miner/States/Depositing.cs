@@ -8,6 +8,7 @@ public class Depositing : References, IState {
     }
 
     public void UpdateState(ref IState nextState) {
+        nextState = miner.seachingMines;
     }
 
     public void UpdateStatePhysics() {
