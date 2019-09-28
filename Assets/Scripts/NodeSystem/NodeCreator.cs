@@ -22,9 +22,7 @@ public class Node {
     public bool occupied;
     public int validAdjacents = 0;
 
-#if UNITY_EDITOR
     public bool highlighted = false;
-#endif
 
     public Node(Vector3 pos) {
         position = pos;
