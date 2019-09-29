@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 
-public class UDPConnection {
-    private struct DataReceived {
+public class UdpConnection
+{
+    private struct DataReceived
+    {
         public byte[] data;
         public IPEndPoint ipEndPoint;
     }
@@ -14,8 +16,9 @@ public class UDPConnection {
     private Queue<DataReceived> dataReceivedQueue = new Queue<DataReceived>();
 
     object handler = new object();
-
-    public UDPConnection(int port, IReceiveData receiver = null) {
+    
+    public UdpConnection(int port, IReceiveData receiver = null)
+    {
         connection = new UdpClient(port);
 
         this.receiver = receiver;
@@ -23,7 +26,8 @@ public class UDPConnection {
         connection.BeginReceive(OnReceive, null);
     }
 
-    public UDPConnection(IPAddress ip, int port, IReceiveData receiver = null) {
+    public UdpConnection(IPAddress ip, int port, IReceiveData receiver = null)
+    {
         connection = new UdpClient();
         connection.Connect(ip, port);
 
@@ -32,13 +36,17 @@ public class UDPConnection {
         connection.BeginReceive(OnReceive, null);
     }
 
-    public void Close() {
+    public void Close()
+    {
         connection.Close();
     }
 
-    public void FlushReceiveData() {
-        lock(handler) {
-            while (dataReceivedQueue.Count > 0) {
+    public void FlushReceiveData()
+    {
+        lock (handler)
+        {
+            while (dataReceivedQueue.Count > 0)
+            {
                 DataReceived dataReceived = dataReceivedQueue.Dequeue();
                 if (receiver != null)
                     receiver.OnReceiveData(dataReceived.data, dataReceived.ipEndPoint);
@@ -46,27 +54,34 @@ public class UDPConnection {
         }
     }
 
-    void OnReceive(IAsyncResult ar) {
-        try {
+    void OnReceive(IAsyncResult ar)
+    {
+        try
+        {
             DataReceived dataReceived = new DataReceived();
             dataReceived.data = connection.EndReceive(ar, ref dataReceived.ipEndPoint);
 
-            lock (handler) {
+            connection.BeginReceive(OnReceive, null);
+
+            lock (handler)
+            {
                 dataReceivedQueue.Enqueue(dataReceived);
             }
-        } catch (SocketException e) {
+        }
+        catch(SocketException e)
+        {
             // This happens when a client disconnects, as we fail to send to that port.
             UnityEngine.Debug.LogError("[UdpConnection] " + e.Message);
         }
-
-        connection.BeginReceive(OnReceive, null);
     }
 
-    public void Send(byte[] data) {
+    public void Send(byte[] data)
+    {
         connection.Send(data, data.Length);
     }
 
-    public void Send(byte[] data, IPEndPoint ipEndpoint) {
+    public void Send(byte[] data, IPEndPoint ipEndpoint)
+    {
         connection.Send(data, data.Length, ipEndpoint);
     }
 }

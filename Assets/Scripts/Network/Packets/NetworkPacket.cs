@@ -1,26 +1,39 @@
 using System.Net;
+using System.IO;
 
-public enum PacketType {
-    HandShake,
-    HandShake_OK,
-    Error,
-    Ping,
-    Pong,
-    Message,
+public enum PacketType
+{
+    ConnectionRequest,
+    ChallengeRequest,
+    ChallengeResponse,
+    Connected,
+    User,
+    Count
 }
 
-public class NetworkPacket {
-    public PacketType type;
-    public int clientId;
-    public IPEndPoint ipEndPoint;
-    public float timeStamp;
-    public byte[] payload;
 
-    public NetworkPacket(PacketType type, byte[] data, float timeStamp, int clientId = -1, IPEndPoint ipEndPoint = null) {
-        this.type = type;
-        this.timeStamp = timeStamp;
-        this.clientId = clientId;
-        this.ipEndPoint = ipEndPoint;
-        this.payload = data;
+public abstract class NetworkPacket<P> : ISerializePacket
+{
+    public P payload;
+
+    public ushort userPacketType { get; set; }
+    public ushort packetType { get; set; }
+
+    public NetworkPacket(ushort packetType)
+    {
+        this.packetType = packetType;
     }
+
+    public void Serialize(Stream stream)
+    {
+        OnSerialize(stream);
+    }
+
+    public void Deserialize(Stream stream)
+    {
+        OnDeserialize(stream);
+    }
+
+    abstract public void OnSerialize(Stream stream);
+    abstract public void OnDeserialize(Stream stream);
 }
