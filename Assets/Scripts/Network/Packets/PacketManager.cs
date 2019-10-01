@@ -34,6 +34,39 @@ public class PacketManager : Singleton<PacketManager>, IReceiveData
             NetworkManager.Instance.SendToServer(bytes);
     }
 
+    public void SendPacket<T>(NetworkPacket<T> packet, bool reliable = false)
+    {
+        byte[] bytes = Serialize(packet);
+
+        if (NetworkManager.Instance.isServer)
+            NetworkManager.Instance.Broadcast(bytes);
+        else
+            NetworkManager.Instance.SendToServer(bytes);
+    }
+
+    public void SendPacket<T>(NetworkPacket<T> packet, IPEndPoint ipEndPoint, bool reliable = false)
+    {
+        byte[] bytes = Serialize(packet);
+
+        NetworkManager.Instance.SendToClient(bytes, ipEndPoint);
+    }
+
+   byte[] Serialize<T>(NetworkPacket<T> packet)
+    {
+        PacketHeader header = new PacketHeader();
+        MemoryStream stream = new MemoryStream();
+
+        header.protocolId = 0;
+        header.packetType = packet.packetType;
+
+        header.Serialize(stream);
+        packet.Serialize(stream);
+
+        stream.Close();
+
+        return stream.ToArray();
+    }
+
     byte[] Serialize<T>(NetworkPacket<T> packet, uint objectId)
     {
         PacketHeader header = new PacketHeader();
@@ -43,7 +76,7 @@ public class PacketManager : Singleton<PacketManager>, IReceiveData
         header.protocolId = 0;
         header.packetType = packet.packetType;
 
-        if (packet.packetType == (ushort)PacketType.User)
+        if (packet.packetType == PacketType.User)
         {
             userHeader.packetType = packet.userPacketType;
             userHeader.packetId   = currentPacketId++;

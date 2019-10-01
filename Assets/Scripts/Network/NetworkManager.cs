@@ -3,20 +3,6 @@ using UnityEngine;
 using System.Net;
 using System;
 
-public struct Client
-{
-    public float timeStamp;
-    public uint id;
-    public IPEndPoint ipEndPoint;
-
-    public Client(IPEndPoint ipEndPoint, uint id, float timeStamp)
-    {
-        this.timeStamp = timeStamp;
-        this.id = id;
-        this.ipEndPoint = ipEndPoint;
-    }
-}
-
 public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData
 {
     public IPAddress ipAddress
@@ -94,6 +80,10 @@ public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData
 
         if (OnReceiveEvent != null)
             OnReceiveEvent.Invoke(data, ip);
+    }
+
+    public void SendToClient(byte[] data, IPEndPoint ipEndPoint) {
+        connection.Send(data, ipEndPoint);
     }
 
     public void SendToServer(byte[] data)
