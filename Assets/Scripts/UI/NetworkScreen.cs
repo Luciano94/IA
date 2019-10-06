@@ -36,7 +36,6 @@ public class NetworkScreen : MBSingleton<NetworkScreen>
 
     void SwitchToChatScreen()
     {
-        ChatScreen.Instance.gameObject.SetActive(true);
-        this.gameObject.SetActive(false);
+        PongManager.Instance.InitGame();
     }
 }

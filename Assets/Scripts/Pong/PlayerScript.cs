@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        boundariesVector = new Vector2(-8, 0);
+        boundariesVector = new Vector2(transform.position.x, 0);
     }
 
     // Update is called once per frame
@@ -21,6 +21,12 @@ public class PlayerScript : MonoBehaviour
     {
         Movement();
         CheckBounduaries();
+        SendInfo();
+    }
+
+    private void SendInfo()
+    {
+        MessageManager.Instance.SendPosition(transform.position, 1);
     }
 
     private void CheckBounduaries()

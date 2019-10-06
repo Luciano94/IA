@@ -36,6 +36,7 @@ public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData
         isServer = true;
         this.port = port;
         connection = new UdpConnection(port, this);
+        PacketManager.Instance.Awake();
     }
 
     public void StartClient(IPAddress ip, int port)

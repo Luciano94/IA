@@ -28,10 +28,12 @@ public class PacketManager : Singleton<PacketManager>, IReceiveData
     {
         byte[] bytes = Serialize(packet, objectId);
 
-        if (NetworkManager.Instance.isServer)
+        if (NetworkManager.Instance.isServer){
             NetworkManager.Instance.Broadcast(bytes);
-        else
+        }
+        else{
             NetworkManager.Instance.SendToServer(bytes);
+        }
     }
 
     public void SendPacket<T>(NetworkPacket<T> packet, bool reliable = false)
@@ -55,7 +57,6 @@ public class PacketManager : Singleton<PacketManager>, IReceiveData
     {
         PacketHeader header = new PacketHeader();
         MemoryStream stream = new MemoryStream();
-
         header.protocolId = 0;
         header.packetType = packet.packetType;
 
@@ -75,7 +76,6 @@ public class PacketManager : Singleton<PacketManager>, IReceiveData
 
         header.protocolId = 0;
         header.packetType = packet.packetType;
-
         if (packet.packetType == PacketType.User)
         {
             userHeader.packetType = packet.userPacketType;

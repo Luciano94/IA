@@ -22,6 +22,12 @@ public class BallScript : MonoBehaviour
     {
        CheckBoundaries();
        transform.Translate(speedX * Time.deltaTime, speedY * Time.deltaTime, 0);
+       SendInfo();
+    }
+
+    private void SendInfo()
+    {
+        MessageManager.Instance.SendPosition(transform.position, 2);
     }
 
     private void CheckBoundaries(){

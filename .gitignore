@@ -6,3 +6,7 @@ Logs
 Temp/
 *.csproj
 *.sln
+
+Build/
+
+Build-ESTA ANDA/

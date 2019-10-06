@@ -12,7 +12,7 @@ public class MessageManager : Singleton<MessageManager>
         MessagePacket packet = new MessagePacket();
 
         packet.payload = message;
-
+        UnityEngine.Debug.Log(message + "   --> " + objectId);
         PacketManager.Instance.SendPacket(packet, objectId);
     }
 

@@ -15,13 +15,12 @@ public class ChatScreen : MBSingleton<ChatScreen>
 
     void OnEnable()
     {
-        PacketManager.Instance.Awake();
-        PacketManager.Instance.AddListener(0, OnReceivePacket);
+       // PacketManager.Instance.AddListener(0, OnReceivePacket);
     }
 
     void OnDisable()
     {
-        PacketManager.Instance.RemoveListener(0);
+        //PacketManager.Instance.RemoveListener(0);
     }
 
     void OnReceivePacket(uint packetId, ushort type, Stream stream)
