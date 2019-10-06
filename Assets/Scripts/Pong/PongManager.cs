@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class PongManager : MBSingleton<PongManager>
 {
-    public Text playerPointsText;
-    public Text playerUDPPointsText;
+    public TextUDP playerPointsText;
+    public TextUDP playerUDPPointsText;
 
     private int playerPoints = 0;
     private int playerUDPPoints = 0;
@@ -23,8 +23,8 @@ public class PongManager : MBSingleton<PongManager>
     // Start is called before the first frame update
     void Start()
     {
-        playerPointsText.text = playerPoints.ToString();
-        playerUDPPointsText.text = playerUDPPoints.ToString();
+        // playerPointsText.SetText(playerPoints.ToString());
+        // playerUDPPointsText.SetText(playerUDPPoints.ToString());
     }
 
     public void InitGame()
@@ -62,8 +62,7 @@ public class PongManager : MBSingleton<PongManager>
     {
         if(isServer){
             playerPoints++;
-            playerPointsText.text = playerPoints.ToString();
-            MessageManager.Instance.SendString(playerPoints.ToString(),100);//(uint)playerPointsText.GetInstanceID());
+            playerPointsText.SetText(playerPoints.ToString());
         }
     }
 
@@ -71,8 +70,7 @@ public class PongManager : MBSingleton<PongManager>
     {
         if(isServer){
             playerUDPPoints++;
-            playerUDPPointsText.text = playerUDPPoints.ToString();
-            //MessageManager.Instance.SendString(playerUDPPoints.ToString(),150);//(uint)playerUDPPointsText.GetInstanceID());
+            playerUDPPointsText.SetText(playerUDPPoints.ToString());
         }
     }
 
@@ -81,33 +79,17 @@ public class PongManager : MBSingleton<PongManager>
     void AddListener()
     {
         if(!isServer){
-            PacketManager.Instance.Awake(); //HECHO POR MARTIN MONTERROSA, EL INSPECTOR DE "PAQUETES"
-            PacketManager.Instance.AddListener(100, OnReceivePacket);
-           // PacketManager.Instance.AddListener(150, OnReceivePacket);
+            PacketManager.Instance.Awake();
+            playerUDPPointsText.AddListener();
+            playerPointsText.AddListener();
         }
     }
 
     void OnDisable()
     {
         if(!isServer){
-            PacketManager.Instance.RemoveListener((uint)playerPointsText.GetInstanceID());
-            PacketManager.Instance.RemoveListener((uint)playerUDPPointsText.GetInstanceID());
-        }
-    }
-
-    void OnReceivePacket(uint packetId, ushort type, Stream stream)
-    {
-        switch (type)
-        {
-            case (ushort)UserPacketType.Message:
-                MessagePacket messagePacket = new MessagePacket();
-                messagePacket.Deserialize(stream);
-                if(packetId == 100){ //playerPointsText.GetInstanceID()){
-                    playerPointsText.text = messagePacket.payload;
-                }else if(packetId == 150){// playerUDPPointsText.GetInstanceID()){
-                    playerUDPPointsText.text = messagePacket.payload;
-                }
-            break;
+            //PacketManager.Instance.RemoveListener((uint)playerPointsText.GetInstanceID());
+            //PacketManager.Instance.RemoveListener((uint)playerUDPPointsText.GetInstanceID());
         }
     }
 }

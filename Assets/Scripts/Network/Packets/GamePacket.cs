@@ -9,7 +9,8 @@ public abstract class GamePacket<P> : NetworkPacket<P>
 public class MessagePacket : GamePacket<string>
 {
     public MessagePacket() : base(global::PacketType.User) { 
-        userPacketType = (ushort)UserPacketType.Message; }
+        userPacketType = (ushort)UserPacketType.Message;
+        }
 
     public override void OnSerialize(Stream stream)
     {
@@ -27,7 +28,8 @@ public class MessagePacket : GamePacket<string>
 public class PositionPacket : GamePacket<Vector3>
 {
     public PositionPacket() : base(global::PacketType.User) { 
-        userPacketType = (ushort)UserPacketType.Position;}
+        userPacketType = (ushort)UserPacketType.Position;
+        }
 
     public override void OnSerialize(Stream stream)
     {
@@ -43,5 +45,24 @@ public class PositionPacket : GamePacket<Vector3>
         payload.x = binaryReader.ReadSingle();
         payload.y = binaryReader.ReadSingle();
         payload.z = binaryReader.ReadSingle();
+    }
+}
+
+public class IntPacket : GamePacket<int>
+{
+    public IntPacket() : base(global::PacketType.User) { 
+        userPacketType = (ushort)UserPacketType.Int; 
+    }
+
+    public override void OnSerialize(Stream stream)
+    {
+        BinaryWriter binaryWriter = new BinaryWriter(stream);
+        binaryWriter.Write(payload);
+    }
+
+    public override void OnDeserialize(Stream stream)
+    {
+        BinaryReader binaryReader = new BinaryReader(stream);
+        payload = binaryReader.ReadInt32();
     }
 }

@@ -7,6 +7,7 @@ public enum UserPacketType
 {
     Message,
     Position,
+    Int,
     Count
 }
 
