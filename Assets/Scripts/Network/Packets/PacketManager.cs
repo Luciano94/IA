@@ -14,7 +14,6 @@ public class PacketManager : Singleton<PacketManager>, IReceiveData
 
     public void AddListener(uint ownerId, System.Action<uint, ushort, Stream> callback)
     {
-        UnityEngine.Debug.Log("LISTENER ADDED   " + ownerId);
         if (!onPacketReceived.ContainsKey(ownerId))
             onPacketReceived.Add(ownerId, callback);
     }

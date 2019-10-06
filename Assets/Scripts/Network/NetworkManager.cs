@@ -31,16 +31,13 @@ public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData
 
     public uint clientId { get; set; }
 
-    private void Awake()
-    {
-        PacketManager.Instance.Awake();
-    }
-
     public void StartServer(int port)
     {
         isServer = true;
         this.port = port;
         connection = new UdpConnection(port, this);
+        PacketManager.Instance.Awake();
+
     }
 
     public void StartClient(IPAddress ip, int port)
@@ -53,6 +50,8 @@ public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData
         connection = new UdpConnection(ip, port, this);
 
         AddClient(new IPEndPoint(ip, port));
+        PacketManager.Instance.Awake();
+
     }
 
     void AddClient(IPEndPoint ip)

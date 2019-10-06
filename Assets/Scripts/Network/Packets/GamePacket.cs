@@ -78,13 +78,11 @@ public class GameStatePacket : GamePacket<GameState>
     {
         BinaryWriter binaryWriter = new BinaryWriter(stream);
         binaryWriter.Write((ushort)payload);
-        UnityEngine.Debug.Log("OnSerialize  " + payload.ToString());
     }
 
     public override void OnDeserialize(Stream stream)
     {
         BinaryReader binaryReader = new BinaryReader(stream);
         payload = (GameState)binaryReader.ReadUInt16();
-        UnityEngine.Debug.Log("OnDeserialize    " + payload.ToString());
     }
 }

@@ -26,16 +26,18 @@ public class PongManager : MBSingleton<PongManager>
     public GameObject serverStartButton;
     public GameObject clientWaitingText;
 
+    SynchronousGameStart gameStart;
+
     public void InitGame()
     {
         isServer = NetworkManager.Instance.isServer;
         networkMenu.SetActive(false);
         SetGame();
-        AddListener();
     }
 
-    private void Awake() 
+    public new void Awake()
     {
+        base.Awake();
         networkMenu.SetActive(true);
         StartGameHud.SetActive(false);
         gameHud.SetActive(false);
@@ -43,7 +45,7 @@ public class PongManager : MBSingleton<PongManager>
         playerUDP.SetActive(false);
     }
 
-    private void StartGame()
+    public void StartGame()
     {
         StartGameHud.SetActive(false);
         playerOne.SetActive(true);
@@ -56,6 +58,7 @@ public class PongManager : MBSingleton<PongManager>
 
     public void SetGame()
     {
+        gameStart = GetComponent<SynchronousGameStart>();
         StartGameHud.SetActive(true);
         if(isServer){
             serverStartButton.SetActive(true);
@@ -65,35 +68,14 @@ public class PongManager : MBSingleton<PongManager>
         }else{
             serverStartButton.SetActive(false);
             clientWaitingText.SetActive(true);
-            PacketManager.Instance.AddListener(gameStartOwnerId, OnReceivePacket);
+            gameStart.AddListener();
         }
     }
 
     private void onClickStartButton()
     {
-        for (int i = 0; i < 50; i++)
-        {
-            MessageManager.Instance.SendGameState(GameState.GameStart, gameStartOwnerId);
-        }
+        gameStart.SendState(GameState.GameStart);
         StartGame();
-    }
-
-    private void OnReceivePacket(uint packetId, ushort type, Stream stream)
-    {
-        UnityEngine.Debug.Log("LLEGO EL PAQUETE GSTATE   " + type);
-        switch (type)
-        {
-            case (ushort)UserPacketType.GameState:
-                GameStatePacket gStatePacket = new GameStatePacket();
-                gStatePacket.Deserialize(stream);
-                switch (gStatePacket.payload)
-                {
-                    case GameState.GameStart:
-                        StartGame();
-                    break;
-                }
-                break;
-        }
     }
 
     public void SetPlayers()
