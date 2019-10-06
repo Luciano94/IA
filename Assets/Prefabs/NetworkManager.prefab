@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7777254183177512884}
   - component: {fileID: 7777254183177512887}
+  - component: {fileID: 1306282700}
+  - component: {fileID: 1306282699}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -44,3 +46,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeOut: 30
+--- !u!114 &1306282700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777254183177512886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bad48f6bf6413489a805725b0f37a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1306282699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777254183177512886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0172a444e932da4438d56b3f4535fe55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

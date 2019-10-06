@@ -30,7 +30,7 @@ public class PongManager : MBSingleton<PongManager>
 
     public void InitGame()
     {
-        isServer = NetworkManager.Instance.isServer;
+        isServer = ConnectionManager.Instance.isServer;
         networkMenu.SetActive(false);
         SetGame();
     }

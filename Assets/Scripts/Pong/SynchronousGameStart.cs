@@ -9,7 +9,7 @@ public class SynchronousGameStart : MonoBehaviour
 
     public void AddListener()
     {
-        SendState(GameState.Count);
+        //SendState(GameState.Count);
         PacketManager.Instance.AddListener(objectID, OnReceivePacket);
     }
 

@@ -15,12 +15,12 @@ public class ChatScreen : MBSingleton<ChatScreen>
 
     void OnEnable()
     {
-       // PacketManager.Instance.AddListener(0, OnReceivePacket);
+       PacketManager.Instance.AddListener(0, OnReceivePacket);
     }
 
     void OnDisable()
     {
-        //PacketManager.Instance.RemoveListener(0);
+        PacketManager.Instance.RemoveListener(0);
     }
 
     void OnReceivePacket(uint packetId, ushort type, Stream stream)
@@ -31,7 +31,7 @@ public class ChatScreen : MBSingleton<ChatScreen>
                 MessagePacket messagePacket = new MessagePacket();
                 messagePacket.Deserialize(stream);
 
-                if (NetworkManager.Instance.isServer)
+                if (ConnectionManager.Instance.isServer)
                     MessageManager.Instance.SendString(messagePacket.payload, 0);
 
                 messages.text += messagePacket.payload + System.Environment.NewLine;
@@ -41,7 +41,7 @@ public class ChatScreen : MBSingleton<ChatScreen>
                 PositionPacket positionPacket = new PositionPacket();
                 positionPacket.Deserialize(stream);
 
-                if (NetworkManager.Instance.isServer)
+                if (ConnectionManager.Instance.isServer)
                     MessageManager.Instance.SendPosition(positionPacket.payload, 0);
 
                 // Aca enviaria el payload a donde sea necesario
@@ -55,7 +55,7 @@ public class ChatScreen : MBSingleton<ChatScreen>
         {
             if (inputMessage && inputMessage.text != "")
             {
-                if (NetworkManager.IsAvailable() && NetworkManager.Instance.isServer)
+                if (NetworkManager.IsAvailable() && ConnectionManager.Instance.isServer)
                     messages.text += inputMessage.text + System.Environment.NewLine;
 
                 MessageManager.Instance.SendString(inputMessage.text, 0);
