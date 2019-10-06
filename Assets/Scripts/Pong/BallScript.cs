@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
+    private uint OwnerBallID = 2;
+
     private Rigidbody rb;
     public float speed = 5;
     public float roof = 4.75f;
@@ -27,7 +29,7 @@ public class BallScript : MonoBehaviour
 
     private void SendInfo()
     {
-        MessageManager.Instance.SendPosition(transform.position, 2);
+        MessageManager.Instance.SendPosition(transform.position, OwnerBallID);
     }
 
     private void CheckBoundaries(){
