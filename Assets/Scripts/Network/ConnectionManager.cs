@@ -36,7 +36,6 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         }
     }
     private readonly Dictionary<IPEndPoint, uint> ipToId = new Dictionary<IPEndPoint, uint>();
-    private List<ulong> clientSalts;
     private ulong clientSalt;
     private ulong serverSalt;
     private State currState;
@@ -45,7 +44,6 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
     private uint clientId;
     public bool isServer { get; private set; }
     public IPAddress ipAddress { get; private set; }
-    public IPEndPoint ipEndPoint { get; private set; }
 
     public int port { get; private set; }
 
@@ -74,24 +72,12 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         this.port = port;
         this.ipAddress = ip;
 
-        ipEndPoint = new IPEndPoint(ipAddress, port);
-
         NetworkManager.Instance.StartConnection(ipAddress, port);
         currState = State.SendingConnectionRequest;
         enabled = true;
         //empezar handshake
     }
     
-    void AddClient(IPEndPoint ip, uint id) {
-        if (isServer && !ipToId.ContainsKey(ip)) {
-            Debug.Log("Adding client  + ip.Address");
-
-            ipToId[ip] = id;
-
-            clients.Add(id, new Client(ip, id, Time.realtimeSinceStartup));
-        }
-    }
-
     void RemoveClient(IPEndPoint ip) {
         if (ipToId.ContainsKey(ip)) {
             Debug.Log("Removing client  + ip.Address");

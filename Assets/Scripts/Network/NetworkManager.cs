@@ -8,8 +8,6 @@ public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData {
 
     public int port { get; private set; }
 
-    public int TimeOut = 30;
-
     public Action<byte[], IPEndPoint> OnReceiveEvent;
 
     private UdpConnection connection;
