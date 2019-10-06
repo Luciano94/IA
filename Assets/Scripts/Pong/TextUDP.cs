@@ -12,7 +12,7 @@ public class TextUDP : MonoBehaviour {
 
     public void SetText(string text) {
         this.text.text = text;
-        MessageManager.Instance.SendString(text, objectID);//(uint)playerPointsText.GetInstanceID());
+        MessageManager.Instance.SendString(text, objectID);
     }
 
     

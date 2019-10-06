@@ -6,20 +6,19 @@ public class BallScript : MonoBehaviour
 {
     private uint OwnerBallID = 2;
 
-    private Rigidbody rb;
     public float speed = 5;
     public float roof = 4.75f;
     public float floor = -4.75f;
+
     private float speedX;
     private float speedY;
-    // Start is called before the first frame update
+
     void Start()
     {
         speedX = speed;
         speedY = speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
        CheckBoundaries();

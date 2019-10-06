@@ -28,6 +28,9 @@ public class PongManager : MBSingleton<PongManager>
 
     SynchronousGameStart gameStart;
 
+    public TextUDP resultText;
+    public GameObject resultScreen;
+
     public void InitGame()
     {
         isServer = ConnectionManager.Instance.isServer;
@@ -39,6 +42,7 @@ public class PongManager : MBSingleton<PongManager>
     {
         base.Awake();
         networkMenu.SetActive(true);
+        resultScreen.SetActive(false);
         StartGameHud.SetActive(false);
         gameHud.SetActive(false);
         playerOne.SetActive(false);
@@ -97,6 +101,11 @@ public class PongManager : MBSingleton<PongManager>
             playerPoints++;
             playerPointsText.SetText(playerPoints.ToString());
         }
+        if (playerPoints == 10)
+        {
+            GameEnd();
+            gameStart.SendState(GameState.GameEnd);
+        }
     }
 
     public void PlayerUDPPoint()
@@ -105,6 +114,55 @@ public class PongManager : MBSingleton<PongManager>
             playerUDPPoints++;
             playerUDPPointsText.SetText(playerUDPPoints.ToString());
         }
+        if (playerUDPPoints == 10)
+        {
+            GameEnd();
+            gameStart.SendState(GameState.GameEnd);
+        }
+    }
+
+    public void GameEnd()
+    {
+        StartGameHud.SetActive(false);
+        gameHud.SetActive(false);
+        playerOne.SetActive(false);
+        playerUDP.SetActive(false);
+        ball.SetActive(false);
+        resultScreen.SetActive(true);
+
+        if(playerPointsText.text.text == "10")
+        {
+            if (isServer)
+            {
+                resultText.text.text = "YOU WIN!!!";
+            }
+            else
+            {
+                resultText.text.text = "YOU LOSE!!!";
+            }
+        }
+        else if (playerUDPPointsText.text.text == "10")
+        {
+            if (isServer)
+            {
+                resultText.text.text = "YOU LOSE!!!";
+            }
+            else
+            {
+                resultText.text.text = "YOU WIN!!!";
+            }
+        }
+
+        Invoke("CloseApp", 2.0f);
+    }
+
+    private void CloseApp()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
 

@@ -31,6 +31,9 @@ public class SynchronousGameStart : MonoBehaviour
                     case GameState.GameStart:
                         PongManager.Instance.StartGame();
                         break;
+                    case GameState.GameEnd:
+                        PongManager.Instance.GameEnd();
+                        break;
                 }
                 break;
         }
