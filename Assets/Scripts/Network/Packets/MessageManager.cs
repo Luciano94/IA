@@ -1,5 +1,19 @@
 ﻿using UnityEngine;
 
+public enum GameState
+{
+    GameStart,
+    GameEnd,
+    PlayerOneWin,
+    PlayerTwoWin,
+    Count
+}
+
+public struct GameStatePayload
+{
+    public GameState gState;
+}
+
 public class MessageManager : Singleton<MessageManager>
 {
     protected override void Initialize()
@@ -12,7 +26,6 @@ public class MessageManager : Singleton<MessageManager>
         MessagePacket packet = new MessagePacket();
 
         packet.payload = message;
-        UnityEngine.Debug.Log(message + "   --> " + objectId);
         PacketManager.Instance.SendPacket(packet, objectId);
     }
 
@@ -30,6 +43,16 @@ public class MessageManager : Singleton<MessageManager>
         IntPacket packet = new IntPacket();
 
         packet.payload = number;
+
+        PacketManager.Instance.SendPacket(packet, objectId);
+    }
+
+    public void SendGameState(GameState gState, uint objectId)
+    {
+
+        GameStatePacket packet = new GameStatePacket();
+
+        packet.payload = gState;
 
         PacketManager.Instance.SendPacket(packet, objectId);
     }

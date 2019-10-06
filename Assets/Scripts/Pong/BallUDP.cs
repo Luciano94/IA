@@ -5,31 +5,26 @@ using UnityEngine;
 
 public class BallUDP : MonoBehaviour
 {
+    private uint OwnerBallID = 2;
+
     void OnEnable()
     {
-        PacketManager.Instance.Awake();
-        PacketManager.Instance.AddListener(2, OnReceivePacket);
+        PacketManager.Instance.AddListener(OwnerBallID, OnReceivePacket);
     }
 
     void OnDisable()
     {
-        PacketManager.Instance.RemoveListener(2);
+        PacketManager.Instance.RemoveListener(OwnerBallID);
     }
 
     void OnReceivePacket(uint packetId, ushort type, Stream stream)
     {
         switch (type)
         {
-            case (ushort)UserPacketType.Message:
-                MessagePacket messagePacket = new MessagePacket();
-                messagePacket.Deserialize(stream);
-            break;
             case (ushort)UserPacketType.Position:
                 PositionPacket positionPacket = new PositionPacket();
                 positionPacket.Deserialize(stream);
                 transform.position = positionPacket.payload;
-
-                // Aca enviaria el payload a donde sea necesario
             break;
         }
     }

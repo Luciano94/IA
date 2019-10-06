@@ -30,13 +30,17 @@ public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData
     private readonly Dictionary<IPEndPoint, uint> ipToId = new Dictionary<IPEndPoint, uint>();
 
     public uint clientId { get; set; }
-    
+
+    private void Awake()
+    {
+        PacketManager.Instance.Awake();
+    }
+
     public void StartServer(int port)
     {
         isServer = true;
         this.port = port;
         connection = new UdpConnection(port, this);
-        PacketManager.Instance.Awake();
     }
 
     public void StartClient(IPAddress ip, int port)

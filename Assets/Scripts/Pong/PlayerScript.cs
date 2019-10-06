@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    private uint OwnerPlayerID = 1;
+
     public float verticalAxis;
     private Vector2 boundariesVector;
     public float speed = 10;
@@ -21,12 +23,11 @@ public class PlayerScript : MonoBehaviour
     {
         Movement();
         CheckBounduaries();
-        SendInfo();
     }
 
     private void SendInfo()
     {
-        MessageManager.Instance.SendPosition(transform.position, 1);
+        MessageManager.Instance.SendPosition(transform.position, OwnerPlayerID);
     }
 
     private void CheckBounduaries()
@@ -50,6 +51,7 @@ public class PlayerScript : MonoBehaviour
         if(verticalAxis != 0)
         {
             transform.Translate(0,verticalAxis * speed * Time.deltaTime,0);
+            SendInfo();
         }
     }
 }
