@@ -6,7 +6,8 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
     Dictionary<uint, System.Action<uint, ushort, Stream>> onPacketReceived = new Dictionary<uint, System.Action<uint, ushort, Stream>>();
     uint currentPacketId = 0;
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
         NetworkManager.Instance.OnReceiveEvent += OnReceiveData;
     }
 
@@ -89,13 +90,17 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
 
     public void OnReceiveData(byte[] data, IPEndPoint ipEndpoint) {
         PacketHeader header = new PacketHeader();
-        UserPacketHeader userHeader = new UserPacketHeader();
         MemoryStream stream = new MemoryStream(data);
 
         header.Deserialize(stream);
-        userHeader.Deserialize(stream);
 
-        InvokeCallback(userHeader.objectId, userHeader.packetId, userHeader.packetType, stream);
+        if (header.packetType == PacketType.User) {
+            UserPacketHeader userHeader = new UserPacketHeader();
+            userHeader.Deserialize(stream);
+            InvokeCallback(userHeader.objectId, userHeader.packetId, userHeader.packetType, stream);
+        } else {
+            ConnectionManager.Instance.OnReceivePacket(ipEndpoint, header.packetType, stream);
+        }
 
         stream.Close();
     }

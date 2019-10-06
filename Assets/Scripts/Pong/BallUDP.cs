@@ -7,7 +7,6 @@ public class BallUDP : MonoBehaviour
 {
     void OnEnable()
     {
-        PacketManager.Instance.Awake();
         PacketManager.Instance.AddListener(2, OnReceivePacket);
     }
 

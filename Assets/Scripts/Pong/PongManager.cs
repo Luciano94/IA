@@ -37,8 +37,9 @@ public class PongManager : MBSingleton<PongManager>
         SetPlayers();
         AddListener();
     }
-
-    private void Awake() {
+    
+    protected override void Awake() {
+        base.Awake();
         networkMenu.SetActive(true);
         gameHud.SetActive(false);
         playerOne.SetActive(false);
@@ -78,8 +79,7 @@ public class PongManager : MBSingleton<PongManager>
     //CLIENT SIDE
     void AddListener()
     {
-        if(!isServer){
-            PacketManager.Instance.Awake();
+        if(!isServer) {
             playerUDPPointsText.AddListener();
             playerPointsText.AddListener();
         }

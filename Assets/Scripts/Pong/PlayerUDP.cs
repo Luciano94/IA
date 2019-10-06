@@ -7,7 +7,6 @@ public class PlayerUDP : MonoBehaviour
 {
     void OnEnable()
     {
-        PacketManager.Instance.Awake();
         PacketManager.Instance.AddListener(1, OnReceivePacket);
     }
 

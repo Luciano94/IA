@@ -1,6 +1,8 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public struct Client {
     public enum State {
@@ -9,8 +11,8 @@ public struct Client {
     }
 
     public uint id;
-    public long clientSalt;
-    public long serverSalt;
+    public ulong clientSalt;
+    public ulong serverSalt;
     public IPEndPoint ipEndPoint;
     public State state;
     public float timeStamp;
@@ -34,38 +36,30 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         }
     }
     private readonly Dictionary<IPEndPoint, uint> ipToId = new Dictionary<IPEndPoint, uint>();
-    private long clientSalt;
+    private List<ulong> clientSalts;
+    private ulong clientSalt;
+    private ulong serverSalt;
     private State currState;
-    private const float SEND_RATE = 0.1f;
+    private const float SEND_RATE = 0.01f;
     private float timer = 0f;
-    private Client client;
     private uint clientId;
     public bool isServer { get; private set; }
     public IPAddress ipAddress { get; private set; }
+    public IPEndPoint ipEndPoint { get; private set; }
 
     public int port { get; private set; }
 
     public enum State {
-        ConnectionSent,
-        ChallengeRequested,
-        ChallengedResponded,
+        SendingConnectionRequest,
+        RequestingChallenge,
+        RespondingChallenged,
         Connected,
     }
 
-    public ConnectionManager(IPEndPoint ipEndPoint) {
-        isServer = false;
-        ipEndPoint = new IPEndPoint(ipAddress, port);
-        StartClient(ipAddress, port);
-        //client = new Client(ipEndPoint);
-    }
+    protected override void Awake() {
+        base.Awake();
 
-    public ConnectionManager() {
-        isServer = true;
-    }
-
-
-    private void Awake() {
-        //PacketManager.Instance.AddListener((uint)gameObject.GetInstanceID(), );
+        enabled = false;
     }
 
     public void StartServer(int port) {
@@ -80,8 +74,11 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         this.port = port;
         this.ipAddress = ip;
 
-        NetworkManager.Instance.StartConnection(ipAddress, port);
+        ipEndPoint = new IPEndPoint(ipAddress, port);
 
+        NetworkManager.Instance.StartConnection(ipAddress, port);
+        currState = State.SendingConnectionRequest;
+        enabled = true;
         //empezar handshake
     }
     
@@ -102,17 +99,21 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         }
     }
 
-
     private void Update() {
-        timer += Time.deltaTime;
-        
-        if (timer >= SEND_RATE) {
-            switch (currState) {
-                case State.ConnectionSent: {
-                    ConnectionRequest();
-                } break;
+        if (!isServer) {
+            timer += Time.unscaledDeltaTime;
+            
+            if (timer >= SEND_RATE) {
+                switch (currState) {
+                    case State.SendingConnectionRequest: {
+                        SendConnectionRequest();
+                    } break;
+                    case State.RespondingChallenged: {
+                        SendChallengeResponse(clientSalt, serverSalt);
+                    } break;
+                }
+                timer = 0f;
             }
-            timer = 0f;
         }
     }
 
@@ -124,56 +125,87 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         PacketManager.Instance.SendPacket<T>(packet, ipEndPoint);
     }
 
-    private void ConnectionRequest() {
-        if (!isServer) {
-            clientSalt = (long)Random.Range(0, int.MaxValue)*(long)Random.Range(0, int.MaxValue);
-            SendConnectionRequest();
-        }
-    }
-
     private void SendConnectionRequest() {
         ConnectionRequestPacket request = new ConnectionRequestPacket();
-        request.payload.clientSalt = client.clientSalt;
+        request.payload.clientSalt = LongRandom.GetRandom();
         SendToServer(request);
     }
 
-    private void SendChallengeRequest(ConnectionRequestData connectionRequestData, 
-                                      long clientId, 
-                                      long clientSalt, long serverSalt, 
-                                      IPEndPoint ipEndPoint) {
-
-        ChallengeRequestPacket request = new ChallengeRequestPacket();
-        request.payload.clientId = clientId;
-        request.payload.clientSalt = clientSalt;
-        request.payload.serverSalt = serverSalt;
-        SendToClient(request, ipEndPoint);
-    }
-
-    
-    private void RecieveConnectionRequest(ConnectionRequestPacket packet) {
+    private void CheckAndSendChallengeRequest(IPEndPoint ipEndpoint, ConnectionRequestData connectionRequestData) {
         if (isServer) {
-            ConnectionRequestData requestData = packet.payload;
-            long serverSalt = (long)Random.Range(0, int.MaxValue)*(long)Random.Range(0, int.MaxValue);
-        
-            SendChallengeRequest(requestData, clientId, requestData.clientSalt,);
-            ++clientId;
+            if (!ipToId.ContainsKey(ipEndpoint)) {
+                Client newClient = new Client(ipEndpoint, clientId++, DateTime.Now.Ticks);
+                newClient.clientSalt = connectionRequestData.clientSalt;
+                newClient.serverSalt = LongRandom.GetRandom();
+                clients.Add(newClient.id, newClient);
+                ipToId.Add(ipEndpoint, newClient.id);
+            }
+            SendChallengeRequest(clients[ipToId[ipEndpoint]]);
         }
     }
 
-    private void SendChallengeResponse(long clientSalt, long serverSalt) {
+    private void SendChallengeRequest(Client client) {
+        ChallengeRequestPacket request = new ChallengeRequestPacket();
+        request.payload.clientId = client.id;
+        request.payload.clientSalt = client.clientSalt;
+        request.payload.serverSalt = client.serverSalt;
+        SendToClient(request, client.ipEndPoint);
+    }
+
+    private void CheckAndSendChallengeResponse(IPEndPoint ipEndpoint, ChallengeRequestData challengeRequestData) {
+        if (!isServer && currState == State.SendingConnectionRequest) {
+            clientSalt = challengeRequestData.clientSalt;
+            serverSalt = challengeRequestData.serverSalt;
+            currState = State.RespondingChallenged;
+            SendChallengeResponse(clientSalt, serverSalt);
+        }
+    }
+    
+
+    private void SendChallengeResponse(ulong clientSalt, ulong serverSalt) {
         ChallengeResponsePacket request = new ChallengeResponsePacket();
         request.payload.result = clientSalt ^ serverSalt;
         SendToServer(request);
     }
 
-    private void SendConnect() {
-        //agregar cliente
+    private void CheckResult(IPEndPoint ipEndPoint, ChallengeResponseData challengeResponseData) {
+        if (isServer) {
+            Client client = clients[ipToId[ipEndPoint]];
+            ulong result = client.clientSalt ^ client.serverSalt;
+            if (challengeResponseData.result == result) {
+                SendToClient(new ConnectedPacket(), ipEndPoint);
+            }
+        }
     }
 
-    private void ReceiveNetworkPacket<P>(NetworkPacket<P> packet) {
-        switch (packet.packetType) {
+    private void FinishHandShake() {
+        if (!isServer && currState == State.RespondingChallenged) {
+            currState = State.Connected;
+            enabled = false;
+        }
+    }
+    
+    public void OnReceivePacket(IPEndPoint ipEndpoint, PacketType packetType, Stream stream)
+    {
+        switch (packetType)
+        {
             case PacketType.ConnectionRequest: {
-
+                ConnectionRequestPacket connectionRequestPacket = new ConnectionRequestPacket();
+                connectionRequestPacket.Deserialize(stream);
+                CheckAndSendChallengeRequest(ipEndpoint, connectionRequestPacket.payload);
+            } break;
+            case PacketType.ChallengeRequest: {
+                ChallengeRequestPacket challengeRequestPacket = new ChallengeRequestPacket();
+                challengeRequestPacket.Deserialize(stream);
+                CheckAndSendChallengeResponse(ipEndpoint, challengeRequestPacket.payload);
+            } break;
+            case PacketType.ChallengeResponse: {
+                ChallengeResponsePacket challengeResponsePacket = new ChallengeResponsePacket();
+                challengeResponsePacket.Deserialize(stream);
+                CheckResult(ipEndpoint, challengeResponsePacket.payload);
+            } break;
+            case PacketType.Connected: {
+                FinishHandShake();
             } break;
         }
     }
