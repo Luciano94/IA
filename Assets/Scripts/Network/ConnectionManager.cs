@@ -50,7 +50,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
     public enum State {
         SendingConnectionRequest,
         RequestingChallenge,
-        RespondingChallenged,
+        RespondingChallenge,
         Connected,
     }
 
@@ -75,7 +75,6 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         NetworkManager.Instance.StartConnection(ipAddress, port);
         currState = State.SendingConnectionRequest;
         enabled = true;
-        //empezar handshake
     }
     
     void RemoveClient(IPEndPoint ip) {
@@ -94,7 +93,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
                     case State.SendingConnectionRequest: {
                         SendConnectionRequest();
                     } break;
-                    case State.RespondingChallenged: {
+                    case State.RespondingChallenge: {
                         SendChallengeResponse(clientSalt, serverSalt);
                     } break;
                 }
@@ -113,7 +112,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
 
     private void SendConnectionRequest() {
         ConnectionRequestPacket request = new ConnectionRequestPacket();
-        request.payload.clientSalt = LongRandom.GetRandom();
+        request.payload.clientSalt = UlongRandom.GetRandom();
         SendToServer(request);
     }
 
@@ -122,7 +121,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
             if (!ipToId.ContainsKey(ipEndpoint)) {
                 Client newClient = new Client(ipEndpoint, clientId++, DateTime.Now.Ticks);
                 newClient.clientSalt = connectionRequestData.clientSalt;
-                newClient.serverSalt = LongRandom.GetRandom();
+                newClient.serverSalt = UlongRandom.GetRandom();
                 clients.Add(newClient.id, newClient);
                 ipToId.Add(ipEndpoint, newClient.id);
             }
@@ -142,7 +141,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         if (!isServer && currState == State.SendingConnectionRequest) {
             clientSalt = challengeRequestData.clientSalt;
             serverSalt = challengeRequestData.serverSalt;
-            currState = State.RespondingChallenged;
+            currState = State.RespondingChallenge;
             SendChallengeResponse(clientSalt, serverSalt);
         }
     }
@@ -165,7 +164,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
     }
 
     private void FinishHandShake() {
-        if (!isServer && currState == State.RespondingChallenged) {
+        if (!isServer && currState == State.RespondingChallenge) {
             currState = State.Connected;
             enabled = false;
         }
