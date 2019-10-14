@@ -8,6 +8,12 @@ public class PongManager : MBSingleton<PongManager>
 {
     public const uint gameStartOwnerId = 6;
 
+    [Header("Game Parameters")]
+    public float ballSpeed =255.0f;
+    public int pointsToWin = 1;
+
+
+    [Header("Game Objects")]
     public TextUDP playerPointsText;
     public TextUDP playerUDPPointsText;
 
@@ -87,7 +93,7 @@ public class PongManager : MBSingleton<PongManager>
         if(isServer){
             playerOne.AddComponent<PlayerScript>();
             playerUDP.AddComponent<PlayerUDP>();
-            ball.AddComponent<BallScript>();
+            ball.AddComponent<BallScript>().speed = ballSpeed;
         }else{
             playerOne.AddComponent<PlayerUDP>();
             playerUDP.AddComponent<PlayerScript>();
@@ -101,7 +107,7 @@ public class PongManager : MBSingleton<PongManager>
             playerPoints++;
             playerPointsText.SetText(playerPoints.ToString());
         }
-        if (playerPoints == 10)
+        if (playerPoints == pointsToWin)
         {
             GameEnd();
             gameStart.SendState(GameState.GameEnd);
@@ -114,7 +120,7 @@ public class PongManager : MBSingleton<PongManager>
             playerUDPPoints++;
             playerUDPPointsText.SetText(playerUDPPoints.ToString());
         }
-        if (playerUDPPoints == 10)
+        if (playerUDPPoints == pointsToWin)
         {
             GameEnd();
             gameStart.SendState(GameState.GameEnd);
@@ -130,7 +136,7 @@ public class PongManager : MBSingleton<PongManager>
         ball.SetActive(false);
         resultScreen.SetActive(true);
 
-        if(playerPointsText.text.text == "10")
+        if(playerPointsText.text.text == pointsToWin.ToString())
         {
             if (isServer)
             {
@@ -141,7 +147,7 @@ public class PongManager : MBSingleton<PongManager>
                 resultText.text.text = "YOU LOSE!!!";
             }
         }
-        else if (playerUDPPointsText.text.text == "10")
+        else if (playerUDPPointsText.text.text == pointsToWin.ToString())
         {
             if (isServer)
             {
