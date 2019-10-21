@@ -5,6 +5,8 @@ using System.Net;
 public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
     Dictionary<uint, System.Action<uint, ushort, Stream>> onPacketReceived = new Dictionary<uint, System.Action<uint, ushort, Stream>>();
     uint currentPacketId = 0;
+    public uint currAck = 0;
+    public uint prevAckBitmask = 0;
 
     protected override void Awake() {
         base.Awake();
@@ -97,6 +99,16 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
         if (header.packetType == PacketType.User) {
             UserPacketHeader userHeader = new UserPacketHeader();
             userHeader.Deserialize(stream);
+            {
+                int diff = (int)((long)userHeader.packetId - (long)currAck);
+                if (diff > 0) {
+                    prevAckBitmask = prevAckBitmask << diff;
+                    prevAckBitmask |=  1U << (diff - 1);
+                } else if (diff > -32) {
+                    prevAckBitmask |=  1U << (-diff);
+                }
+                currAck = userHeader.packetId;
+            }
             InvokeCallback(userHeader.objectId, userHeader.packetId, userHeader.packetType, stream);
         } else {
             ConnectionManager.Instance.OnReceivePacket(ipEndpoint, header.packetType, stream);
