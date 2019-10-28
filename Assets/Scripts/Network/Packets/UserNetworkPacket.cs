@@ -17,6 +17,8 @@ public class UserPacketHeader : ISerializePacket
     public uint packetId;
     public uint senderId;
     public uint objectId;
+    public uint ack;
+    public uint prevAckBitmask;
 
     public ushort packetType { get; set; }
 

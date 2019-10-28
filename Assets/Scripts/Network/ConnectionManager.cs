@@ -16,6 +16,7 @@ public struct Client {
     public IPEndPoint ipEndPoint;
     public State state;
     public float timeStamp;
+    AckChecker ackChecker;
 
     public Client(IPEndPoint ipEndPoint, uint id, float timeStamp) {
         this.ipEndPoint = ipEndPoint;
@@ -24,6 +25,7 @@ public struct Client {
         this.serverSalt = 0;
         this.timeStamp = timeStamp;
         this.state = State.ConnectionPending;
+        this.ackChecker = new AckChecker();
     }
 }
  
@@ -39,6 +41,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
     private ulong clientSalt;
     private ulong serverSalt;
     private State currState;
+    private AckChecker arkChecker;
     private const float SEND_RATE = 0.01f;
     private float timer = 0f;
     private uint clientId;
