@@ -16,7 +16,7 @@ public struct Client {
     public IPEndPoint ipEndPoint;
     public State state;
     public float timeStamp;
-    AckChecker ackChecker;
+    public AckChecker ackChecker;
 
     public Client(IPEndPoint ipEndPoint, uint id, float timeStamp) {
         this.ipEndPoint = ipEndPoint;
@@ -41,7 +41,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
     private ulong clientSalt;
     private ulong serverSalt;
     private State currState;
-    private AckChecker arkChecker;
+    private AckChecker ackChecker;
     private const float SEND_RATE = 0.01f;
     private float timer = 0f;
     private uint clientId;
@@ -99,8 +99,15 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
                     case State.RespondingChallenge: {
                         SendChallengeResponse(clientSalt, serverSalt);
                     } break;
+                    case State.Connected: {
+                        ackChecker.SendPendingPackets();
+                    } break;
                 }
                 timer = 0f;
+            }
+        } else {
+            for (int i = 0; i < clients.Count; i++) {
+                clients[i].ackChecker.SendPendingPackets();
             }
         }
     }
