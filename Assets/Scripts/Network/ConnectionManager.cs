@@ -106,8 +106,13 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
                 timer = 0f;
             }
         } else {
-            for (int i = 0; i < clients.Count; i++) {
-                clients[i].ackChecker.SendPendingPackets();
+            using(var iterator = ClientIterator) {
+                while (iterator.MoveNext()) {
+                    Client client = iterator.Current.Value;
+                    if (client.state == Client.State.Connected) {
+                        client.ackChecker.SendPendingPackets();
+                    }
+                }
             }
         }
     }
@@ -202,6 +207,24 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
             case PacketType.Connected: {
                 FinishHandShake();
             } break;
+        }
+    }
+
+    public void QueuePacket(byte[] packet, IPEndPoint ipEndPoint) {
+        if (isServer) {
+            clients[ipToId[ipEndPoint]].ackChecker.QueuePacket(packet);
+        }
+    }
+
+    public void QueuePacket(byte[] packet) {
+        if (isServer) {
+            using(var iterator = ClientIterator) {
+                while (iterator.MoveNext()) {
+                    iterator.Current.Value.ackChecker.QueuePacket(packet);
+                }
+            }
+        } else {
+            ackChecker.QueuePacket(packet);
         }
     }
 }

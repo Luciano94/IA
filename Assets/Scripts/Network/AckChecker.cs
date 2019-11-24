@@ -1,22 +1,24 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class AckChecker : MonoBehaviour {
+public class AckChecker {
     public uint currAck = 0;
     public uint prevAckBitmask = 0;
-    List<UserPacketHeader> pendingPackets = new List<UserPacketHeader>();
+    Dictionary<uint, byte[]> pendingPackets = new Dictionary<uint, byte[]>();
 
-    public void QueuePacket(UserPacketHeader packet) {
-        pendingPackets.Add(packet);
+    public void QueuePacket(byte[] packet) {
+        packet = PacketManager.Instance.WrapReliabilityOntoPacket(packet, true, currAck);
+        pendingPackets.Add(currAck, packet);
+        currAck++;
     }
 
     private void RemovePacket(uint id) {
-        pendingPackets.Remove(pendingPackets.Find(x => x.packetId == id));
+        pendingPackets.Remove(id);
     }
 
     public void SendPendingPackets() {
-        for (int i = 0; i < pendingPackets.Count; ++i) {
-            // PacketManager.Instance.SendPacket(pendingPackets[i]);
+        for (uint i = 0; i < pendingPackets.Count; ++i) {
+            PacketManager.Instance.SendPacket(pendingPackets[i]);
         }
     }
 

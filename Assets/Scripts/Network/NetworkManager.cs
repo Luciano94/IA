@@ -4,6 +4,7 @@ using System.Net;
 using UnityEngine;
 
 public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData {
+    public const int PROTOCOL_ID = 0;
     public IPAddress ipAddress { get; private set; }
 
     public int port { get; private set; }
