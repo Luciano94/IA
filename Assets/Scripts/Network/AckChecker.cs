@@ -1,6 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Cuando me llegan paquetes reliable encolo los Ids, y cuando mando un paquete cualquiera
+agarro el id mas grande y genero el array de bits. El ack es unico para cada cliente.
+Los ids de orden son aparte y solo hay que tener en cuenta cuando estan cerca de INT_MAX
+*/
+
 public class AckChecker {
     public uint currAck = 0;
     public uint prevAckBitmask = 0;
