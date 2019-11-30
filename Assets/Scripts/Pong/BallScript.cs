@@ -28,7 +28,14 @@ public class BallScript : MonoBehaviour
 
     private void SendInfo()
     {
-        MessageManager.Instance.SendPosition(transform.position, OwnerBallID);
+        float[] ballInput = new float[4];
+        ballInput[0] = transform.position.x;
+        ballInput[1] = transform.position.y;
+        ballInput[2] = transform.position.z;
+
+        ballInput[3] = PongManager.Instance.GetTime();
+
+        MessageManager.Instance.SendBallPosition(ballInput, OwnerBallID);
     }
 
     private void CheckBoundaries(){

@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61aa01f7c57d7649b12d941563bb973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeed: 255
+  ballSpeed: 5
   playerSpeed: 10
   pointsToWin: 1
   playerPointsText: {fileID: 585840223}

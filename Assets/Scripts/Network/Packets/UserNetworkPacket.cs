@@ -10,6 +10,7 @@ public enum UserPacketType
     Int,
     Float,
     PlayerInput,
+    BallInput,
     GameState,
     Count
 }

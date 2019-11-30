@@ -7,6 +7,23 @@ public class BallUDP : MonoBehaviour
 {
     private uint OwnerBallID = 2;
 
+    private bool needInterpolate = false;
+    private Vector3 nextPosition;
+    private float ballSpeed;
+
+    private void Start() {
+        nextPosition = new Vector3(0,0,0);
+        ballSpeed = PongManager.Instance.ballSpeed;
+    }
+
+    private void Update() {
+        if(needInterpolate){
+            transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime * ballSpeed);
+            if(transform.position == nextPosition)
+                needInterpolate = false;
+        }
+    }
+
     void OnEnable()
     {
         PacketManager.Instance.AddListener(OwnerBallID, OnReceivePacket);
@@ -15,6 +32,14 @@ public class BallUDP : MonoBehaviour
     void OnDisable()
     {
         PacketManager.Instance.RemoveListener(OwnerBallID);
+    }
+    
+    void SetBallPosition(float[] ballPacket){
+        float timeDiff = Mathf.Abs( PongManager.Instance.GetTime() - ballPacket[3]);
+        if(timeDiff != 0){
+            nextPosition = new Vector3(ballPacket[0], ballPacket[1], ballPacket[2]);
+            needInterpolate = true;
+        }
     }
 
     void OnReceivePacket(uint packetId, ushort type, Stream stream)
@@ -25,6 +50,11 @@ public class BallUDP : MonoBehaviour
                 PositionPacket positionPacket = new PositionPacket();
                 positionPacket.Deserialize(stream);
                 transform.position = positionPacket.payload;
+            break;
+            case (ushort)UserPacketType.BallInput:
+                BallInputPacket ballPacket = new BallInputPacket();
+                ballPacket.Deserialize(stream);
+                SetBallPosition(ballPacket.payload);
             break;
         }
     }

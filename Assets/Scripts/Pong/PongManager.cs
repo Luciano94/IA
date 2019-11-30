@@ -10,7 +10,7 @@ public class PongManager : MBSingleton<PongManager>
     private float  clientClock;
 
     [Header("Game Parameters")]
-    public float ballSpeed =255.0f;
+    public float ballSpeed = 5.0f;
     public float playerSpeed = 10.0f;
     public int pointsToWin = 1;
 

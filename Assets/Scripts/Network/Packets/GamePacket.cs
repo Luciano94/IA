@@ -76,6 +76,30 @@ public class FloatPacket : GamePacket<float> {
     }
 }
 
+public class BallInputPacket : GamePacket<float[]> {
+    public BallInputPacket() : base(global::PacketType.User) {
+        userPacketType = (ushort)UserPacketType.BallInput;
+    }
+
+    public override void OnSerialize(Stream stream) {
+        BinaryWriter binaryWriter = new BinaryWriter(stream);
+        binaryWriter.Write(payload[0]);
+        binaryWriter.Write(payload[1]);
+        binaryWriter.Write(payload[2]);
+        binaryWriter.Write(payload[3]);
+
+    }
+
+    public override void OnDeserialize(Stream stream) {
+        BinaryReader binaryReader = new BinaryReader(stream);
+        payload = new float[4];
+        payload[0] = binaryReader.ReadSingle();
+        payload[1] = binaryReader.ReadSingle();
+        payload[2] = binaryReader.ReadSingle();
+        payload[3] = binaryReader.ReadSingle();
+    }
+}
+
 public class PlayerInputPacket : GamePacket<float[]> {
     public PlayerInputPacket() : base(global::PacketType.User) {
         userPacketType = (ushort)UserPacketType.PlayerInput;
