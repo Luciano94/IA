@@ -57,7 +57,7 @@ public class LagManager : MBSingleton<LagManager>
 
     public void InputSend(PlayerInput playerI){
         playerInputs.Push(playerI);
-        MessageManager.Instance.SendInput(playerI, OwnerPlayerID);
+      //  MessageManager.Instance.SendInput(playerI, OwnerPlayerID);
     }
 
     public void Reconcilation(){

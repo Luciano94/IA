@@ -8,6 +8,8 @@ public enum UserPacketType
     Message,
     Position,
     Int,
+    Float,
+    PlayerInput,
     GameState,
     Count
 }

@@ -47,6 +47,16 @@ public class MessageManager : Singleton<MessageManager>
         PacketManager.Instance.SendPacket(packet, objectId);
     }
 
+    public void SendPlayerInput(float[] playerInput, uint objectId)
+    {
+        PlayerInputPacket packet = new PlayerInputPacket();
+
+        packet.payload = playerInput;
+
+        PacketManager.Instance.SendPacket(packet, objectId);
+    }
+
+
     public void SendGameState(GameState gState, uint objectId)
     {
 

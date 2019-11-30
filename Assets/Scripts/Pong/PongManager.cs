@@ -7,9 +7,11 @@ using UnityEngine;
 public class PongManager : MBSingleton<PongManager>
 {
     public const uint gameStartOwnerId = 6;
+    private float  clientClock;
 
     [Header("Game Parameters")]
     public float ballSpeed =255.0f;
+    public float playerSpeed = 10.0f;
     public int pointsToWin = 1;
 
 
@@ -41,6 +43,7 @@ public class PongManager : MBSingleton<PongManager>
     {
         isServer = ConnectionManager.Instance.isServer;
         networkMenu.SetActive(false);
+        clientClock = Time.realtimeSinceStartup;
         SetGame();
     }
 
@@ -107,8 +110,7 @@ public class PongManager : MBSingleton<PongManager>
             playerPoints++;
             playerPointsText.SetText(playerPoints.ToString());
         }
-        if (playerPoints == pointsToWin)
-        {
+        if (playerPoints == pointsToWin){
             GameEnd();
             gameStart.SendState(GameState.GameEnd);
         }
@@ -179,5 +181,9 @@ public class PongManager : MBSingleton<PongManager>
             playerUDPPointsText.AddListener();
             playerPointsText.AddListener();
         }
+    }
+
+    public float GetTime(){
+        return (Time.realtimeSinceStartup - clientClock);
     }
 }

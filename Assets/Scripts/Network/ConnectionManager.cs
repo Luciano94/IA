@@ -106,13 +106,8 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
                 timer = 0f;
             }
         } else {
-            using(var iterator = ClientIterator) {
-                while (iterator.MoveNext()) {
-                    Client client = iterator.Current.Value;
-                    if (client.state == Client.State.Connected) {
-                        client.ackChecker.SendPendingPackets();
-                    }
-                }
+            for (uint i = 0; i < clients.Count; i++) {
+                clients[i].ackChecker.SendPendingPackets();
             }
         }
     }

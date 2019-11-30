@@ -60,6 +60,44 @@ public class IntPacket : GamePacket<int> {
     }
 }
 
+public class FloatPacket : GamePacket<float> {
+    public FloatPacket() : base(global::PacketType.User) {
+        userPacketType = (ushort)UserPacketType.Float;
+    }
+
+    public override void OnSerialize(Stream stream) {
+        BinaryWriter binaryWriter = new BinaryWriter(stream);
+        binaryWriter.Write(payload);
+    }
+
+    public override void OnDeserialize(Stream stream) {
+        BinaryReader binaryReader = new BinaryReader(stream);
+        payload = binaryReader.ReadSingle();
+    }
+}
+
+public class PlayerInputPacket : GamePacket<float[]> {
+    public PlayerInputPacket() : base(global::PacketType.User) {
+        userPacketType = (ushort)UserPacketType.PlayerInput;
+    }
+
+    public override void OnSerialize(Stream stream) {
+        BinaryWriter binaryWriter = new BinaryWriter(stream);
+        binaryWriter.Write(payload[0]);
+        binaryWriter.Write(payload[1]);
+
+    }
+
+    public override void OnDeserialize(Stream stream) {
+        BinaryReader binaryReader = new BinaryReader(stream);
+        payload = new float[2];
+        payload[0] = binaryReader.ReadSingle();
+        payload[1] = binaryReader.ReadSingle();
+       // Debug.Log(payload[0]+"  " + payload[1]);
+    }
+}
+
+
 public class GameStatePacket : GamePacket<GameState> {
     public GameStatePacket() : base(global::PacketType.User, true) {
         userPacketType = (ushort)UserPacketType.GameState;
