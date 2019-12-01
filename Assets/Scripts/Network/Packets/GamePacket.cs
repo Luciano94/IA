@@ -24,7 +24,7 @@ public class MessagePacket : GamePacket<string> {
     }
 }
 
-public class PositionPacket : ReliableOrderPacket<Vector3> {
+public class PositionPacket : UnreliableOrderPacket<Vector3> {
     public PositionPacket() : base(global::PacketType.User) {
         userPacketType = (ushort)UserPacketType.Position;
     }
@@ -78,12 +78,13 @@ public class FloatPacket : GamePacket<float> {
     }
 }
 
-public class BallInputPacket : GamePacket<float[]> {
+public class BallInputPacket : ReliableOrderPacket<float[]> {
     public BallInputPacket() : base(global::PacketType.User) {
         userPacketType = (ushort)UserPacketType.BallInput;
     }
 
     public override void OnSerialize(Stream stream) {
+        base.OnSerialize(stream);
         BinaryWriter binaryWriter = new BinaryWriter(stream);
         binaryWriter.Write(payload[0]);
         binaryWriter.Write(payload[1]);
@@ -93,6 +94,7 @@ public class BallInputPacket : GamePacket<float[]> {
     }
 
     public override void OnDeserialize(Stream stream) {
+        base.OnDeserialize(stream);
         BinaryReader binaryReader = new BinaryReader(stream);
         payload = new float[4];
         payload[0] = binaryReader.ReadSingle();
@@ -102,12 +104,13 @@ public class BallInputPacket : GamePacket<float[]> {
     }
 }
 
-public class PlayerInputPacket : GamePacket<float[]> {
+public class PlayerInputPacket : UnreliableOrderPacket<float[]> {
     public PlayerInputPacket() : base(global::PacketType.User) {
         userPacketType = (ushort)UserPacketType.PlayerInput;
     }
 
     public override void OnSerialize(Stream stream) {
+        base.OnSerialize(stream);
         BinaryWriter binaryWriter = new BinaryWriter(stream);
         binaryWriter.Write(payload[0]);
         binaryWriter.Write(payload[1]);
@@ -115,6 +118,7 @@ public class PlayerInputPacket : GamePacket<float[]> {
     }
 
     public override void OnDeserialize(Stream stream) {
+        base.OnDeserialize(stream);
         BinaryReader binaryReader = new BinaryReader(stream);
         payload = new float[2];
         payload[0] = binaryReader.ReadSingle();

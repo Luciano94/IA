@@ -46,7 +46,7 @@ public class PlayerUDP : MonoBehaviour
             case (ushort)UserPacketType.PlayerInput:
                 PlayerInputPacket playerInput = new PlayerInputPacket();
                 playerInput.Deserialize(stream);
-                SetPlayerPosition(playerInput.payload);
+                playerInput.OnFinishDeserializing(SetPlayerPosition);
             break;
         }
     }

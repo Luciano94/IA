@@ -26,12 +26,13 @@ public class MessageManager : Singleton<MessageManager>
         MessagePacket packet = new MessagePacket();
 
         packet.payload = message;
-        PacketManager.Instance.SendPacket(packet, objectId);
+        PacketManager.Instance.SendPacket(packet, objectId, false);
     }
 
     public void SendPosition(Vector3 position, uint objectId)
     {
         PositionPacket packet = new PositionPacket();
+
 
         packet.payload = position;
 
@@ -44,7 +45,7 @@ public class MessageManager : Singleton<MessageManager>
 
         packet.payload = ballPosition;
 
-        PacketManager.Instance.SendPacket(packet, objectId);
+        PacketManager.Instance.SendPacket(packet, objectId, packet.reliable);
     }
 
     public void SendInt(int number, uint objectId)
@@ -53,7 +54,7 @@ public class MessageManager : Singleton<MessageManager>
 
         packet.payload = number;
 
-        PacketManager.Instance.SendPacket(packet, objectId);
+        PacketManager.Instance.SendPacket(packet, objectId, false);
     }
 
     public void SendPlayerInput(float[] playerInput, uint objectId)
@@ -62,7 +63,7 @@ public class MessageManager : Singleton<MessageManager>
 
         packet.payload = playerInput;
 
-        PacketManager.Instance.SendPacket(packet, objectId);
+        PacketManager.Instance.SendPacket(packet, objectId, packet.reliable);
     }
 
 
@@ -73,6 +74,6 @@ public class MessageManager : Singleton<MessageManager>
 
         packet.payload = gState;
 
-        PacketManager.Instance.SendPacket(packet, objectId);
+        PacketManager.Instance.SendPacket(packet, objectId, false);
     }
 }

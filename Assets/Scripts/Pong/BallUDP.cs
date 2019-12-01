@@ -54,7 +54,7 @@ public class BallUDP : MonoBehaviour
             case (ushort)UserPacketType.BallInput:
                 BallInputPacket ballPacket = new BallInputPacket();
                 ballPacket.Deserialize(stream);
-                SetBallPosition(ballPacket.payload);
+                ballPacket.OnFinishDeserializing(SetBallPosition);
             break;
         }
     }

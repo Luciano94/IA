@@ -71,7 +71,7 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
         return wrappedBytes;
     }
 
-    public void SendPacket<T>(NetworkPacket<T> packet, uint objectId, bool reliable = false) {
+    public void SendPacket<T>(NetworkPacket<T> packet, uint objectId, bool reliable) {
         byte[] bytes = Serialize(packet, objectId);
         
         if (ConnectionManager.Instance.isServer) {
