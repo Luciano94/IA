@@ -31,9 +31,10 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
       
         using (MD5 md5Hash = MD5.Create()) {
             byte[] hash = md5Hash.ComputeHash(packet);
-            MemoryStream streamHash = new MemoryStream(hash);
-            BinaryReader hashReader = new BinaryReader(streamHash);
-            int hash32 = hashReader.ReadInt32();
+            int hash32 = hash[0];
+            for (int i = 1, shift = 8; i < 4; i++, shift += 8) {
+                hash32 += hash[i] << shift;
+            }
             binaryWriter.Write(hash32);
         }
         stream.Close();
