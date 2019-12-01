@@ -151,7 +151,6 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
         return stream.ToArray();
     }
 
-    private bool blah = false;
     public void OnReceiveData(byte[] data, IPEndPoint ipEndpoint) {
         PacketHeader header = new PacketHeader();
         MemoryStream stream = new MemoryStream(data);
@@ -186,14 +185,6 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
 
             if (reliability) {
                 uint packageAck = binaryReader.ReadUInt32();
-                if (packageAck == 5) {
-                    if (blah) {
-                        Debug.Log("YEAHHHHHH");
-                    } else {
-                        blah = true;
-                        return;
-                    }
-                }
                 bool hasAck = binaryReader.ReadBoolean();
                 if (hasAck) {
                     uint lastAck = binaryReader.ReadUInt32();
