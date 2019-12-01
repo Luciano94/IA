@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public struct Client {
+public class Client {
     public enum State {
         ConnectionPending,
         Connected,
@@ -27,35 +27,44 @@ public struct Client {
         this.state = State.ConnectionPending;
         this.ackChecker = new AckChecker();
     }
+
+    public Client() {
+        this.ipEndPoint = null;
+        this.id = 0;
+        this.clientSalt = 0;
+        this.serverSalt = 0;
+        this.timeStamp = 0;
+        this.state = State.ConnectionPending;
+        this.ackChecker = new AckChecker();
+    }
 }
  
 
 public class ConnectionManager : MBSingleton<ConnectionManager> {
-    private readonly Dictionary<uint, Client> clients = new Dictionary<uint, Client>();
-    public Dictionary<uint, Client>.Enumerator ClientIterator {
-        get {
-            return clients.GetEnumerator();
-        }
-    }
-    private readonly Dictionary<IPEndPoint, uint> ipToId = new Dictionary<IPEndPoint, uint>();
-    private ulong clientSalt;
-    private ulong serverSalt;
-    private State currState;
-    private AckChecker ackChecker;
-    private const float SEND_RATE = 0.01f;
-    private float timer = 0f;
-    private uint clientId;
-    public bool isServer { get; private set; }
-    public IPAddress ipAddress { get; private set; }
-
-    public int port { get; private set; }
-
     public enum State {
         SendingConnectionRequest,
         RequestingChallenge,
         RespondingChallenge,
         Connected,
     }
+
+    public readonly Dictionary<uint, Client> clients = new Dictionary<uint, Client>();
+    public Dictionary<uint, Client>.Enumerator ClientIterator {
+        get {
+            return clients.GetEnumerator();
+        }
+    }
+    public readonly Dictionary<IPEndPoint, uint> ipToId = new Dictionary<IPEndPoint, uint>();
+    public Client OwnClient = new Client();
+    private const float SEND_RATE = 0.01f;
+    private float timer = 0f;
+    public bool isServer { get; private set; }
+    public IPAddress ipAddress { get; private set; }
+
+    public int port { get; private set; }
+
+    private State currState;
+    private uint id = 0;
 
     protected override void Awake() {
         base.Awake();
@@ -67,6 +76,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         isServer = true;
         this.port = port;
         NetworkManager.Instance.StartConnection(port);
+        enabled = true;
     }
 
     public void StartClient(IPAddress ip, int port) {
@@ -74,9 +84,10 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
 
         this.port = port;
         this.ipAddress = ip;
-
+        
         NetworkManager.Instance.StartConnection(ipAddress, port);
         currState = State.SendingConnectionRequest;
+        OwnClient.ackChecker = new AckChecker();
         enabled = true;
     }
     
@@ -90,21 +101,23 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
     private void Update() {
         if (!isServer) {
             timer += Time.unscaledDeltaTime;
-            
+
             if (timer >= SEND_RATE) {
                 switch (currState) {
                     case State.SendingConnectionRequest: {
                         SendConnectionRequest();
                     } break;
                     case State.RespondingChallenge: {
-                        SendChallengeResponse(clientSalt, serverSalt);
+                        SendChallengeResponse(OwnClient.clientSalt, OwnClient.serverSalt);
                     } break;
                     case State.Connected: {
-                        ackChecker.SendPendingPackets();
+                        OwnClient.ackChecker.SendPendingPackets();
                     } break;
                 }
                 timer = 0f;
-            }
+            } else {
+                ConnectionManager.Instance.OwnClient.ackChecker.SendPendingPackets();
+            } 
         } else {
             for (uint i = 0; i < clients.Count; i++) {
                 clients[i].ackChecker.SendPendingPackets();
@@ -129,7 +142,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
     private void CheckAndSendChallengeRequest(IPEndPoint ipEndpoint, ConnectionRequestData connectionRequestData) {
         if (isServer) {
             if (!ipToId.ContainsKey(ipEndpoint)) {
-                Client newClient = new Client(ipEndpoint, clientId++, DateTime.Now.Ticks);
+                Client newClient = new Client(ipEndpoint, id++, DateTime.Now.Ticks);
                 newClient.clientSalt = connectionRequestData.clientSalt;
                 newClient.serverSalt = UlongRandom.GetRandom();
                 clients.Add(newClient.id, newClient);
@@ -149,13 +162,12 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
 
     private void CheckAndSendChallengeResponse(IPEndPoint ipEndpoint, ChallengeRequestData challengeRequestData) {
         if (!isServer && currState == State.SendingConnectionRequest) {
-            clientSalt = challengeRequestData.clientSalt;
-            serverSalt = challengeRequestData.serverSalt;
+            OwnClient.clientSalt = challengeRequestData.clientSalt;
+            OwnClient.serverSalt = challengeRequestData.serverSalt;
             currState = State.RespondingChallenge;
-            SendChallengeResponse(clientSalt, serverSalt);
+            SendChallengeResponse(OwnClient.clientSalt, OwnClient.serverSalt);
         }
     }
-    
 
     private void SendChallengeResponse(ulong clientSalt, ulong serverSalt) {
         ChallengeResponsePacket request = new ChallengeResponsePacket();
@@ -168,6 +180,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
             Client client = clients[ipToId[ipEndPoint]];
             ulong result = client.clientSalt ^ client.serverSalt;
             if (challengeResponseData.result == result) {
+                client.state = Client.State.Connected;
                 SendToClient(new ConnectedPacket(), ipEndPoint);
             }
         }
@@ -176,14 +189,11 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
     private void FinishHandShake() {
         if (!isServer && currState == State.RespondingChallenge) {
             currState = State.Connected;
-            enabled = false;
         }
     }
     
-    public void OnReceivePacket(IPEndPoint ipEndpoint, PacketType packetType, Stream stream)
-    {
-        switch (packetType)
-        {
+    public void OnReceivePacket(IPEndPoint ipEndpoint, PacketType packetType, Stream stream)     {
+        switch (packetType) {
             case PacketType.ConnectionRequest: {
                 ConnectionRequestPacket connectionRequestPacket = new ConnectionRequestPacket();
                 connectionRequestPacket.Deserialize(stream);
@@ -205,21 +215,23 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         }
     }
 
-    public void QueuePacket(byte[] packet, IPEndPoint ipEndPoint) {
+    public void QueuePacket(byte[] packet, uint id, IPEndPoint ipEndPoint) {
         if (isServer) {
-            clients[ipToId[ipEndPoint]].ackChecker.QueuePacket(packet);
+            clients[ipToId[ipEndPoint]].ackChecker.QueuePacket(packet, id);
         }
     }
 
-    public void QueuePacket(byte[] packet) {
-        if (isServer) {
-            using(var iterator = ClientIterator) {
-                while (iterator.MoveNext()) {
-                    iterator.Current.Value.ackChecker.QueuePacket(packet);
-                }
-            }
+    public void QueuePacket(byte[] packet, uint id) {
+        if (!isServer) {
+            OwnClient.ackChecker.QueuePacket(packet, id);
+        }
+    }
+
+    public void RegisterPackageReceived(uint id, IPEndPoint ipEndPoint) {
+        if (ConnectionManager.Instance.isServer) {
+            clients[ipToId[ipEndPoint]].ackChecker.RegisterPackageReceived(id);
         } else {
-            ackChecker.QueuePacket(packet);
+            OwnClient.ackChecker.RegisterPackageReceived(id);
         }
     }
 }

@@ -34,14 +34,14 @@ public class PlayerUDP : MonoBehaviour
         PacketManager.Instance.RemoveListener(OwnerPlayerID);
     }
 
-    void OnReceivePacket(uint packetId, ushort type, Stream stream)
+    void OnReceivePacket(ushort type, Stream stream)
     {
         switch (type)
         {
             case (ushort)UserPacketType.Position:
                 PositionPacket positionPacket = new PositionPacket();
                 positionPacket.Deserialize(stream);
-                transform.position = positionPacket.payload;
+                positionPacket.OnFinishDeserializing(Move);
             break;
             case (ushort)UserPacketType.PlayerInput:
                 PlayerInputPacket playerInput = new PlayerInputPacket();
@@ -57,5 +57,9 @@ public class PlayerUDP : MonoBehaviour
             nextPosition = playerInput[0];
             needInterpolate = true;
         }
+    }
+
+    private void Move(Vector3 position) {
+        transform.position = position;
     }
 }

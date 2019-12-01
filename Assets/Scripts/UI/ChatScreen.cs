@@ -23,7 +23,7 @@ public class ChatScreen : MBSingleton<ChatScreen>
         PacketManager.Instance.RemoveListener(0);
     }
 
-    void OnReceivePacket(uint packetId, ushort type, Stream stream)
+    void OnReceivePacket(ushort type, Stream stream)
     {
         switch (type)
         {

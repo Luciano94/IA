@@ -77,8 +77,7 @@ public class PongManager : MBSingleton<PongManager>
             serverStartButton.SetActive(true);
             clientWaitingText.SetActive(false);
             serverStartButton.GetComponent<Button>().onClick.AddListener(onClickStartButton);
-
-        }else{
+        } else {
             serverStartButton.SetActive(false);
             clientWaitingText.SetActive(true);
             gameStart.AddListener();

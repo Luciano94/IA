@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData {
     public const int PROTOCOL_ID = 0;
-    public IPAddress ipAddress { get; private set; }
-
     public int port { get; private set; }
 
     public Action<byte[], IPEndPoint> OnReceiveEvent;
@@ -37,6 +35,21 @@ public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData {
 
     public void SendToServer(byte[] data) {
         connection.Send(data);
+    }
+
+    public void Broadcast(byte[] data, bool reliable) {
+        using(var iterator = ConnectionManager.Instance.ClientIterator) {
+            while (iterator.MoveNext()) {
+                Client client = iterator.Current.Value;
+                data = PacketManager.Instance.WrapReliabilityOntoPacket(
+                    data, reliable, client.ackChecker);
+                connection.Send(data, client.ipEndPoint);
+                
+                if (reliable) {
+                    ConnectionManager.Instance.QueuePacket(data, client.ackChecker.NewAck, client.ipEndPoint);
+                }
+            }
+        }
     }
 
     public void Broadcast(byte[] data) {

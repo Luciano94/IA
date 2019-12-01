@@ -42,14 +42,14 @@ public class BallUDP : MonoBehaviour
         }
     }
 
-    void OnReceivePacket(uint packetId, ushort type, Stream stream)
+    void OnReceivePacket(ushort type, Stream stream)
     {
         switch (type)
         {
             case (ushort)UserPacketType.Position:
                 PositionPacket positionPacket = new PositionPacket();
                 positionPacket.Deserialize(stream);
-                transform.position = positionPacket.payload;
+                positionPacket.OnFinishDeserializing(Move);
             break;
             case (ushort)UserPacketType.BallInput:
                 BallInputPacket ballPacket = new BallInputPacket();
@@ -57,5 +57,9 @@ public class BallUDP : MonoBehaviour
                 SetBallPosition(ballPacket.payload);
             break;
         }
+    }
+
+    private void Move(Vector3 position) {
+        transform.position = position;
     }
 }
