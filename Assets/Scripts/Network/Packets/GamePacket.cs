@@ -24,12 +24,13 @@ public class MessagePacket : GamePacket<string> {
     }
 }
 
-public class PositionPacket : GamePacket<Vector3> {
+public class PositionPacket : ReliableOrderPacket<Vector3> {
     public PositionPacket() : base(global::PacketType.User) {
         userPacketType = (ushort)UserPacketType.Position;
     }
 
     public override void OnSerialize(Stream stream) {
+        base.OnSerialize(stream);
         BinaryWriter binaryWriter = new BinaryWriter(stream);
         binaryWriter.Write(payload.x);
         binaryWriter.Write(payload.y);
@@ -37,6 +38,7 @@ public class PositionPacket : GamePacket<Vector3> {
     }
 
     public override void OnDeserialize(Stream stream) {
+        base.OnDeserialize(stream);
         BinaryReader binaryReader = new BinaryReader(stream);
         payload.x = binaryReader.ReadSingle();
         payload.y = binaryReader.ReadSingle();

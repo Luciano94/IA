@@ -24,8 +24,12 @@ public class PlayerUDP : MonoBehaviour
             case (ushort)UserPacketType.Position:
                 PositionPacket positionPacket = new PositionPacket();
                 positionPacket.Deserialize(stream);
-                transform.position = positionPacket.payload;
+                positionPacket.OnFinishDeserializing(Move);
             break;
         }
+    }
+
+    private void Move(Vector3 position) {
+        transform.position = position;
     }
 }

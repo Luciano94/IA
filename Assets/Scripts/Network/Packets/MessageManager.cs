@@ -35,7 +35,7 @@ public class MessageManager : Singleton<MessageManager>
 
         packet.payload = position;
 
-        PacketManager.Instance.SendPacket(packet, objectId, true);
+        PacketManager.Instance.SendPacket(packet, objectId, packet.reliable);
     }
 
     public void SendInt(int number, uint objectId)

@@ -107,7 +107,6 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
             }
         } else {
             using(var iterator = ClientIterator) {
-                Debug.Log("bbbbbbbbb");
                 while (iterator.MoveNext()) {
                     Client client = iterator.Current.Value;
                     if (client.state == Client.State.Connected) {
