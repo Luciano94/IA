@@ -17,7 +17,7 @@ public class BallUDP : MonoBehaviour
         PacketManager.Instance.RemoveListener(OwnerBallID);
     }
 
-    void OnReceivePacket(uint packetId, ushort type, Stream stream)
+    void OnReceivePacket(ushort type, Stream stream)
     {
         switch (type)
         {

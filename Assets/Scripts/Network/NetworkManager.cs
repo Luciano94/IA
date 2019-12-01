@@ -39,6 +39,21 @@ public class NetworkManager : MBSingleton<NetworkManager>, IReceiveData {
         connection.Send(data);
     }
 
+    public void Broadcast(byte[] data, bool reliable) {
+        using(var iterator = ConnectionManager.Instance.ClientIterator) {
+            while (iterator.MoveNext()) {
+                Client client = iterator.Current.Value;
+                data = PacketManager.Instance.WrapReliabilityOntoPacket(
+                    data, reliable, client.ackChecker);
+                connection.Send(data, client.ipEndPoint);
+                
+                if (reliable) {
+                    ConnectionManager.Instance.QueuePacket(data, client.ackChecker.NewAck, client.ipEndPoint);
+                }
+            }
+        }
+    }
+
     public void Broadcast(byte[] data) {
         using(var iterator = ConnectionManager.Instance.ClientIterator) {
             while (iterator.MoveNext()) {

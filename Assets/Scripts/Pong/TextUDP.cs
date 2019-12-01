@@ -16,7 +16,7 @@ public class TextUDP : MonoBehaviour {
     }
 
     
-    void OnReceivePacket(uint packetId, ushort type, Stream stream)
+    void OnReceivePacket(ushort type, Stream stream)
     {
         switch (type)
         {

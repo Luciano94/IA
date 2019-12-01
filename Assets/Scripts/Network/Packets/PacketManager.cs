@@ -6,15 +6,14 @@ using System.Security.Cryptography;
 using UnityEngine;
 
 public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
-    private Dictionary<uint, System.Action<uint, ushort, Stream>> onPacketReceived = new Dictionary<uint, System.Action<uint, ushort, Stream>>();
-    private uint currentPacketId = 0;
+    private Dictionary<uint, System.Action<ushort, Stream>> onPacketReceived = new Dictionary<uint, System.Action<ushort, Stream>>();
 
     protected override void Awake() {
         base.Awake();
         NetworkManager.Instance.OnReceiveEvent += OnReceiveData;
     }
 
-    public void AddListener(uint ownerId, System.Action<uint, ushort, Stream> callback) {
+    public void AddListener(uint ownerId, System.Action<ushort, Stream> callback) {
         if (!onPacketReceived.ContainsKey(ownerId)) {
             onPacketReceived.Add(ownerId, callback);
         }
@@ -29,8 +28,7 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
     public byte[] WrapCheckSumOntoPacket(byte[] packet) {
         MemoryStream stream = new MemoryStream();
         BinaryWriter binaryWriter = new BinaryWriter(stream);
-        
-        
+      
         using (MD5 md5Hash = MD5.Create()) {
             byte[] hash = md5Hash.ComputeHash(packet);
             MemoryStream streamHash = new MemoryStream(hash);
@@ -47,12 +45,19 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
         return wrappedBytes;
     }
 
-    public byte[] WrapReliabilityOntoPacket(byte[] packet, bool reliable, uint ackID = 0) {
+    public byte[] WrapReliabilityOntoPacket(byte[] packet, bool reliable, AckChecker ackChecker, uint ackId = 0) {
         MemoryStream stream = new MemoryStream();
         BinaryWriter binaryWriter = new BinaryWriter(stream);
         binaryWriter.Write(reliable);
         if (reliable) {
-            binaryWriter.Write(ackID);
+            binaryWriter.Write(ackId);
+            uint lastAck, ackArray;
+            bool hasToConfirm = ackChecker.GetAckConfirmation(out lastAck, out ackArray);
+            binaryWriter.Write(hasToConfirm);
+            if (hasToConfirm) {
+                binaryWriter.Write(lastAck);
+                binaryWriter.Write(ackArray);
+            }
         }
         stream.Close();
         byte[] reliability = stream.ToArray();
@@ -68,32 +73,33 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
     public void SendPacket<T>(NetworkPacket<T> packet, uint objectId, bool reliable = false) {
         byte[] bytes = Serialize(packet, objectId);
         
-        if (reliable) {
-            ConnectionManager.Instance.QueuePacket(bytes);
+        if (ConnectionManager.Instance.isServer) {
+            NetworkManager.Instance.Broadcast(bytes, reliable);
         } else {
-            bytes = WrapReliabilityOntoPacket(bytes, false);
-            if (ConnectionManager.Instance.isServer) {
-                NetworkManager.Instance.Broadcast(bytes);
-            } else {
-                NetworkManager.Instance.SendToServer(bytes);
+            AckChecker ackChecker = ConnectionManager.Instance.OwnClient.ackChecker;
+            uint ackId = ackChecker.NewAck;
+            bytes = WrapReliabilityOntoPacket(bytes, reliable, ackChecker, ackId);
+            NetworkManager.Instance.SendToServer(bytes);
+            if (reliable) {
+                ConnectionManager.Instance.QueuePacket(bytes, ackId);
             }
         }
     }
 
     public void SendPacket<T>(NetworkPacket<T> packet) {
         byte[] bytes = Serialize(packet);
-        bytes = WrapReliabilityOntoPacket(bytes, false);
 
         if (ConnectionManager.Instance.isServer) {
-            NetworkManager.Instance.Broadcast(bytes);
+            NetworkManager.Instance.Broadcast(bytes, false);
         } else {
+            bytes = WrapReliabilityOntoPacket(bytes, false, ConnectionManager.Instance.OwnClient.ackChecker);
             NetworkManager.Instance.SendToServer(bytes);
         }
     }
 
     public void SendPacket<T>(NetworkPacket<T> packet, IPEndPoint ipEndPoint) {
         byte[] bytes = Serialize(packet);
-        bytes = WrapReliabilityOntoPacket(bytes, false);
+        bytes = WrapReliabilityOntoPacket(bytes, false, ConnectionManager.Instance.clients[ConnectionManager.Instance.ipToId[ipEndPoint]].ackChecker);
         
         NetworkManager.Instance.SendToClient(bytes, ipEndPoint);
     }
@@ -126,13 +132,12 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
         UserPacketHeader userHeader = new UserPacketHeader();
         MemoryStream stream = new MemoryStream();
 
-        header.protocolId = NetworkManager.PROTOCOL_ID;
+        header.protocolId = NetworkManager.PROTOCOL_ID; // TODO
 
         header.packetType = packet.packetType;
 
         if (packet.packetType == PacketType.User) {
             userHeader.packetType = packet.userPacketType;
-            userHeader.packetId = currentPacketId++;
             userHeader.senderId = NetworkManager.Instance.clientId;
             userHeader.objectId = objectId;
         }
@@ -146,6 +151,7 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
         return stream.ToArray();
     }
 
+    private bool blah = false;
     public void OnReceiveData(byte[] data, IPEndPoint ipEndpoint) {
         PacketHeader header = new PacketHeader();
         MemoryStream stream = new MemoryStream(data);
@@ -159,11 +165,10 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
 
 #if IA_DEBUG
         if (UnityEngine.Random.Range(0f, 100f) < 0.5f) {
-            for (int i = 0; i < dataWithoutHash.Length; i++) {
-                if (dataWithoutHash[i] != 0) {
-                    dataWithoutHash[i] = 0;
-                    break;
-                }
+            if (dataWithoutHash[0] != 0) {
+                dataWithoutHash[0] = 0;
+            } else {
+                dataWithoutHash[0] = 1;
             }
         }
 #endif
@@ -180,7 +185,29 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
             bool reliability = binaryReader.ReadBoolean();
 
             if (reliability) {
-                uint ack = binaryReader.ReadUInt32();
+                uint packageAck = binaryReader.ReadUInt32();
+                if (packageAck == 5) {
+                    if (blah) {
+                        Debug.Log("YEAHHHHHH");
+                    } else {
+                        blah = true;
+                        return;
+                    }
+                }
+                bool hasAck = binaryReader.ReadBoolean();
+                if (hasAck) {
+                    uint lastAck = binaryReader.ReadUInt32();
+                    uint prevAckArray = binaryReader.ReadUInt32();
+                    
+                    if (ConnectionManager.Instance.isServer) {
+                        Client client = ConnectionManager.Instance.clients[ConnectionManager.Instance.ipToId[ipEndpoint]];
+                        client.ackChecker.RegisterPackageReceived(packageAck);
+                        client.ackChecker.ClearPackets(lastAck, prevAckArray);
+                    } else {
+                        ConnectionManager.Instance.OwnClient.ackChecker.RegisterPackageReceived(packageAck);
+                        ConnectionManager.Instance.OwnClient.ackChecker.ClearPackets(lastAck, prevAckArray);
+                    }
+                }
             }
 
             header.Deserialize(stream);
@@ -189,7 +216,7 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
                 while (stream.Length - stream.Position > 0) {
                     UserPacketHeader userHeader = new UserPacketHeader();
                     userHeader.Deserialize(stream);
-                    InvokeCallback(userHeader.objectId, userHeader.packetId, userHeader.packetType, stream);
+                    InvokeCallback(userHeader.objectId, userHeader.packetType, stream);
                 }
             } else {
                 ConnectionManager.Instance.OnReceivePacket(ipEndpoint, header.packetType, stream);
@@ -201,9 +228,9 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
         stream.Close();
     }
 
-    void InvokeCallback(uint objectId, uint packetId, ushort packetType, Stream stream) {
+    void InvokeCallback(uint objectId, ushort packetType, Stream stream) {
         if (onPacketReceived.ContainsKey(objectId)) {
-            onPacketReceived[objectId].Invoke(packetId, packetType, stream);
+            onPacketReceived[objectId].Invoke(packetType, stream);
         }
     }
 }
