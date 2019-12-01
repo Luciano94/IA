@@ -162,7 +162,7 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
         byte[] dataWithoutHash = new byte[data.Length - 4];
         Array.Copy(data, 4, dataWithoutHash, 0, data.Length - 4);
 
-#if IA_DEBUG
+#if DEBUG_CHECKSUM
         if (UnityEngine.Random.Range(0f, 100f) < 0.5f) {
             if (dataWithoutHash[0] != 0) {
                 dataWithoutHash[0] = 0;
@@ -184,6 +184,13 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
             bool reliability = binaryReader.ReadBoolean();
 
             if (reliability) {
+#if DEBUG_RELIABLE
+                if (UnityEngine.Random.Range(0f, 100f) < 0.6f) {
+                // if (Input.GetKey(KeyCode.A)) {
+                    stream.Close();
+                    return;
+                }
+#endif
                 uint packageAck = binaryReader.ReadUInt32();
                 bool hasAck = binaryReader.ReadBoolean();
                 if (hasAck) {

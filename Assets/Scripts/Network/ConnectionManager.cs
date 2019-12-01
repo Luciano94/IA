@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public struct Client {
+public class Client {
     public enum State {
         ConnectionPending,
         Connected,
@@ -27,6 +27,16 @@ public struct Client {
         this.state = State.ConnectionPending;
         this.ackChecker = new AckChecker();
     }
+
+    public Client() {
+        this.ipEndPoint = null;
+        this.id = 0;
+        this.clientSalt = 0;
+        this.serverSalt = 0;
+        this.timeStamp = 0;
+        this.state = State.ConnectionPending;
+        this.ackChecker = new AckChecker();
+    }
 }
  
 
@@ -45,7 +55,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         }
     }
     public readonly Dictionary<IPEndPoint, uint> ipToId = new Dictionary<IPEndPoint, uint>();
-    public Client OwnClient;
+    public Client OwnClient = new Client();
     private const float SEND_RATE = 0.01f;
     private float timer = 0f;
     public bool isServer { get; private set; }
@@ -66,6 +76,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
         isServer = true;
         this.port = port;
         NetworkManager.Instance.StartConnection(port);
+        enabled = true;
     }
 
     public void StartClient(IPAddress ip, int port) {
@@ -104,7 +115,9 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
                     } break;
                 }
                 timer = 0f;
-            }
+            } else {
+                ConnectionManager.Instance.OwnClient.ackChecker.SendPendingPackets();
+            } 
         } else {
             using(var iterator = ClientIterator) {
                 while (iterator.MoveNext()) {
@@ -172,6 +185,7 @@ public class ConnectionManager : MBSingleton<ConnectionManager> {
             Client client = clients[ipToId[ipEndPoint]];
             ulong result = client.clientSalt ^ client.serverSalt;
             if (challengeResponseData.result == result) {
+                client.state = Client.State.Connected;
                 SendToClient(new ConnectedPacket(), ipEndPoint);
             }
         }
