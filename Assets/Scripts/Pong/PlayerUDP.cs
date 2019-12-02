@@ -92,7 +92,7 @@ public class PlayerUDP : UnreliableOrderPacket<float[]>
     }
 
     private void SetPlayerPosition(float[] playerInput){
-            float timeDiff = PongManager.Instance.GetTime() - playerInput[1];
+            float timeDiff = Mathf.Abs(PongManager.Instance.GetTime() - playerInput[1]);
             nextPosition = transform.position.y + playerInput[0] * timeDiff;   
             needInterpolate = true;
     }

@@ -95,7 +95,7 @@ public class PlayerScript : UnreliableOrderPacket<float[]>
 
     private void PlayerPositionReconciliationChecker(float[] playerInput){
 
-        float timeDiff = PongManager.Instance.GetTime() - playerInput[1];
+        float timeDiff =Mathf.Abs( PongManager.Instance.GetTime() - playerInput[1]);
         float timeMargim = timeDiff * 0.1f;
         float timeStamp = playerInput[1] + timeDiff;
         int posIndex = -1;

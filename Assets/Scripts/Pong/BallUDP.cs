@@ -38,7 +38,7 @@ public class BallUDP : ReliableOrderPacket<float[]>
     }
     
     void SetBallPosition(float[] ballPacket){
-        float timeDiff = PongManager.Instance.GetTime() - ballPacket[2];
+        float timeDiff = Mathf.Abs( PongManager.Instance.GetTime() - ballPacket[2]);
         if (ballPacket[3] != 0) {
             transform.position = Vector3.zero;
         } 
@@ -55,7 +55,6 @@ public class BallUDP : ReliableOrderPacket<float[]>
                 BallInputPacket ballPacket = new BallInputPacket();
                 idReceived = ballPacket.Deserialize(stream);
                 OnFinishDeserializing(SetBallPosition, ballPacket.payload);
-                //SetBallPosition(ballPacket.payload);
             break;
         }
     }

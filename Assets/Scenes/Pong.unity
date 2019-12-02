@@ -595,7 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballSpeed: 5
   playerSpeed: 10
-  pointsToWin: 1
+  pointsToWin: 5
   playerPointsText: {fileID: 585840223}
   playerUDPPointsText: {fileID: 403051536}
   isServer: 0
