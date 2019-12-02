@@ -19,8 +19,8 @@ public class NetworkScreen : MBSingleton<NetworkScreen>
 
     void OnConnectBtnClick()
     {
-        IPAddress ipAddress = IPAddress.Parse(addressInputField.text);
-        int port = System.Convert.ToInt32(portInputField.text);
+        IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
+        int port = System.Convert.ToInt32("1111");
 
         ConnectionManager.Instance.StartClient(ipAddress, port);
         
@@ -29,7 +29,7 @@ public class NetworkScreen : MBSingleton<NetworkScreen>
 
     void OnStartServerBtnClick()
     {
-        int port = System.Convert.ToInt32(portInputField.text);
+        int port = System.Convert.ToInt32("1111");
         ConnectionManager.Instance.StartServer(port);
         SwitchToChatScreen();
     }

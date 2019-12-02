@@ -12,7 +12,7 @@ public class BallScript : ReliableOrderPacket<float[]>
 
     private float speedX;
     private float speedY;
-    
+    private bool needsReset = false;
 
     void Start()
     {
@@ -29,11 +29,14 @@ public class BallScript : ReliableOrderPacket<float[]>
 
     private void SendInfo()
     {
-        float[] ballInput = new float[3];
+        float[] ballInput = new float[4];
         ballInput[0] = speedX;
         ballInput[1] = speedY;
 
         ballInput[2] = PongManager.Instance.GetTime();
+        ballInput[3] = needsReset? 1f : 0f;
+
+        needsReset = false;
 
         MessageManager.Instance.SendBallPosition(ballInput, OwnerBallID, ++lastIdSent);
     }
@@ -70,6 +73,7 @@ public class BallScript : ReliableOrderPacket<float[]>
         }
         transform.position = Vector3.zero;
         transform.Translate(speedX * Time.fixedDeltaTime, speedY * Time.fixedDeltaTime, 0);
+        needsReset = true;
     }
 
     private void TakePlayerImpulse()

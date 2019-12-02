@@ -94,6 +94,7 @@ public class BallInputPacket : OrderedGamePacket<float[]> {
         binaryWriter.Write(payload[0]);
         binaryWriter.Write(payload[1]);
         binaryWriter.Write(payload[2]);
+        binaryWriter.Write(payload[3]);
     }
 
     public override uint OnDeserialize(Stream stream) {
@@ -103,6 +104,7 @@ public class BallInputPacket : OrderedGamePacket<float[]> {
         payload[0] = binaryReader.ReadSingle();
         payload[1] = binaryReader.ReadSingle();
         payload[2] = binaryReader.ReadSingle();
+        payload[3] = binaryReader.ReadSingle();
 
         return id;
     }

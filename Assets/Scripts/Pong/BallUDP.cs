@@ -39,6 +39,9 @@ public class BallUDP : ReliableOrderPacket<float[]>
     
     void SetBallPosition(float[] ballPacket){
         float timeDiff = PongManager.Instance.GetTime() - ballPacket[2];
+        if (ballPacket[3] != 0) {
+            transform.position = Vector3.zero;
+        } 
         nextPosition = transform.position;
         nextPosition += new Vector3(ballPacket[0], ballPacket[1], 0) * timeDiff;
         needInterpolate = true;
