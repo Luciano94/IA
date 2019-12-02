@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class PlayerUDP : MonoBehaviour
+public class PlayerUDP : UnreliableOrderPacket<float[]>
 {
     private uint OwnerPlayerID = 1;
 
@@ -38,15 +38,10 @@ public class PlayerUDP : MonoBehaviour
     {
         switch (type)
         {
-            case (ushort)UserPacketType.Position:
-                PositionPacket positionPacket = new PositionPacket();
-                positionPacket.Deserialize(stream);
-                positionPacket.OnFinishDeserializing(Move);
-            break;
             case (ushort)UserPacketType.PlayerInput:
                 PlayerInputPacket playerInput = new PlayerInputPacket();
-                playerInput.Deserialize(stream);
-                playerInput.OnFinishDeserializing(SetPlayerPosition);
+                idReceived = playerInput.Deserialize(stream);
+                OnFinishDeserializing(SetPlayerPosition, playerInput.payload);
             break;
         }
     }
@@ -57,9 +52,5 @@ public class PlayerUDP : MonoBehaviour
             nextPosition = playerInput[0];
             needInterpolate = true;
         }
-    }
-
-    private void Move(Vector3 position) {
-        transform.position = position;
     }
 }

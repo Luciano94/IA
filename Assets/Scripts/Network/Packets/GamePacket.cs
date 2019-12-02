@@ -8,6 +8,13 @@ public abstract class GamePacket<P> : NetworkPacket<P> {
     }
 }
 
+public abstract class OrderedGamePacket<P> : OrderedNetworkPacket<P> {
+    public readonly bool reliable;
+    public OrderedGamePacket(PacketType packetType, bool reliable = false) : base(packetType) {
+        this.reliable = reliable;
+    }
+}
+
 public class MessagePacket : GamePacket<string> {
     public MessagePacket() : base(global::PacketType.User, true) {
         userPacketType = (ushort)UserPacketType.Message;
@@ -24,13 +31,12 @@ public class MessagePacket : GamePacket<string> {
     }
 }
 
-public class PositionPacket : UnreliableOrderPacket<Vector3> {
+public class PositionPacket : GamePacket<Vector3> {
     public PositionPacket() : base(global::PacketType.User) {
         userPacketType = (ushort)UserPacketType.Position;
     }
 
     public override void OnSerialize(Stream stream) {
-        base.OnSerialize(stream);
         BinaryWriter binaryWriter = new BinaryWriter(stream);
         binaryWriter.Write(payload.x);
         binaryWriter.Write(payload.y);
@@ -38,7 +44,6 @@ public class PositionPacket : UnreliableOrderPacket<Vector3> {
     }
 
     public override void OnDeserialize(Stream stream) {
-        base.OnDeserialize(stream);
         BinaryReader binaryReader = new BinaryReader(stream);
         payload.x = binaryReader.ReadSingle();
         payload.y = binaryReader.ReadSingle();
@@ -78,52 +83,54 @@ public class FloatPacket : GamePacket<float> {
     }
 }
 
-public class BallInputPacket : ReliableOrderPacket<float[]> {
-    public BallInputPacket() : base(global::PacketType.User) {
+public class BallInputPacket : OrderedGamePacket<float[]> {
+    public BallInputPacket() : base(global::PacketType.User, true) {
         userPacketType = (ushort)UserPacketType.BallInput;
     }
 
-    public override void OnSerialize(Stream stream) {
-        base.OnSerialize(stream);
+    public override void OnSerialize(Stream stream, uint id) {
         BinaryWriter binaryWriter = new BinaryWriter(stream);
+        binaryWriter.Write(id);
         binaryWriter.Write(payload[0]);
         binaryWriter.Write(payload[1]);
         binaryWriter.Write(payload[2]);
         binaryWriter.Write(payload[3]);
-
     }
 
-    public override void OnDeserialize(Stream stream) {
-        base.OnDeserialize(stream);
+    public override uint OnDeserialize(Stream stream) {
         BinaryReader binaryReader = new BinaryReader(stream);
+        uint id = binaryReader.ReadUInt32();
         payload = new float[4];
         payload[0] = binaryReader.ReadSingle();
         payload[1] = binaryReader.ReadSingle();
         payload[2] = binaryReader.ReadSingle();
         payload[3] = binaryReader.ReadSingle();
+
+        return id;
     }
 }
 
-public class PlayerInputPacket : UnreliableOrderPacket<float[]> {
+public class PlayerInputPacket : OrderedGamePacket<float[]> {
     public PlayerInputPacket() : base(global::PacketType.User) {
         userPacketType = (ushort)UserPacketType.PlayerInput;
     }
 
-    public override void OnSerialize(Stream stream) {
-        base.OnSerialize(stream);
+    public override void OnSerialize(Stream stream, uint id) {
         BinaryWriter binaryWriter = new BinaryWriter(stream);
+        binaryWriter.Write(id);
         binaryWriter.Write(payload[0]);
         binaryWriter.Write(payload[1]);
 
     }
 
-    public override void OnDeserialize(Stream stream) {
-        base.OnDeserialize(stream);
+    public override uint OnDeserialize(Stream stream) {
         BinaryReader binaryReader = new BinaryReader(stream);
+        uint id = binaryReader.ReadUInt32();
         payload = new float[2];
         payload[0] = binaryReader.ReadSingle();
         payload[1] = binaryReader.ReadSingle();
        // Debug.Log(payload[0]+"  " + payload[1]);
+        return id;
     }
 }
 

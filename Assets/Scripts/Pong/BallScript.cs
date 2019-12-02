@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallScript : MonoBehaviour
+public class BallScript : ReliableOrderPacket<float[]>
 {
     private uint OwnerBallID = 2;
 
@@ -35,7 +35,7 @@ public class BallScript : MonoBehaviour
 
         ballInput[3] = PongManager.Instance.GetTime();
 
-        MessageManager.Instance.SendBallPosition(ballInput, OwnerBallID);
+        MessageManager.Instance.SendBallPosition(ballInput, OwnerBallID, ++lastIdSent);
     }
 
     private void CheckBoundaries(){

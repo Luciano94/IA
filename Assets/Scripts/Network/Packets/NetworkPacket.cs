@@ -37,6 +37,32 @@ public abstract class NetworkPacket<P> : ISerializePacket
     abstract public void OnDeserialize(Stream stream);
 }
 
+public abstract class OrderedNetworkPacket<P>
+{
+    public P payload;
+
+    public ushort userPacketType { get; set; }
+    public PacketType packetType { get; set; }
+
+    public OrderedNetworkPacket(PacketType packetType)
+    {
+        this.packetType = packetType;
+    }
+
+    public void Serialize(Stream stream, uint id)
+    {
+        OnSerialize(stream, id);
+    }
+
+    public uint Deserialize(Stream stream)
+    {
+        return OnDeserialize(stream);
+    }
+
+    abstract public void OnSerialize(Stream stream, uint id);
+    abstract public uint OnDeserialize(Stream stream);
+}
+
 public struct ConnectionRequestData {
     public ulong clientSalt;
 }

@@ -39,13 +39,13 @@ public class MessageManager : Singleton<MessageManager>
         PacketManager.Instance.SendPacket(packet, objectId, packet.reliable);
     }
 
-    public void SendBallPosition(float[] ballPosition, uint objectId)
+    public void SendBallPosition(float[] ballPosition, uint objectId, uint id)
     {
         BallInputPacket packet = new BallInputPacket();
 
         packet.payload = ballPosition;
 
-        PacketManager.Instance.SendPacket(packet, objectId, packet.reliable);
+        PacketManager.Instance.SendPacket(packet, objectId, packet.reliable, id);
     }
 
     public void SendInt(int number, uint objectId)
@@ -57,13 +57,13 @@ public class MessageManager : Singleton<MessageManager>
         PacketManager.Instance.SendPacket(packet, objectId, false);
     }
 
-    public void SendPlayerInput(float[] playerInput, uint objectId)
+    public void SendPlayerInput(float[] playerInput, uint objectId, uint id)
     {
         PlayerInputPacket packet = new PlayerInputPacket();
 
         packet.payload = playerInput;
 
-        PacketManager.Instance.SendPacket(packet, objectId, packet.reliable);
+        PacketManager.Instance.SendPacket(packet, objectId, packet.reliable, id);
     }
 
 

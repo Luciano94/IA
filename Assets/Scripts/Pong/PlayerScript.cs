@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : UnreliableOrderPacket<float[]>
 {
     private uint OwnerPlayerID = 1;
 
@@ -38,7 +38,7 @@ public class PlayerScript : MonoBehaviour
         float[] playerInput = new float[2];
         playerInput[0] = transform.position.y;
         playerInput[1] = PongManager.Instance.GetTime();
-        MessageManager.Instance.SendPlayerInput(playerInput, OwnerPlayerID);
+        MessageManager.Instance.SendPlayerInput(playerInput, OwnerPlayerID, ++lastIdSent);
     }
 
     private void CheckBounduaries()

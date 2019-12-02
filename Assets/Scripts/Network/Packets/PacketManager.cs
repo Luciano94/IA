@@ -87,6 +87,22 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
         }
     }
 
+    public void SendPacket<T>(OrderedNetworkPacket<T> packet, uint objectId, bool reliable, uint id) {
+        byte[] bytes = Serialize(packet, objectId, id);
+        
+        if (ConnectionManager.Instance.isServer) {
+            NetworkManager.Instance.Broadcast(bytes, reliable);
+        } else {
+            AckChecker ackChecker = ConnectionManager.Instance.OwnClient.ackChecker;
+            uint ackId = ackChecker.NewAck;
+            bytes = WrapReliabilityOntoPacket(bytes, reliable, ackChecker, ackId);
+            NetworkManager.Instance.SendToServer(bytes);
+            if (reliable) {
+                ConnectionManager.Instance.QueuePacket(bytes, ackId);
+            }
+        }
+    }
+
     public void SendPacket<T>(NetworkPacket<T> packet) {
         byte[] bytes = Serialize(packet);
 
@@ -146,6 +162,30 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
         header.Serialize(stream);
         userHeader.Serialize(stream);
         packet.Serialize(stream);
+
+        stream.Close();
+
+        return stream.ToArray();
+    }
+
+    byte[] Serialize<T>(OrderedNetworkPacket<T> packet, uint objectId, uint id) {
+        PacketHeader header = new PacketHeader();
+        UserPacketHeader userHeader = new UserPacketHeader();
+        MemoryStream stream = new MemoryStream();
+
+        header.protocolId = NetworkManager.PROTOCOL_ID; // TODO
+
+        header.packetType = packet.packetType;
+
+        if (packet.packetType == PacketType.User) {
+            userHeader.packetType = packet.userPacketType;
+            userHeader.senderId = NetworkManager.Instance.clientId;
+            userHeader.objectId = objectId;
+        }
+
+        header.Serialize(stream);
+        userHeader.Serialize(stream);
+        packet.Serialize(stream, id);
 
         stream.Close();
 

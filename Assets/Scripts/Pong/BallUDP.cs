@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class BallUDP : MonoBehaviour
+public class BallUDP : ReliableOrderPacket<float[]>
 {
     private uint OwnerBallID = 2;
 
@@ -46,20 +46,11 @@ public class BallUDP : MonoBehaviour
     {
         switch (type)
         {
-            case (ushort)UserPacketType.Position:
-                PositionPacket positionPacket = new PositionPacket();
-                positionPacket.Deserialize(stream);
-                positionPacket.OnFinishDeserializing(Move);
-            break;
             case (ushort)UserPacketType.BallInput:
                 BallInputPacket ballPacket = new BallInputPacket();
-                ballPacket.Deserialize(stream);
-                ballPacket.OnFinishDeserializing(SetBallPosition);
+                idReceived = ballPacket.Deserialize(stream);
+                OnFinishDeserializing(SetBallPosition, ballPacket.payload);
             break;
         }
-    }
-
-    private void Move(Vector3 position) {
-        transform.position = position;
     }
 }
