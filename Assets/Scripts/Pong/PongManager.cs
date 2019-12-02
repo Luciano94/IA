@@ -183,6 +183,6 @@ public class PongManager : MBSingleton<PongManager>
     }
 
     public float GetTime(){
-        return (Time.realtimeSinceStartup - clientClock);
+        return Mathf.Abs(Time.realtimeSinceStartup - clientClock);
     }
 }

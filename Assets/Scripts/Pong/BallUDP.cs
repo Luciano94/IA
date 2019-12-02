@@ -11,14 +11,17 @@ public class BallUDP : ReliableOrderPacket<float[]>
     private Vector3 nextPosition;
     private float ballSpeed;
 
+    private float minReconcilationDistance = 5.0f;
+
+
     private void Start() {
         nextPosition = new Vector3(0,0,0);
         ballSpeed = PongManager.Instance.ballSpeed;
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         if(needInterpolate){
-            transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime * ballSpeed);
+            transform.position = Vector3.Lerp(transform.position, nextPosition, Time.fixedDeltaTime);
             if(transform.position == nextPosition)
                 needInterpolate = false;
         }
@@ -35,11 +38,10 @@ public class BallUDP : ReliableOrderPacket<float[]>
     }
     
     void SetBallPosition(float[] ballPacket){
-        float timeDiff = Mathf.Abs( PongManager.Instance.GetTime() - ballPacket[3]);
-        if(timeDiff != 0){
-            nextPosition = new Vector3(ballPacket[0], ballPacket[1], ballPacket[2]);
-            needInterpolate = true;
-        }
+        float timeDiff = PongManager.Instance.GetTime() - ballPacket[2];
+        nextPosition = transform.position;
+        nextPosition += new Vector3(ballPacket[0], ballPacket[1], 0) * timeDiff;
+        needInterpolate = true;
     }
 
     void OnReceivePacket(ushort type, Stream stream)
@@ -50,6 +52,7 @@ public class BallUDP : ReliableOrderPacket<float[]>
                 BallInputPacket ballPacket = new BallInputPacket();
                 idReceived = ballPacket.Deserialize(stream);
                 OnFinishDeserializing(SetBallPosition, ballPacket.payload);
+                //SetBallPosition(ballPacket.payload);
             break;
         }
     }

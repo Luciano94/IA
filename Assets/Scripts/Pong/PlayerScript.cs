@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayerScript : UnreliableOrderPacket<float[]>
 {
@@ -17,16 +18,22 @@ public class PlayerScript : UnreliableOrderPacket<float[]>
     public int packetsTicks = 10;
     public int actualTicks = 0;
 
+    //Reconcilation
+    List<Vector3> playerInputs;
+    float maxDistanceBetweenPositions = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
         speed = PongManager.Instance.playerSpeed;
         boundariesVector = new Vector2(transform.position.x, 0);
         playerInputValue = transform.position.y;
+        lastValue = 0;
+        playerInputs = new List<Vector3>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Movement();
         CheckBounduaries();
@@ -34,9 +41,9 @@ public class PlayerScript : UnreliableOrderPacket<float[]>
 
     private void SendInfo()
     {
-        Debug.Log(playerInputValue);
+        playerInputs.Add(new Vector3(verticalAxis * speed, transform.position.y, PongManager.Instance.GetTime()));
         float[] playerInput = new float[2];
-        playerInput[0] = transform.position.y;
+        playerInput[0] = verticalAxis * speed;
         playerInput[1] = PongManager.Instance.GetTime();
         MessageManager.Instance.SendPlayerInput(playerInput, OwnerPlayerID, ++lastIdSent);
     }
@@ -57,20 +64,68 @@ public class PlayerScript : UnreliableOrderPacket<float[]>
 
     private void Movement()
     {
-        verticalAxis = Input.GetAxis("Vertical");
+        verticalAxis = Input.GetAxisRaw("Vertical");
         if(verticalAxis != 0)
         {
-            transform.Translate(0,verticalAxis * speed * Time.deltaTime,0);
+            transform.Translate(0,verticalAxis * speed * Time.fixedDeltaTime,0);
         }
 
         EvaluatePlayerInfo();
     }
 
     private void EvaluatePlayerInfo(){
-        actualTicks++;
-        if(actualTicks >= packetsTicks){
-            actualTicks = 0;
+        if(lastValue != verticalAxis){
+            lastValue = verticalAxis;
             SendInfo();
         } 
-    } 
+    }
+
+  /*  void OnReceivePacket(ushort type, Stream stream)
+    {
+        switch (type)
+        {
+            case (ushort)UserPacketType.PlayerInput:
+                PlayerInputPacket playerInput = new PlayerInputPacket();
+                playerInput.Deserialize(stream);
+                PlayerPositionReconciliationChecker(playerInput.payload);
+                //playerInput.OnFinishDeserializing(PlayerPositionReconciliationChecker);
+            break;
+        }
+    }*/
+
+    private void PlayerPositionReconciliationChecker(float[] playerInput){
+
+        float timeDiff = PongManager.Instance.GetTime() - playerInput[1];
+        float timeMargim = timeDiff * 0.1f;
+        float timeStamp = playerInput[1] + timeDiff;
+        int posIndex = -1;
+
+        for (int i = 0; i < playerInputs.Count; i++){
+            if(playerInputs[i].z >= timeStamp - timeMargim && playerInputs[i].z <= timeStamp + timeMargim){
+                Vector3 pInput = playerInputs[i];
+                pInput.y = playerInput[0];
+                playerInputs[i] = pInput;
+                posIndex = i;
+                Reconciliation(posIndex, playerInput);
+                break;
+            }
+        }
+
+        if(posIndex != -1){
+            for (int i = 0; i < posIndex; i++){
+                playerInputs.RemoveAt(i);
+            }
+        }
+    }
+
+    private void Reconciliation(int posIndex, float[] playerInput){
+        if(Mathf.Abs(playerInputs[posIndex].y - playerInput[0]) > maxDistanceBetweenPositions){
+            float newPos = playerInput[0];
+            for (int i = 0; i < playerInputs.Count; i++){
+                newPos += playerInputs[i].y;
+            }
+            transform.position = new Vector3(transform.position.x, newPos, transform.position.z);
+            SendInfo();
+        }
+    }
 }

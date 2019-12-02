@@ -1,18 +1,26 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public struct PlayerInput
 {
-    public Vector2 playerPos;
+    public float playerPos;
     public float time;
 }
+
+public struct BallInput
+{
+    public Vector2 ballInputs;
+    public float time;
+}
+
 
 public class LagManager : MBSingleton<LagManager>
 {
     private uint OwnerPlayerID = 1;
     //Inputs
-    private Stack<PlayerInput> playerInputs;
+    private Queue<PlayerInput> playerInputs;
+    private Queue<BallInput> ballInputs;
     private PlayerInput playerI;
     
     //Clock
@@ -26,11 +34,10 @@ public class LagManager : MBSingleton<LagManager>
 
     public new void Awake(){
         base.Awake();
-        playerInputs = new Stack<PlayerInput>();
+        playerInputs = new Queue<PlayerInput>();
         gameClock = 0.0f;
         actualTime = 0;
         initTime = false;
-
     }
 
     private void FixedUpdate(){
@@ -38,8 +45,7 @@ public class LagManager : MBSingleton<LagManager>
             gameClock += Time.fixedDeltaTime;
             actualTime++;
             if(actualTime >= timePerAction){
-                playerI.playerPos.x = player.position.x;
-                playerI.playerPos.y = player.position.y;
+                playerI.playerPos = player.position.y;
                 playerI.time = gameClock;
                 InputSend(playerI);
             }
@@ -57,10 +63,14 @@ public class LagManager : MBSingleton<LagManager>
 
     public void InputSend(PlayerInput playerI){
         playerInputs.Push(playerI);
-      //  MessageManager.Instance.SendInput(playerI, OwnerPlayerID);
+        float[] playerInput = new float[2];
+        playerInput[0] = playerI.playerPos;
+        playerInput[1] = playerI.time; 
+        
+        MessageManager.Instance.SendPlayerInput(playerInput, OwnerPlayerID);
     }
 
-    public void Reconcilation(){
+    public void Reconciliation(){
         //MAGIA LOCA
     }
-}
+}*/

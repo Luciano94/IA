@@ -12,6 +12,7 @@ public class BallScript : ReliableOrderPacket<float[]>
 
     private float speedX;
     private float speedY;
+    
 
     void Start()
     {
@@ -19,21 +20,20 @@ public class BallScript : ReliableOrderPacket<float[]>
         speedY = speed;
     }
 
-    void Update()
+    void FixedUpdate()
     {
        CheckBoundaries();
-       transform.Translate(speedX * Time.deltaTime, speedY * Time.deltaTime, 0);
+       transform.Translate(speedX * Time.fixedDeltaTime, speedY * Time.fixedDeltaTime, 0);
        SendInfo();
     }
 
     private void SendInfo()
     {
-        float[] ballInput = new float[4];
-        ballInput[0] = transform.position.x;
-        ballInput[1] = transform.position.y;
-        ballInput[2] = transform.position.z;
+        float[] ballInput = new float[3];
+        ballInput[0] = speedX;
+        ballInput[1] = speedY;
 
-        ballInput[3] = PongManager.Instance.GetTime();
+        ballInput[2] = PongManager.Instance.GetTime();
 
         MessageManager.Instance.SendBallPosition(ballInput, OwnerBallID, ++lastIdSent);
     }
@@ -61,15 +61,15 @@ public class BallScript : ReliableOrderPacket<float[]>
         }
     }
 
-    private void ResetBall()
-    {
+    private void ResetBall(){
+
         if(speedX > 0){
             PongManager.Instance.playerPoint();
         }else{
             PongManager.Instance.PlayerUDPPoint();
         }
         transform.position = Vector3.zero;
-        transform.Translate(speedX * Time.deltaTime, speedY * Time.deltaTime, 0);
+        transform.Translate(speedX * Time.fixedDeltaTime, speedY * Time.fixedDeltaTime, 0);
     }
 
     private void TakePlayerImpulse()
