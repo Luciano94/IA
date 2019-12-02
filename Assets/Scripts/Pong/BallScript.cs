@@ -13,6 +13,8 @@ public class BallScript : ReliableOrderPacket<float[]>
     private float speedX;
     private float speedY;
     private bool needsReset = false;
+    List<Vector3> playerInputs;
+    float maxDistanceBetweenPositions = 0.5f;
 
     void Start()
     {
@@ -29,14 +31,9 @@ public class BallScript : ReliableOrderPacket<float[]>
 
     private void SendInfo()
     {
-        float[] ballInput = new float[4];
-        ballInput[0] = speedX;
-        ballInput[1] = speedY;
-
-        ballInput[2] = PongManager.Instance.GetTime();
-        ballInput[3] = needsReset? 1f : 0f;
-
-        needsReset = false;
+        float[] ballInput = new float[2];
+        ballInput[0] = transform.position.x;
+        ballInput[1] = transform.position.y;
 
         MessageManager.Instance.SendBallPosition(ballInput, OwnerBallID, ++lastIdSent);
     }
