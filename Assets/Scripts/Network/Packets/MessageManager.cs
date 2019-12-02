@@ -39,6 +39,15 @@ public class MessageManager : Singleton<MessageManager>
         PacketManager.Instance.SendPacket(packet, objectId, packet.reliable);
     }
 
+    public void SendTimedPosition(float[] position, uint objectId)
+    {
+        TimedPositionPacket packet = new TimedPositionPacket();
+
+        packet.payload = position;
+
+        PacketManager.Instance.SendPacket(packet, objectId, packet.reliable);
+    }
+
     public void SendBallPosition(float[] ballPosition, uint objectId, uint id)
     {
         BallInputPacket packet = new BallInputPacket();

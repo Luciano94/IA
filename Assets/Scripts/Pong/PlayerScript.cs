@@ -41,9 +41,9 @@ public class PlayerScript : UnreliableOrderPacket<float[]>
 
     private void SendInfo()
     {
-        playerInputs.Add(new Vector3(verticalAxis * speed, transform.position.y, PongManager.Instance.GetTime()));
+        playerInputs.Add(new Vector3(verticalAxis, transform.position.y, PongManager.Instance.GetTime()));
         float[] playerInput = new float[2];
-        playerInput[0] = verticalAxis * speed;
+        playerInput[0] = verticalAxis;
         playerInput[1] = PongManager.Instance.GetTime();
         MessageManager.Instance.SendPlayerInput(playerInput, OwnerPlayerID, ++lastIdSent);
     }
@@ -80,22 +80,23 @@ public class PlayerScript : UnreliableOrderPacket<float[]>
         } 
     }
 
-  /*  void OnReceivePacket(ushort type, Stream stream)
+ 
+    void OnReceivePacket(ushort type, Stream stream)
     {
         switch (type)
         {
-            case (ushort)UserPacketType.PlayerInput:
+            case (ushort)UserPacketType.TimedPosition:
                 PlayerInputPacket playerInput = new PlayerInputPacket();
-                playerInput.Deserialize(stream);
-                PlayerPositionReconciliationChecker(playerInput.payload);
-                //playerInput.OnFinishDeserializing(PlayerPositionReconciliationChecker);
+                idReceived = playerInput.Deserialize(stream);
+                OnFinishDeserializing(PlayerPositionReconciliationChecker, playerInput.payload);
+                //SetPlayerPosition(playerInput.payload);
             break;
         }
-    }*/
+    }
 
     private void PlayerPositionReconciliationChecker(float[] playerInput){
 
-        float timeDiff =Mathf.Abs( PongManager.Instance.GetTime() - playerInput[1]);
+        float timeDiff = Mathf.Abs( PongManager.Instance.GetTime() - playerInput[1]);
         float timeMargim = timeDiff * 0.1f;
         float timeStamp = playerInput[1] + timeDiff;
         int posIndex = -1;
