@@ -44,18 +44,18 @@ public class AckChecker {
             ackArray |=  1U << (diff - 1);
             lastAck = id;
         } else if (diff > -32) {
-            ackArray |=  1U << (-diff);
+            ackArray |=  1U << ((-diff) - 1);
         }
     }
 
     public bool Read(uint id, uint lastAck, uint ackArray) {
-        int diff = (int)(lastAck - id);
+        int diff = (int)((long)lastAck - (long)id);
         if (diff == 0) {
             return true;
         } else if (diff < 0 || diff > 32) {
             return false;
         } else {
-            return (ackArray & (1 << diff)) != 0;
+            return (ackArray & (1 << (diff - 1))) != 0;
         }
     }
 

@@ -233,6 +233,13 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
                 }
 #endif
                 uint packageAck = binaryReader.ReadUInt32();
+                if (ConnectionManager.Instance.isServer) {
+                    Client client = ConnectionManager.Instance.clients[ConnectionManager.Instance.ipToId[ipEndpoint]];
+                    client.ackChecker.RegisterPackageReceived(packageAck);
+                } else {
+                    ConnectionManager.Instance.OwnClient.ackChecker.RegisterPackageReceived(packageAck);
+                }
+                
                 bool hasAck = binaryReader.ReadBoolean();
                 if (hasAck) {
                     uint lastAck = binaryReader.ReadUInt32();
@@ -240,10 +247,8 @@ public class PacketManager : MBSingleton<PacketManager>, IReceiveData {
                     
                     if (ConnectionManager.Instance.isServer) {
                         Client client = ConnectionManager.Instance.clients[ConnectionManager.Instance.ipToId[ipEndpoint]];
-                        client.ackChecker.RegisterPackageReceived(packageAck);
                         client.ackChecker.ClearPackets(lastAck, prevAckArray);
                     } else {
-                        ConnectionManager.Instance.OwnClient.ackChecker.RegisterPackageReceived(packageAck);
                         ConnectionManager.Instance.OwnClient.ackChecker.ClearPackets(lastAck, prevAckArray);
                     }
                 }
