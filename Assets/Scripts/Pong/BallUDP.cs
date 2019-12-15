@@ -20,11 +20,6 @@ public class BallUDP : ReliableOrderPacket<float[]>
     }
 
     private void FixedUpdate() {
-        if(needInterpolate){
-            transform.position = Vector3.Lerp(transform.position, nextPosition, Time.fixedDeltaTime);
-            if(transform.position == nextPosition)
-                needInterpolate = false;
-        }
     }
 
     void OnEnable()
@@ -38,13 +33,8 @@ public class BallUDP : ReliableOrderPacket<float[]>
     }
     
     void SetBallPosition(float[] ballPacket){
-        float timeDiff = Mathf.Abs( PongManager.Instance.GetTime() - ballPacket[2]);
-        if (ballPacket[3] != 0) {
-            transform.position = Vector3.zero;
-        } 
-        nextPosition = transform.position;
-        nextPosition += new Vector3(ballPacket[0], ballPacket[1], 0) * timeDiff;
-        needInterpolate = true;
+        Vector3 newPos = new Vector3(ballPacket[0], ballPacket[1], 0f);
+        transform.position = newPos;
     }
 
     void OnReceivePacket(ushort type, Stream stream)

@@ -10,15 +10,14 @@ public class PlayerUDP : UnreliableOrderPacket<float[]>
     private bool needInterpolate = false;
     private float nextPosition = 0.0f;
     private Vector2 boundariesVector;
+    private float lastInput;
+    private float timeDiff;
     public float floor = -3.5f;
     public float roof = 3.5f;
     private float playerSpeed;
 
-    //reconciliate vieja
-    private float timeToReconciliate = 5.0f;
-    private float actualTimeToReconciliate = 5.0f;
-
-
+    private const float timeToReconciliate = 5.0f;
+    private float reconciliateTimer = 0f;
 
     private void Start() {
         nextPosition = transform.position.y;
@@ -26,33 +25,28 @@ public class PlayerUDP : UnreliableOrderPacket<float[]>
         boundariesVector = new Vector2(transform.position.x, 0);
     }
 
-    private void FixedUpdate() {
-        if(needInterpolate){
-            Vector3 newPos = new Vector3(transform.position.x,nextPosition, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position, newPos, Time.fixedDeltaTime);
-            if(transform.position.y == nextPosition){
-                needInterpolate = false;
+    private void Update() {
+        if (ConnectionManager.Instance.isServer) {
+            reconciliateTimer += Time.unscaledDeltaTime;
+            if (reconciliateTimer > timeToReconciliate) {
+                float[] data = new float[3];
+                data[0] = transform.position.x;
+                data[1] = transform.position.y;
+                data[2] = PongManager.Instance.GetTime() - timeDiff;
+                MessageManager.Instance.SendTimedPosition(data, OwnerPlayerID);
             }
         }
+    }
+
+    private void FixedUpdate() {
+        if(lastInput != 0)
+        {
+            transform.Translate(0,lastInput * playerSpeed * Time.fixedDeltaTime,0);
+        }
+        
         CheckBounduaries();
-        //Reconciliate();
     }
 
-    private void Reconciliate(){
-        actualTimeToReconciliate += Time.fixedDeltaTime;
-        if(actualTimeToReconciliate >= timeToReconciliate){
-            actualTimeToReconciliate = 0.0f;
-            SendInfo();
-        } 
-    }
-
-    private void SendInfo()
-    {
-        float[] playerInput = new float[2];
-        playerInput[0] = transform.position.y;
-        playerInput[1] = PongManager.Instance.GetTime();
-        MessageManager.Instance.SendPlayerInput(playerInput, OwnerPlayerID, ++lastIdSent);
-    }
 
     private void CheckBounduaries()
     {
@@ -91,9 +85,8 @@ public class PlayerUDP : UnreliableOrderPacket<float[]>
         }
     }
 
-    private void SetPlayerPosition(float[] playerInput){
-            float timeDiff = Mathf.Abs(PongManager.Instance.GetTime() - playerInput[1]);
-            nextPosition = transform.position.y + playerInput[0] * timeDiff;   
-            needInterpolate = true;
+    private void SetPlayerPosition(float[] playerInput) {
+        timeDiff = Mathf.Abs(PongManager.Instance.GetTime() - playerInput[1]);
+        lastInput = playerInput[0];
     }
 }

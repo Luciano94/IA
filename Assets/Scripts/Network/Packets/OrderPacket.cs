@@ -29,7 +29,9 @@ public abstract class ReliableOrderPacket<P> : OrderPacket<P> {
             }
             lastIdExecuted = pendingID - 1;
         } else if (idReceived > nextId) {
-            pendingPackets.Add(idReceived, payload);
+            if (!pendingPackets.ContainsKey(idReceived)) {
+                pendingPackets.Add(idReceived, payload);
+            }
             if (pendingPackets.Count > 32) {
                 List<uint> ids = pendingPackets.Keys.ToList();
                 ids.Sort();

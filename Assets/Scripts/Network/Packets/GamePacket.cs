@@ -51,6 +51,26 @@ public class PositionPacket : GamePacket<Vector3> {
     }
 }
 
+public class TimedPositionPacket : GamePacket<float[]> {
+    public TimedPositionPacket() : base(global::PacketType.User, true) {
+        userPacketType = (ushort)UserPacketType.Position;
+    }
+
+    public override void OnSerialize(Stream stream) {
+        BinaryWriter binaryWriter = new BinaryWriter(stream);
+        binaryWriter.Write(payload[0]);
+        binaryWriter.Write(payload[1]);
+        binaryWriter.Write(payload[2]);
+    }
+
+    public override void OnDeserialize(Stream stream) {
+        BinaryReader binaryReader = new BinaryReader(stream);
+        payload[0] = binaryReader.ReadSingle();
+        payload[1] = binaryReader.ReadSingle();
+        payload[2] = binaryReader.ReadSingle();
+    }
+}
+
 public class IntPacket : GamePacket<int> {
     public IntPacket() : base(global::PacketType.User) {
         userPacketType = (ushort)UserPacketType.Int;
@@ -93,18 +113,14 @@ public class BallInputPacket : OrderedGamePacket<float[]> {
         binaryWriter.Write(id);
         binaryWriter.Write(payload[0]);
         binaryWriter.Write(payload[1]);
-        binaryWriter.Write(payload[2]);
-        binaryWriter.Write(payload[3]);
     }
 
     public override uint OnDeserialize(Stream stream) {
         BinaryReader binaryReader = new BinaryReader(stream);
         uint id = binaryReader.ReadUInt32();
-        payload = new float[4];
+        payload = new float[2];
         payload[0] = binaryReader.ReadSingle();
         payload[1] = binaryReader.ReadSingle();
-        payload[2] = binaryReader.ReadSingle();
-        payload[3] = binaryReader.ReadSingle();
 
         return id;
     }
